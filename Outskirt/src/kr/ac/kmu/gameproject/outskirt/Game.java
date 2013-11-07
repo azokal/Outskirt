@@ -3,8 +3,12 @@ package kr.ac.kmu.gameproject.outskirt;
 import javax.xml.soap.Text;
 
 import processing.core.PApplet;
+import processing.core.PImage;
+
 
 public class Game extends PApplet{
+	
+	public PImage bg;
 
 	public static void main(String args[]) {
 		PApplet.main(new String[] { "--present",
@@ -12,11 +16,13 @@ public class Game extends PApplet{
 	}
 	
 	public void setup() {
-		
+		size(1920, 1080);
+		bg = loadImage("stars.jpg");
 	}
 	
 	public void draw() {
-		text("Hello world" , 10, 10);
+		background(bg);
+		ellipse(1920/2, 1080/2, 800, 800);
 	}
 	
 }
