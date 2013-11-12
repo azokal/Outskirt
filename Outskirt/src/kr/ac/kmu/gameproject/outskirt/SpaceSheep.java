@@ -7,7 +7,7 @@ public class SpaceSheep  extends GameObject {
 
 	public SpaceSheep(Game game) {
 		super(game);
-		oSprite = new sprites.Sprite(game,"fzeroracers-sprites.gif", 16, 3, 10);
+		oSprite = new sprites.Sprite(game,"playerGrid.png", 3, 1, 10);
 		setPolar(450, game.PI);
 	}
 	public void keyEvent(KeyEvent e) {
