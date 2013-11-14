@@ -15,6 +15,7 @@ public class SpaceSheep extends GameObject {
 	public SpaceSheep(Game game) {
 		super(game);
 		oSprite = new sprites.Sprite(game, "playerGrid.png", 3, 1, 10);
+		oSprite.setScale(1.4f);
 		setPolar(450, 0);
 	}
 
