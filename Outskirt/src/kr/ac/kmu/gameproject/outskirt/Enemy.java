@@ -12,6 +12,7 @@ public class Enemy extends GameObject {
 	}
 	
 	public void draw() {
+		oSprite.setScale(getRadius() / 200f);
 		float angle = PApplet.sin(game.timer.getTotalTime() / 100);
 		setAngle(angle);
 		addRadius(1f);

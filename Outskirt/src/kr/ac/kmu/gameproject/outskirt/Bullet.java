@@ -20,7 +20,7 @@ public class Bullet extends GameObject{
 	}
 
 	public void draw() {
-		
+		oSprite.setScale(getRadius() / 200f);
 		
 		if (getRadius() < 0) {
 			game.delGameObject(this);
