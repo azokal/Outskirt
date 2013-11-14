@@ -1,14 +1,21 @@
 package kr.ac.kmu.gameproject.outskirt;
 
+import java.util.HashSet;
+import java.util.Set;
+
 import processing.core.PApplet;
-import processing.event.KeyEvent;
 
 public class SpaceSheep extends GameObject {
 
+	Set<Bullet> bullets = new HashSet<Bullet>();
+	
 	public SpaceSheep(Game game) {
 		super(game);
-		oSprite = new sprites.Sprite(game,"playerGrid.png", 3, 1, 10);
+		oSprite = new sprites.Sprite(game, "playerGrid.png", 3, 1, 10);
 		setPolar(450, 0);
+	}
+
+	public void shoot() {
 	}
 
 	public void draw() {
@@ -19,10 +26,15 @@ public class SpaceSheep extends GameObject {
 				} else if (game.keyCode == PApplet.RIGHT) {
 					addAngle(-0.1f);
 				}
-				if (game.keyCode == ' ') {
-					
-				}
+			}
+			if (game.key == ' ') {
+				bullets.add(new Bullet(game, this.getRadius(), this.getAngle(), 1));
 			}
 		}
+		
+		for (Bullet bullet : bullets) {
+			bullet.draw();
+		}
+		
 	}
 }

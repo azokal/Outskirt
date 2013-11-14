@@ -30,6 +30,14 @@ public class GameObject {
 		oSprite.setRot(radius);
 	}
 	
+	public float getRadius() {
+		return radius;
+	}
+	
+	public float getAngle() {
+		return angle;
+	}
+	
 	public void setAngle(float angle) {
 		setPolar(radius, angle);
 	}
