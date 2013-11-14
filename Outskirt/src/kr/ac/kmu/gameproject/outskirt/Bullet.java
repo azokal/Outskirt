@@ -9,12 +9,18 @@ public class Bullet extends GameObject{
 	public Bullet(Game game, float radius, float angle, float velocity) {
 		super(game);
 		this.velocity = velocity;
-		oSprite = new sprites.Sprite(game,"fzeroracers-sprites.gif", 16, 3, 10);
+		oSprite = new sprites.Sprite(game,"bulletGrid.png", 3, 1, 10);
 		setPolar(radius, angle);
 	}
-
+	
 	public void draw() {
-		addRadius(-velocity);
+		
+		
+		if (getRadius() < 0) {
+			//this.markToDelete();
+		} else {
+			addRadius(-velocity);			
+		}
 	}
 	
 }

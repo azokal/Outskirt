@@ -3,7 +3,7 @@ package kr.ac.kmu.gameproject.outskirt;
 import processing.core.PApplet;
 import sprites.Sprite;
 
-public class GameObject {
+public abstract class GameObject {
 
 	protected Sprite oSprite;
 	protected Game game;
@@ -11,7 +11,9 @@ public class GameObject {
 	private float radius;
 	private float x;
 	private float y;
+	private boolean toDelete = false;
 	
+	abstract public void draw();
 	public void setPolar(float radius, float angle) {
 		x = radius * PApplet.cos(angle) + game.width / 2;
 		y = radius * PApplet.sin(angle) + game.height / 2;
@@ -56,5 +58,13 @@ public class GameObject {
 	
 	public GameObject(Game game) {
 		this.game = game;
+	}
+	
+	public void markToDelete() {
+		toDelete = true;
+	}
+	
+	public boolean isToDelete() {
+		return toDelete;
 	}
 }

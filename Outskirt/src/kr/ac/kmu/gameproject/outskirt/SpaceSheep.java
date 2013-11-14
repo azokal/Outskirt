@@ -19,22 +19,18 @@ public class SpaceSheep extends GameObject {
 	}
 
 	public void draw() {
-		if (game.keyPressed) {
-			if (game.key == PApplet.CODED) {
-				if (game.keyCode == PApplet.LEFT) {
-					addAngle(0.1f);
-				} else if (game.keyCode == PApplet.RIGHT) {
-					addAngle(-0.1f);
-				}
-			}
-			if (game.key == ' ') {
-				bullets.add(new Bullet(game, this.getRadius(), this.getAngle(), 1));
-			}
+		if (game.isPressed(PApplet.LEFT)) {
+			addAngle(0.1f);
+		}
+		if (game.isPressed(PApplet.RIGHT)) {
+			addAngle(-0.1f);
+		}
+		if (game.isPressed(' ')) {
+			Bullet tmp = new Bullet(game, this.getRadius(), this.getAngle(), 1);
+			bullets.add(tmp);
+			game.addObject(tmp);
 		}
 		
-		for (Bullet bullet : bullets) {
-			bullet.draw();
-		}
 		
-	}
+		}
 }
