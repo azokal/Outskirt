@@ -1,9 +1,7 @@
 package kr.ac.kmu.gameproject.outskirt;
 
 import processing.core.PApplet;
-import processing.core.PVector;
 import sprites.Sprite;
-import sprites.maths.Vector2D;
 
 public class GameObject {
 
@@ -20,6 +18,7 @@ public class GameObject {
 		this.radius = radius;
 		this.angle = angle;
 		oSprite.setXY(x, y);
+		oSprite.setRot(angle - game.PI / 2);
 	}
 	
 	public void setCart(float x, float y) {
@@ -28,13 +27,25 @@ public class GameObject {
 		this.radius = PApplet.sqrt(x * x + y * y);
 		this.angle = PApplet.tan(y / x);
 		oSprite.setXY(x, y);
+		oSprite.setRot(radius);
 	}
+	
+	public void setAngle(float angle) {
+		setPolar(radius, angle);
+	}
+	
 	public void addAngle(float angle) {
 		setPolar(radius, this.angle + angle);
 	}
+	
 	public void addRadius(float radius) {
 		setPolar(this.radius + radius, this.angle);
 	}
+	
+	public void setRadius(float radius) {
+		setPolar(radius, angle);
+	}
+	
 	public GameObject(Game game) {
 		this.game = game;
 	}
