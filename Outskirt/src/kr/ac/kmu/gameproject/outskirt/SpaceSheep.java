@@ -7,9 +7,10 @@ import processing.core.PApplet;
 
 public class SpaceSheep extends GameObject {
 
-	Set<Bullet> bullets = new HashSet<Bullet>();
+	//Set<Bullet> bullets = new HashSet<Bullet>();
 	Game.Color color = Game.Color.GREEN;
-	int cooldownShoot = 0;
+	float cooldownShoot = 100f; //100ms
+	float lastShoot = 0.0f;
 	
 	public SpaceSheep(Game game) {
 		super(game);
@@ -17,10 +18,8 @@ public class SpaceSheep extends GameObject {
 		setPolar(450, 0);
 	}
 
-	public void shoot() {
-	}
-
 	public void draw() {
+		
 		if (game.isPressed(PApplet.LEFT)) {
 			addAngle(0.08f);
 		}
@@ -28,12 +27,11 @@ public class SpaceSheep extends GameObject {
 			addAngle(-0.08f);
 		}
 		if (game.isPressed(' ')) {
-			if (cooldownShoot == 0)
+			if (game.timer.getTotalTime() - lastShoot > cooldownShoot)
 			{
 				Bullet tmp = new Bullet(game, this.getRadius(), this.getAngle(), 4, color);
-				bullets.add(tmp);
-				game.addObject(tmp);
-				cooldownShoot = 5;
+				//bullets.add(tmp);
+				lastShoot = game.timer.getTotalTime();
 			}
 		}
 		if (game.isPressed('z')) {
@@ -48,7 +46,5 @@ public class SpaceSheep extends GameObject {
 			color = Game.Color.CYAN;
 			oSprite.setFrame(2);
 		}
-		if (cooldownShoot > 0)
-			cooldownShoot--;
 	}
 }

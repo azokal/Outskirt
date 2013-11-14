@@ -13,7 +13,14 @@ public abstract class GameObject {
 	private float y;
 	private boolean toDelete = false;
 	
+	
+	public GameObject(Game game) {
+		this.game = game;
+		game.addGameObject(this);
+	}
+
 	abstract public void draw();
+
 	public void setPolar(float radius, float angle) {
 		x = radius * PApplet.cos(angle) + game.width / 2;
 		y = radius * PApplet.sin(angle) + game.height / 2;
@@ -54,10 +61,6 @@ public abstract class GameObject {
 	
 	public void setRadius(float radius) {
 		setPolar(radius, angle);
-	}
-	
-	public GameObject(Game game) {
-		this.game = game;
 	}
 	
 	public void markToDelete() {

@@ -18,12 +18,13 @@ public class Bullet extends GameObject{
 			oSprite.setFrame(2);
 		setPolar(radius, angle);
 	}
-	
+
 	public void draw() {
 		
 		
 		if (getRadius() < 0) {
-			//this.markToDelete();
+			game.delGameObject(this);
+			oSprite.setDead(true);
 		} else {
 			addRadius(-velocity);			
 		}
