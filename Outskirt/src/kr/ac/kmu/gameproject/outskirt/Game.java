@@ -20,6 +20,10 @@ public class Game extends PApplet {
 	public Enemy enemy;
 	public ArrayList<GameObject> bullets;
 	
+	public enum Color {
+	    GREEN, RED, CYAN
+	}
+	
 	public static void main(String args[]) {
 		PApplet.main(new String[] { "--present",
 				"kr.ac.kmu.gameproject.outskirt.Game" });

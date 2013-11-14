@@ -7,7 +7,7 @@ public class Enemy extends GameObject {
 
 	public Enemy(Game game) {
 		super(game);
-		oSprite = new sprites.Sprite(game,"fzeroracers-sprites.gif", 16, 3, 10);
+		oSprite = new sprites.Sprite(game,"squareGrid.png", 3, 1, 10);
 		setPolar(0, 0);
 	}
 	
