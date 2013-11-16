@@ -22,12 +22,12 @@ public abstract class GameObject {
 	abstract public void draw();
 
 	public void setPolar(float radius, float angle) {
-		x = radius * PApplet.cos(angle) + game.width / 2;
-		y = radius * PApplet.sin(angle) + game.height / 2;
+		x = radius * PApplet.cos(angle) + game.width / 2.0f;
+		y = radius * PApplet.sin(angle) + game.height / 2.0f;
 		this.radius = radius;
 		this.angle = angle;
 		oSprite.setXY(x, y);
-		oSprite.setRot(angle - game.PI / 2);
+		oSprite.setRot(angle - Game.PI / 2);
 	}
 	
 	public void setCart(float x, float y) {

@@ -23,8 +23,11 @@ public class Game extends PApplet {
 	
 	public PImage bg = loadImage("bg.png");
 	public Timer timer = new Timer();
-	public SpaceSheep spaceSheep = new SpaceSheep(this);
-	public Enemy enemy = new Enemy(this);
+	public SpaceSheep spaceSheep;
+	public Enemy enemy;// = new Enemy(this, random(0, 360));
+	
+	float testCooldownPopEnemy = 150f;
+	float testLastPop = 0;
 	
 	public enum Color {
 	    GREEN, RED, CYAN
@@ -37,12 +40,18 @@ public class Game extends PApplet {
 
 	public void setup() {
 		size(1920, 1080);
+		spaceSheep = new SpaceSheep(this);
 	}
 
 	public void draw() {
 		timer.updateTime();
 		background(bg);
 		/* ellipse(1920/2, 1080/2, 900, 900); */
+		if (this.timer.getTotalTime() - testLastPop > testCooldownPopEnemy)
+		{
+			enemy = new Enemy(this, random(0, 359), Color.values()[(int)random(0, 3)]);
+			testLastPop = timer.getTotalTime();
+		}
 		for (GameObject gameObject : gameObjectList) {
 			gameObject.draw();
 		}

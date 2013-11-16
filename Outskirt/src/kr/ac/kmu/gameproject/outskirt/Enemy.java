@@ -1,25 +1,45 @@
 package kr.ac.kmu.gameproject.outskirt;
 
+import java.util.Random;
+
 import processing.core.PApplet;
 import processing.event.KeyEvent;
 
 public class Enemy extends GameObject {
 
 	float localAngle = 0;
+	float startAngle = 0;
+	Game.Color color;
+	float testOccDir = 1;
 	
-	public Enemy(Game game) {
+	public Enemy(Game game, float startAngle, Game.Color color) {
 		super(game);
 		oSprite = new sprites.Sprite(game,"squareGrid.png", 3, 1, 10);
 		setPolar(0, 0);
+		this.startAngle = startAngle;
+		oSprite.setScale(getRadius()/300f);
+		this.color = color;
+		if (color == Game.Color.RED)
+			oSprite.setFrame(1);
+		if (color == Game.Color.CYAN)
+			oSprite.setFrame(2);
+		Random rand = new Random();
+		testOccDir = rand.nextInt(2) == 1 ? 1: -1;
 	}
 	
 	public void draw() {
-		oSprite.setScale(getRadius()/300f);
-		float angle = PApplet.sin(game.radians(game.timer.getTotalTime()) / 8)/3;
-		setAngle(angle);
-		addRadius(2f);
-		localAngle += game.PI / 30.f;
-		oSprite.setRot(localAngle);
+		if (getRadius() > 550) {
+			game.delGameObject(this);
+			oSprite.setDead(true);
+		} else {
+			oSprite.setScale(getRadius() / 300f);
+			float angle = PApplet.sin(testOccDir
+					* game.radians(game.timer.getTotalTime()) / 8) / 3;
+			setAngle(angle + game.radians(startAngle));
+			addRadius(2f);
+			localAngle += game.PI / 30.f;
+			oSprite.setRot(localAngle);
+		}
 	}
 	
 }
