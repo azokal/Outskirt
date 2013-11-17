@@ -26,7 +26,7 @@ public class SpaceSheep extends GameObject implements MouseMotionListener{
 		oSprite.setScale(1.4f);
 		setPolar(450, 0);
 		game.addMouseMotionListener(this);
-		//game.noCursor();
+		game.noCursor();
 	}
 
 	public void draw() {
@@ -61,21 +61,20 @@ public class SpaceSheep extends GameObject implements MouseMotionListener{
 
 	@Override
 	public void mouseDragged(MouseEvent e) {
-		// TODO Auto-generated method stub
-		
+		mouseMoved(e);
 	}
 
 	@Override
 	public void mouseMoved(MouseEvent e) {
-		int mouseX = e.getX() - game.displayWidth / 2;
-		int mouseY = e.getY() - game.displayHeight / 2;
+		float mouseX = e.getX() - game.displayWidth / 2;
+		float mouseY = e.getY() - game.displayHeight / 2;
 		
 		float norme = Game.sqrt(mouseX * mouseX + mouseY * mouseY);
 		float normX = mouseX / norme;
 		float normY = mouseY / norme;
 		setPolar(450, Game.atan2(normY, normX));
-		int newMouseX = (int) (normX * 100f + game.displayWidth / 2f);
-		int newMouseY = (int) (normY * 100f + game.displayHeight / 2f);
+		int newMouseX = (int) (normX * 100) + (game.displayWidth / 2);
+		int newMouseY = (int) (normY * 100) + (game.displayHeight / 2);
 		game.robot.mouseMove(newMouseX, newMouseY);
 	}
 }
