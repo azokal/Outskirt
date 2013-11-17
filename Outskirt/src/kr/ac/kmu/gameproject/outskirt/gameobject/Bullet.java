@@ -1,6 +1,8 @@
-package kr.ac.kmu.gameproject.outskirt;
+package kr.ac.kmu.gameproject.outskirt.gameobject;
 
-import processing.core.PApplet;
+import kr.ac.kmu.gameproject.outskirt.Game;
+import kr.ac.kmu.gameproject.outskirt.GameObject;
+import kr.ac.kmu.gameproject.outskirt.Game.Color;
 
 public class Bullet extends GameObject{
 

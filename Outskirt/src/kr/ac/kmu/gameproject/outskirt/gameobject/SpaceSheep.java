@@ -1,22 +1,32 @@
-package kr.ac.kmu.gameproject.outskirt;
+package kr.ac.kmu.gameproject.outskirt.gameobject;
 
+import java.awt.event.MouseEvent;
+import java.awt.event.MouseMotionListener;
 import java.util.HashSet;
 import java.util.Set;
 
-import processing.core.PApplet;
+import kr.ac.kmu.gameproject.outskirt.Game;
+import kr.ac.kmu.gameproject.outskirt.GameObject;
+import kr.ac.kmu.gameproject.outskirt.Game.Color;
 
-public class SpaceSheep extends GameObject {
+import processing.core.PApplet;
+import processing.core.PVector;
+
+public class SpaceSheep extends GameObject implements MouseMotionListener{
 
 	//Set<Bullet> bullets = new HashSet<Bullet>();
 	Game.Color color = Game.Color.GREEN;
 	float cooldownShoot = 100f; //100ms
 	float lastShoot = 0.0f;
 	
+	
 	public SpaceSheep(Game game) {
 		super(game);
 		oSprite = new sprites.Sprite(game, "playerGrid.png", 3, 1, 10);
 		oSprite.setScale(1.4f);
 		setPolar(450, 0);
+		game.addMouseMotionListener(this);
+		//game.noCursor();
 	}
 
 	public void draw() {
@@ -47,5 +57,25 @@ public class SpaceSheep extends GameObject {
 			color = Game.Color.CYAN;
 			oSprite.setFrame(2);
 		}
+	}
+
+	@Override
+	public void mouseDragged(MouseEvent e) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void mouseMoved(MouseEvent e) {
+		int mouseX = e.getX() - game.displayWidth / 2;
+		int mouseY = e.getY() - game.displayHeight / 2;
+		
+		float norme = Game.sqrt(mouseX * mouseX + mouseY * mouseY);
+		float normX = mouseX / norme;
+		float normY = mouseY / norme;
+		setPolar(450, Game.atan2(normY, normX));
+		int newMouseX = (int) (normX * 100f + game.displayWidth / 2f);
+		int newMouseY = (int) (normY * 100f + game.displayHeight / 2f);
+		game.robot.mouseMove(newMouseX, newMouseY);
 	}
 }

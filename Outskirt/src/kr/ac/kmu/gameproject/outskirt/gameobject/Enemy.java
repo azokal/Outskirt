@@ -1,6 +1,10 @@
-package kr.ac.kmu.gameproject.outskirt;
+package kr.ac.kmu.gameproject.outskirt.gameobject;
 
 import java.util.Random;
+
+import kr.ac.kmu.gameproject.outskirt.Game;
+import kr.ac.kmu.gameproject.outskirt.GameObject;
+import kr.ac.kmu.gameproject.outskirt.Game.Color;
 
 import processing.core.PApplet;
 import processing.event.KeyEvent;

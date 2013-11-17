@@ -1,16 +1,17 @@
 package kr.ac.kmu.gameproject.outskirt;
 
+import java.awt.AWTException;
+import java.awt.Robot;
+import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
-import java.util.Queue;
 
+import kr.ac.kmu.gameproject.outskirt.gameobject.Enemy;
+import kr.ac.kmu.gameproject.outskirt.gameobject.SpaceSheep;
 import processing.core.PApplet;
 import processing.core.PImage;
 import sprites.S4P;
-
-import java.util.ArrayList;
 
 public class Game extends PApplet {
 
@@ -20,36 +21,48 @@ public class Game extends PApplet {
 	public List<GameObject> gameObjectList = new ArrayList<GameObject>();
 	public List<GameObject> toAddList = new ArrayList<GameObject>();
 	public List<GameObject> toDelList = new ArrayList<GameObject>();
-	
+
+	public Camera camera = new Camera(this);
 	public PImage bg = loadImage("bg.png");
 	public Timer timer = new Timer();
 	public SpaceSheep spaceSheep;
 	public Enemy enemy;// = new Enemy(this, random(0, 360));
+	public Robot robot;
+
+	public Debug debug = new Debug(this);
 	
 	float testCooldownPopEnemy = 150f;
 	float testLastPop = 0;
-	
+
 	public enum Color {
-	    GREEN, RED, CYAN
+		GREEN, RED, CYAN
 	}
-	
+
 	public static void main(String args[]) {
 		PApplet.main(new String[] { "--present",
 				"kr.ac.kmu.gameproject.outskirt.Game" });
 	}
 
 	public void setup() {
-		size(1920, 1080);
+		size(displayWidth, displayHeight);
+		bg.resize(displayWidth, displayHeight);
 		spaceSheep = new SpaceSheep(this);
+		try {
+			robot = new Robot();
+		} catch (AWTException e) {
+			e.printStackTrace();
+		}
 	}
 
 	public void draw() {
 		timer.updateTime();
 		background(bg);
-		/* ellipse(1920/2, 1080/2, 900, 900); */
-		if (this.timer.getTotalTime() - testLastPop > testCooldownPopEnemy)
-		{
-			enemy = new Enemy(this, random(0, 359), Color.values()[(int)random(0, 3)]);
+		debug.draw();
+		color(255);
+		camera.draw();
+		if (this.timer.getTotalTime() - testLastPop > testCooldownPopEnemy) {
+			enemy = new Enemy(this, random(0, 359),
+					Color.values()[(int) random(0, 3)]);
 			testLastPop = timer.getTotalTime();
 		}
 		for (GameObject gameObject : gameObjectList) {
@@ -58,10 +71,10 @@ public class Game extends PApplet {
 
 		gameObjectList.removeAll(toDelList);
 		toDelList.clear();
-		
+
 		gameObjectList.addAll(toAddList);
 		toAddList.clear();
-		
+
 		S4P.updateSprites(timer.getTotalTime());
 		S4P.drawSprites();
 
@@ -82,7 +95,7 @@ public class Game extends PApplet {
 			keys.put(key, false);
 		}
 	}
-	
+
 	public boolean isPressed(int code) {
 		if (keysCode.containsKey(code)) {
 			return keysCode.get(code);
@@ -104,5 +117,5 @@ public class Game extends PApplet {
 	public void delGameObject(GameObject toDel) {
 		toDelList.add(toDel);
 	}
-	
+
 }

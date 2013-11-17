@@ -22,8 +22,8 @@ public abstract class GameObject {
 	abstract public void draw();
 
 	public void setPolar(float radius, float angle) {
-		x = radius * PApplet.cos(angle) + game.width / 2.0f;
-		y = radius * PApplet.sin(angle) + game.height / 2.0f;
+		x = radius * PApplet.cos(angle);
+		y = radius * PApplet.sin(angle);
 		this.radius = radius;
 		this.angle = angle;
 		oSprite.setXY(x, y);
@@ -45,6 +45,14 @@ public abstract class GameObject {
 	
 	public float getAngle() {
 		return angle;
+	}
+	
+	public float getX() {
+		return x;
+	}
+	
+	public float getY() {
+		return y;
 	}
 	
 	public void setAngle(float angle) {
