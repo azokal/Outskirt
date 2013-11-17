@@ -1,6 +1,7 @@
 package kr.ac.kmu.gameproject.outskirt;
 
 import processing.core.PApplet;
+import sprites.S4P;
 import sprites.Sprite;
 
 public abstract class GameObject {
@@ -38,15 +39,21 @@ public abstract class GameObject {
 		oSprite.setXY(x, y);
 		oSprite.setRot(radius);
 	}
-	
+
+	public void kill() {
+		game.delGameObject(this);
+		oSprite.setDead(true);
+		S4P.deregisterSprite(oSprite);
+	}
+
 	public float getRadius() {
 		return radius;
 	}
-	
+
 	public float getAngle() {
 		return angle;
 	}
-	
+
 	public float getX() {
 		return x;
 	}

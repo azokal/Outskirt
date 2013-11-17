@@ -69,15 +69,18 @@ public class Game extends PApplet {
 			gameObject.draw();
 		}
 
-		gameObjectList.removeAll(toDelList);
-		toDelList.clear();
+		if (!toDelList.isEmpty()) {
+			gameObjectList.removeAll(toDelList);
+			toDelList.clear();
+		}
 
-		gameObjectList.addAll(toAddList);
-		toAddList.clear();
+		if (!toAddList.isEmpty()) {
+			gameObjectList.addAll(toAddList);
+			toAddList.clear();
+		}
 
 		S4P.updateSprites(timer.getTotalTime());
 		S4P.drawSprites();
-
 	}
 
 	public void keyPressed() {

@@ -30,7 +30,7 @@ public class SpaceSheep extends GameObject implements MouseMotionListener{
 	}
 
 	public void draw() {
-		
+		oSprite.setScale(getRadius() / 300f);
 		if (game.isPressed(PApplet.LEFT)) {
 			addAngle(0.08f);
 		}
@@ -45,15 +45,15 @@ public class SpaceSheep extends GameObject implements MouseMotionListener{
 				lastShoot = game.timer.getTotalTime();
 			}
 		}
-		if (game.isPressed('z')) {
+		if (game.isPressed('q')) {
 			color = Game.Color.GREEN;
 			oSprite.setFrame(0);
 		}
-		if (game.isPressed('x')) {
+		if (game.isPressed('w')) {
 			color = Game.Color.RED;
 			oSprite.setFrame(1);
 		}
-		if (game.isPressed('c')) {
+		if (game.isPressed('e')) {
 			color = Game.Color.CYAN;
 			oSprite.setFrame(2);
 		}
@@ -68,13 +68,22 @@ public class SpaceSheep extends GameObject implements MouseMotionListener{
 	public void mouseMoved(MouseEvent e) {
 		float mouseX = e.getX() - game.displayWidth / 2;
 		float mouseY = e.getY() - game.displayHeight / 2;
-		
 		float norme = Game.sqrt(mouseX * mouseX + mouseY * mouseY);
+		
+		//Free fly
+		if (norme > 450) {
+			norme = 450;
+		}
+		setPolar(norme, Game.atan2(mouseY, mouseX));
+		
+		// Circular fly
+		/*
 		float normX = mouseX / norme;
 		float normY = mouseY / norme;
 		setPolar(450, Game.atan2(normY, normX));
 		int newMouseX = (int) (normX * 100) + (game.displayWidth / 2);
 		int newMouseY = (int) (normY * 100) + (game.displayHeight / 2);
 		game.robot.mouseMove(newMouseX, newMouseY);
+		*/
 	}
 }

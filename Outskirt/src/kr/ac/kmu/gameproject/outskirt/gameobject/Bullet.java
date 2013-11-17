@@ -25,8 +25,7 @@ public class Bullet extends GameObject{
 		oSprite.setScale(getRadius() / 200f);
 		
 		if (getRadius() < 0) {
-			game.delGameObject(this);
-			oSprite.setDead(true);
+			kill();
 		} else {
 			addRadius(-velocity);			
 		}

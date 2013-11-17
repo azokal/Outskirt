@@ -8,6 +8,7 @@ import kr.ac.kmu.gameproject.outskirt.Game.Color;
 
 import processing.core.PApplet;
 import processing.event.KeyEvent;
+import sprites.S4P;
 
 public class Enemy extends GameObject {
 
@@ -33,8 +34,7 @@ public class Enemy extends GameObject {
 	
 	public void draw() {
 		if (getRadius() > 550) {
-			game.delGameObject(this);
-			oSprite.setDead(true);
+			this.kill();
 		} else {
 			oSprite.setScale(getRadius() / 300f);
 			float angle = PApplet.sin(testOccDir
