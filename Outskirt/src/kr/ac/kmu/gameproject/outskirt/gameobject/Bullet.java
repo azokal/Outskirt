@@ -2,7 +2,6 @@ package kr.ac.kmu.gameproject.outskirt.gameobject;
 
 import kr.ac.kmu.gameproject.outskirt.Game;
 import kr.ac.kmu.gameproject.outskirt.GameObject;
-import kr.ac.kmu.gameproject.outskirt.Game.Color;
 
 public class Bullet extends GameObject{
 
@@ -28,6 +27,12 @@ public class Bullet extends GameObject{
 			kill();
 		} else {
 			addRadius(-velocity);			
+		}
+	}
+	
+	public void onCollide(GameObject obj) {
+		if (obj instanceof Enemy) {
+			obj.kill();
 		}
 	}
 	

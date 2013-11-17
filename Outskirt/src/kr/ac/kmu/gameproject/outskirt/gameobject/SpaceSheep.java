@@ -2,15 +2,10 @@ package kr.ac.kmu.gameproject.outskirt.gameobject;
 
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseMotionListener;
-import java.util.HashSet;
-import java.util.Set;
 
 import kr.ac.kmu.gameproject.outskirt.Game;
 import kr.ac.kmu.gameproject.outskirt.GameObject;
-import kr.ac.kmu.gameproject.outskirt.Game.Color;
-
 import processing.core.PApplet;
-import processing.core.PVector;
 
 public class SpaceSheep extends GameObject implements MouseMotionListener{
 

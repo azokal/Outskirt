@@ -4,11 +4,7 @@ import java.util.Random;
 
 import kr.ac.kmu.gameproject.outskirt.Game;
 import kr.ac.kmu.gameproject.outskirt.GameObject;
-import kr.ac.kmu.gameproject.outskirt.Game.Color;
-
 import processing.core.PApplet;
-import processing.event.KeyEvent;
-import sprites.S4P;
 
 public class Enemy extends GameObject {
 
@@ -43,6 +39,12 @@ public class Enemy extends GameObject {
 			addRadius(2f);
 			localAngle += game.PI / 30.f;
 			oSprite.setRot(localAngle);
+		}
+	}
+	
+	public void onCollide(GameObject obj) {
+		if (obj instanceof SpaceSheep) {
+			game.exit();
 		}
 	}
 	

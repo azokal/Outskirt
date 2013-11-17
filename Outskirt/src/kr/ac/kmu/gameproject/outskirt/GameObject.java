@@ -85,4 +85,12 @@ public abstract class GameObject {
 	public boolean isToDelete() {
 		return toDelete;
 	}
+	
+	public boolean collide(GameObject obj) {
+		return this.oSprite.bb_collision(obj.oSprite);
+	}
+	
+	public void onCollide(GameObject obj) {
+
+	}
 }

@@ -65,10 +65,21 @@ public class Game extends PApplet {
 					Color.values()[(int) random(0, 3)]);
 			testLastPop = timer.getTotalTime();
 		}
+		
+		//Draw
 		for (GameObject gameObject : gameObjectList) {
 			gameObject.draw();
 		}
 
+		//Collision detection
+		for (GameObject gameObject : gameObjectList) {
+			for (GameObject gameObject2 : gameObjectList) {
+				if (gameObject.collide(gameObject2)) {
+					gameObject.onCollide(gameObject2);
+				}
+			}
+		}
+		
 		if (!toDelList.isEmpty()) {
 			gameObjectList.removeAll(toDelList);
 			toDelList.clear();
@@ -120,5 +131,5 @@ public class Game extends PApplet {
 	public void delGameObject(GameObject toDel) {
 		toDelList.add(toDel);
 	}
-
+	
 }
