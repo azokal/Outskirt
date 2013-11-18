@@ -5,14 +5,16 @@ import java.awt.event.MouseMotionListener;
 
 import kr.ac.kmu.gameproject.outskirt.Game;
 import kr.ac.kmu.gameproject.outskirt.GameObject;
+import kr.ac.kmu.gameproject.outskirt.gameobject.bullet.BasicBullet;
+import kr.ac.kmu.gameproject.outskirt.gameobject.weapon.BasicWeapon;
+import kr.ac.kmu.gameproject.outskirt.gameobject.weapon.Weapon;
 import processing.core.PApplet;
 
 public class SpaceSheep extends GameObject implements MouseMotionListener{
 
 	//Set<Bullet> bullets = new HashSet<Bullet>();
-	Game.Color color = Game.Color.GREEN;
-	float cooldownShoot = 100f; //100ms
-	float lastShoot = 0.0f;
+	int	score = 0;
+	Weapon weapon = new BasicWeapon(game, this);
 	
 	
 	public SpaceSheep(Game game) {
@@ -25,6 +27,7 @@ public class SpaceSheep extends GameObject implements MouseMotionListener{
 	}
 
 	public void draw() {
+		game.debug.put("Score", score);
 		oSprite.setScale(getRadius() / 300f);
 		if (game.isPressed(PApplet.LEFT)) {
 			addAngle(0.08f);
@@ -33,24 +36,7 @@ public class SpaceSheep extends GameObject implements MouseMotionListener{
 			addAngle(-0.08f);
 		}
 		if (game.isPressed(' ')) {
-			if (game.timer.getTotalTime() - lastShoot > cooldownShoot)
-			{
-				Bullet tmp = new Bullet(game, this.getRadius(), this.getAngle(), 4, color);
-				//bullets.add(tmp);
-				lastShoot = game.timer.getTotalTime();
-			}
-		}
-		if (game.isPressed('q')) {
-			color = Game.Color.GREEN;
-			oSprite.setFrame(0);
-		}
-		if (game.isPressed('w')) {
-			color = Game.Color.RED;
-			oSprite.setFrame(1);
-		}
-		if (game.isPressed('e')) {
-			color = Game.Color.CYAN;
-			oSprite.setFrame(2);
+			weapon.shoot();
 		}
 	}
 
@@ -80,5 +66,9 @@ public class SpaceSheep extends GameObject implements MouseMotionListener{
 		int newMouseY = (int) (normY * 100) + (game.displayHeight / 2);
 		game.robot.mouseMove(newMouseX, newMouseY);
 		*/
+	}
+
+	public void addScore(int i) {
+		score += i;
 	}
 }

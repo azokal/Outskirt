@@ -87,7 +87,10 @@ public abstract class GameObject {
 	}
 	
 	public boolean collide(GameObject obj) {
-		return this.oSprite.bb_collision(obj.oSprite);
+		if (this.oSprite != null && obj.oSprite != null) {
+			return this.oSprite.bb_collision(obj.oSprite);
+		}
+		return false;
 	}
 	
 	public void onCollide(GameObject obj) {

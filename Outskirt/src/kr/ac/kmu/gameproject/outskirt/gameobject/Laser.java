@@ -3,12 +3,12 @@ package kr.ac.kmu.gameproject.outskirt.gameobject;
 import kr.ac.kmu.gameproject.outskirt.Game;
 import kr.ac.kmu.gameproject.outskirt.GameObject;
 
-public class Bullet extends GameObject{
+public class Laser extends GameObject {
 
 	float velocity;
 	Game.Color color;
 	
-	public Bullet(Game game, float radius, float angle, float velocity, Game.Color color) {
+	public Laser(Game game, float radius, float angle, float velocity, Game.Color color) {
 		super(game);
 		this.velocity = velocity;
 		this.color = color;
