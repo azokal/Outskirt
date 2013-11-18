@@ -1,4 +1,6 @@
-package kr.ac.kmu.gameproject.outskirt;
+package kr.ac.kmu.gameproject.outskirt.screen;
+
+import kr.ac.kmu.gameproject.outskirt.App;
 
 public class Menu implements Screen {
 

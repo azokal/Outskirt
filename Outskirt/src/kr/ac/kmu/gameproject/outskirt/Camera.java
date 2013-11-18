@@ -3,6 +3,7 @@ package kr.ac.kmu.gameproject.outskirt;
 import java.awt.event.MouseWheelEvent;
 import java.awt.event.MouseWheelListener;
 
+import kr.ac.kmu.gameproject.outskirt.screen.Game;
 import processing.core.PApplet;
 import processing.core.PVector;
 

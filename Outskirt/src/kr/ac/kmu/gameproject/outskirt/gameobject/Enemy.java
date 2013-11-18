@@ -2,9 +2,9 @@ package kr.ac.kmu.gameproject.outskirt.gameobject;
 
 import java.util.Random;
 
-import kr.ac.kmu.gameproject.outskirt.EndScreen;
-import kr.ac.kmu.gameproject.outskirt.Game;
 import kr.ac.kmu.gameproject.outskirt.GameObject;
+import kr.ac.kmu.gameproject.outskirt.screen.EndScreen;
+import kr.ac.kmu.gameproject.outskirt.screen.Game;
 import processing.core.PApplet;
 
 public class Enemy extends GameObject {

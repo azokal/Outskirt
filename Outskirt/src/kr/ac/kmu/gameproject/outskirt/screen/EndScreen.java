@@ -1,6 +1,8 @@
-package kr.ac.kmu.gameproject.outskirt;
+package kr.ac.kmu.gameproject.outskirt.screen;
 
+import kr.ac.kmu.gameproject.outskirt.App;
 import processing.core.PApplet;
+import sprites.S4P;
 
 public class EndScreen implements Screen {
 
@@ -20,6 +22,7 @@ public class EndScreen implements Screen {
 		app.fill(0);
 		app.text("Your score is:" + game.getSpaceSheep().getScore() + " Press enter to start the game!", app.width / 2, app.height / 2);
 		if (app.isPressed(App.ENTER)) {
+			S4P.resetWorld();
 			app.setScreen(new Game(app));
 		}
 		app.popStyle();

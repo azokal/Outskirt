@@ -3,11 +3,11 @@ package kr.ac.kmu.gameproject.outskirt.gameobject;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseMotionListener;
 
-import kr.ac.kmu.gameproject.outskirt.Game;
 import kr.ac.kmu.gameproject.outskirt.GameObject;
 import kr.ac.kmu.gameproject.outskirt.gameobject.bullet.BasicBullet;
 import kr.ac.kmu.gameproject.outskirt.gameobject.weapon.BasicWeapon;
 import kr.ac.kmu.gameproject.outskirt.gameobject.weapon.Weapon;
+import kr.ac.kmu.gameproject.outskirt.screen.Game;
 import processing.core.PApplet;
 
 public class SpaceSheep extends GameObject implements MouseMotionListener{

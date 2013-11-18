@@ -1,9 +1,9 @@
 package kr.ac.kmu.gameproject.outskirt.gameobject.bullet;
 
-import kr.ac.kmu.gameproject.outskirt.Game;
 import kr.ac.kmu.gameproject.outskirt.GameObject;
 import kr.ac.kmu.gameproject.outskirt.gameobject.Enemy;
 import kr.ac.kmu.gameproject.outskirt.gameobject.SpaceSheep;
+import kr.ac.kmu.gameproject.outskirt.screen.Game;
 
 public class BasicBullet extends GameObject {
 

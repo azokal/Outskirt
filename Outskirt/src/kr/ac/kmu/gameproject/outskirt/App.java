@@ -3,6 +3,8 @@ package kr.ac.kmu.gameproject.outskirt;
 import java.util.HashMap;
 import java.util.Map;
 
+import kr.ac.kmu.gameproject.outskirt.screen.Menu;
+import kr.ac.kmu.gameproject.outskirt.screen.Screen;
 import processing.core.PApplet;
 
 public class App extends PApplet {

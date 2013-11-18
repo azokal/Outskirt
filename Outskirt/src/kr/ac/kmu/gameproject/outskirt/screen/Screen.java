@@ -1,4 +1,4 @@
-package kr.ac.kmu.gameproject.outskirt;
+package kr.ac.kmu.gameproject.outskirt.screen;
 
 public interface Screen {
 
