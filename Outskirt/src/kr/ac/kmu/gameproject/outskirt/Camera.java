@@ -3,6 +3,7 @@ package kr.ac.kmu.gameproject.outskirt;
 import java.awt.event.MouseWheelEvent;
 import java.awt.event.MouseWheelListener;
 
+import processing.core.PApplet;
 import processing.core.PVector;
 
 public class Camera implements MouseWheelListener{
@@ -21,12 +22,12 @@ public class Camera implements MouseWheelListener{
 		this.game = game;
 		position.x = x;
 		position.y = y;
-		game.addMouseWheelListener(this);
+		game.getApp().addMouseWheelListener(this);
 	}
 
 	public void draw() {
-		game.translate(position.x + game.displayWidth / 2, position.y + game.displayHeight / 2);
-		game.scale(Game.min(game.displayWidth/1980f, game.displayHeight / 1080f) * zoom);
+		game.getApp().translate(position.x + game.getApp().displayWidth / 2, position.y + game.getApp().displayHeight / 2);
+		game.getApp().scale(PApplet.min(game.getApp().displayWidth/1980f, game.getApp().displayHeight / 1080f) * zoom);
 	}
 	
 	public void setPosition(float x, float y) {
@@ -36,14 +37,14 @@ public class Camera implements MouseWheelListener{
 
 	public void setZoom(float zoom) {
 		this.zoom = zoom;
-		this.zoom = game.min(max, this.zoom);
-		this.zoom = game.max(min, this.zoom);
+		this.zoom = PApplet.min(max, this.zoom);
+		this.zoom = PApplet.max(min, this.zoom);
 	}
 	
 	public void addZoom(float zoom) {
 		this.zoom += zoom;
-		this.zoom = game.min(max, this.zoom);
-		this.zoom = game.max(min, this.zoom);
+		this.zoom = PApplet.min(max, this.zoom);
+		this.zoom = PApplet.max(min, this.zoom);
 	}
 
 	@Override

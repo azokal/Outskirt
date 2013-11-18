@@ -7,12 +7,12 @@ import java.util.Map.Entry;
 
 public class Debug extends LinkedHashMap<String, Object> implements KeyListener {
 
-	Game game;
+	App app;
 	boolean on = true;
 
-	public Debug(Game game) {
-		this.game = game;
-		game.addKeyListener(this);
+	public Debug(App app) {
+		this.app = app;
+		app.addKeyListener(this);
 	}
 	
 	public void draw() {
@@ -22,11 +22,11 @@ public class Debug extends LinkedHashMap<String, Object> implements KeyListener 
 			for (Entry<String, Object> line : this.entrySet()) {
 				str.append(line.getKey() + ":" + line.getValue() + System.lineSeparator());
 			}
-			game.pushStyle();
-			game.color(255);
-			game.textAlign(game.LEFT, game.TOP);
-			game.text(str.toString(), 0, 0);
-			game.popStyle();
+			app.pushStyle();
+			app.color(255);
+			app.textAlign(app.LEFT, app.TOP);
+			app.text(str.toString(), 0, 0);
+			app.popStyle();
 		}
 	}
 	

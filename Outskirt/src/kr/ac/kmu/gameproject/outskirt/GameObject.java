@@ -28,7 +28,7 @@ public abstract class GameObject {
 		this.radius = radius;
 		this.angle = angle;
 		oSprite.setXY(x, y);
-		oSprite.setRot(angle - Game.PI / 2);
+		oSprite.setRot(angle - App.PI / 2);
 	}
 	
 	public void setCart(float x, float y) {

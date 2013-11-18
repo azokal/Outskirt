@@ -33,15 +33,15 @@ public class BasicWeapon extends GameObject implements Weapon {
 
 	@Override
 	public void draw() {
-		if (game.isPressed('q')) {
+		if (game.getApp().isPressed('q')) {
 			color = Game.Color.GREEN;
 			owner.setGreen();
 		}
-		if (game.isPressed('w')) {
+		if (game.getApp().isPressed('w')) {
 			color = Game.Color.RED;
 			owner.setRed();
 		}
-		if (game.isPressed('e')) {
+		if (game.getApp().isPressed('e')) {
 			color = Game.Color.CYAN;
 			owner.setBlue();
 		}

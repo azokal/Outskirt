@@ -19,23 +19,23 @@ public class SpaceSheep extends GameObject implements MouseMotionListener{
 	
 	public SpaceSheep(Game game) {
 		super(game);
-		oSprite = new sprites.Sprite(game, "playerGrid.png", 3, 1, 10);
+		oSprite = new sprites.Sprite(game.getApp(), "playerGrid.png", 3, 1, 10);
 		oSprite.setScale(1.4f);
 		setPolar(450, 0);
-		game.addMouseMotionListener(this);
-		game.noCursor();
+		game.getApp().addMouseMotionListener(this);
+		game.getApp().noCursor();
 	}
 
 	public void draw() {
-		game.debug.put("Score", score);
+		game.getApp().getDebug().put("Score", score);
 		oSprite.setScale(getRadius() / 300f);
-		if (game.isPressed(PApplet.LEFT)) {
+		if (game.getApp().isPressed(PApplet.LEFT)) {
 			addAngle(0.08f);
 		}
-		if (game.isPressed(PApplet.RIGHT)) {
+		if (game.getApp().isPressed(PApplet.RIGHT)) {
 			addAngle(-0.08f);
 		}
-		if (game.isPressed(' ')) {
+		if (game.getApp().isPressed(' ')) {
 			weapon.shoot();
 		}
 	}
@@ -47,15 +47,15 @@ public class SpaceSheep extends GameObject implements MouseMotionListener{
 
 	@Override
 	public void mouseMoved(MouseEvent e) {
-		float mouseX = e.getX() - game.displayWidth / 2;
-		float mouseY = e.getY() - game.displayHeight / 2;
-		float norme = Game.sqrt(mouseX * mouseX + mouseY * mouseY);
+		float mouseX = e.getX() - game.getApp().displayWidth / 2;
+		float mouseY = e.getY() - game.getApp().displayHeight / 2;
+		float norme = PApplet.sqrt(mouseX * mouseX + mouseY * mouseY);
 		
 		//Free fly
 		if (norme > 450) {
 			norme = 450;
 		}
-		setPolar(norme, Game.atan2(mouseY, mouseX));
+		setPolar(norme, PApplet.atan2(mouseY, mouseX));
 		
 		// Circular fly
 		/*

@@ -12,7 +12,7 @@ public class Laser extends GameObject {
 		super(game);
 		this.velocity = velocity;
 		this.color = color;
-		oSprite = new sprites.Sprite(game,"bulletGrid.png", 3, 1, 10);
+		oSprite = new sprites.Sprite(game.getApp(),"bulletGrid.png", 3, 1, 10);
 		if (color == Game.Color.RED)
 			oSprite.setFrame(1);
 		if (color == Game.Color.CYAN)

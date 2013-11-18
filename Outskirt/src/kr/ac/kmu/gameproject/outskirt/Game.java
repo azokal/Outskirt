@@ -3,33 +3,27 @@ package kr.ac.kmu.gameproject.outskirt;
 import java.awt.AWTException;
 import java.awt.Robot;
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 
 import kr.ac.kmu.gameproject.outskirt.gameobject.Enemy;
 import kr.ac.kmu.gameproject.outskirt.gameobject.SpaceSheep;
-import processing.core.PApplet;
 import processing.core.PImage;
 import sprites.S4P;
 
-public class Game extends PApplet {
+public class Game {
 
-	public Map<Character, Boolean> keys = new HashMap<Character, Boolean>();
-	public Map<Integer, Boolean> keysCode = new HashMap<Integer, Boolean>();
-
+	private App owner;
+	
 	public List<GameObject> gameObjectList = new ArrayList<GameObject>();
 	public List<GameObject> toAddList = new ArrayList<GameObject>();
 	public List<GameObject> toDelList = new ArrayList<GameObject>();
 
-	public Camera camera = new Camera(this);
-	public PImage bg = loadImage("bg.png");
-	public Timer timer = new Timer();
+	public Camera camera;
+	public PImage bg;
+	public Timer timer;
 	public SpaceSheep spaceSheep;
 	public Enemy enemy;// = new Enemy(this, random(0, 360));
 	public Robot robot;
-
-	public Debug debug = new Debug(this);
 	
 	float testCooldownPopEnemy = 150f;
 	float testLastPop = 0;
@@ -37,15 +31,14 @@ public class Game extends PApplet {
 	public enum Color {
 		GREEN, RED, CYAN
 	}
-
-	public static void main(String args[]) {
-		PApplet.main(new String[] { "--present",
-				"kr.ac.kmu.gameproject.outskirt.Game" });
-	}
-
-	public void setup() {
-		size(displayWidth, displayHeight);
-		bg.resize(displayWidth, displayHeight);
+	
+	public Game(App owner) {
+		this.owner = owner;
+		this.camera = new Camera(this);
+		this.bg = getApp().loadImage("bg.png");
+		this.timer = new Timer();
+		getApp().size(getApp().displayWidth, getApp().displayHeight);
+		bg.resize(getApp().displayWidth, getApp().displayHeight);
 		spaceSheep = new SpaceSheep(this);
 		try {
 			robot = new Robot();
@@ -56,13 +49,12 @@ public class Game extends PApplet {
 
 	public void draw() {
 		timer.updateTime();
-		background(bg);
-		debug.draw();
-		color(255);
+		getApp().background(bg);
+		getApp().color(255);
 		camera.draw();
 		if (this.timer.getTotalTime() - testLastPop > testCooldownPopEnemy) {
-			enemy = new Enemy(this, random(0, 359),
-					Color.values()[(int) random(0, 3)]);
+			enemy = new Enemy(this, getApp().random(0, 359),
+					Color.values()[(int) getApp().random(0, 3)]);
 			testLastPop = timer.getTotalTime();
 		}
 		
@@ -94,42 +86,16 @@ public class Game extends PApplet {
 		S4P.drawSprites();
 	}
 
-	public void keyPressed() {
-		if (key == CODED) {
-			keysCode.put(keyCode, true);
-		} else {
-			keys.put(key, true);
-		}
-	}
-
-	public void keyReleased() {
-		if (key == CODED) {
-			keysCode.put(keyCode, false);
-		} else {
-			keys.put(key, false);
-		}
-	}
-
-	public boolean isPressed(int code) {
-		if (keysCode.containsKey(code)) {
-			return keysCode.get(code);
-		}
-		return false;
-	}
-
-	public boolean isPressed(char code) {
-		if (keys.containsKey(code)) {
-			return keys.get(code);
-		}
-		return false;
-	}
-
 	public void addGameObject(GameObject toAdd) {
 		toAddList.add(toAdd);
 	}
 
 	public void delGameObject(GameObject toDel) {
 		toDelList.add(toDel);
+	}
+	
+	public App getApp() {
+		return owner;
 	}
 	
 }

@@ -15,7 +15,7 @@ public class Enemy extends GameObject {
 	
 	public Enemy(Game game, float startAngle, Game.Color color) {
 		super(game);
-		oSprite = new sprites.Sprite(game,"squareGrid.png", 3, 1, 10);
+		oSprite = new sprites.Sprite(game.getApp(),"squareGrid.png", 3, 1, 10);
 		setPolar(0, 0);
 		this.startAngle = startAngle;
 		oSprite.setScale(getRadius()/300f);
@@ -34,17 +34,17 @@ public class Enemy extends GameObject {
 		} else {
 			oSprite.setScale(getRadius() / 300f);
 			float angle = PApplet.sin(testOccDir
-					* game.radians(game.timer.getTotalTime()) / 8) / 3;
-			setAngle(angle + game.radians(startAngle));
+					* PApplet.radians(game.timer.getTotalTime()) / 8) / 3;
+			setAngle(angle + PApplet.radians(startAngle));
 			addRadius(2f);
-			localAngle += game.PI / 30.f;
+			localAngle += PApplet.PI / 30.f;
 			oSprite.setRot(localAngle);
 		}
 	}
 	
 	public void onCollide(GameObject obj) {
 		if (obj instanceof SpaceSheep) {
-			game.exit();
+			game.getApp().exit();
 		}
 	}
 	
