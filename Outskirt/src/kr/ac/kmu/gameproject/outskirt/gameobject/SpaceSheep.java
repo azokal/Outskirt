@@ -14,8 +14,8 @@ public class SpaceSheep extends GameObject implements MouseMotionListener{
 
 	//Set<Bullet> bullets = new HashSet<Bullet>();
 	int	score = 0;
-	Weapon weapon = new BasicWeapon(game, this);
-	
+	Game.Color color = Game.Color.GREEN;
+	Weapon weapon = new BasicWeapon(game, this, color);
 	
 	public SpaceSheep(Game game) {
 		super(game);
@@ -71,4 +71,20 @@ public class SpaceSheep extends GameObject implements MouseMotionListener{
 	public void addScore(int i) {
 		score += i;
 	}
+	
+	public void setRed() {
+		color = Game.Color.RED;
+		oSprite.setFrame(1);
+	}
+	
+	public void setGreen() {
+		color = Game.Color.GREEN;
+		oSprite.setFrame(0);
+	}
+	
+	public void setBlue() {
+		color = Game.Color.CYAN;
+		oSprite.setFrame(2);
+	}
+	
 }

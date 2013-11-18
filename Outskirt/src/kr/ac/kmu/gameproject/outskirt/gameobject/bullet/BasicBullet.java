@@ -24,6 +24,7 @@ public class BasicBullet extends GameObject {
 		this.owner = owner;
 	}
 
+	@Override
 	public void draw() {
 		oSprite.setScale(getRadius() / 200f);
 		
@@ -34,6 +35,7 @@ public class BasicBullet extends GameObject {
 		}
 	}
 	
+	@Override
 	public void onCollide(GameObject obj) {
 		if (obj instanceof Enemy) {
 			obj.kill();

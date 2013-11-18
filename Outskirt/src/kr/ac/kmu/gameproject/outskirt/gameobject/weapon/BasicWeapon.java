@@ -10,11 +10,16 @@ public class BasicWeapon extends GameObject implements Weapon {
 	public SpaceSheep owner;
 	float cooldownShoot = 100f; //100ms
 	float lastShoot = 0.0f;
-	Game.Color color = Game.Color.GREEN;
+	Game.Color color;
 
 	public BasicWeapon(Game game, SpaceSheep owner) {
+		this(game, owner, Game.Color.GREEN);
+	}
+	
+	public BasicWeapon(Game game, SpaceSheep owner, Game.Color color) {
 		super(game);
 		this.owner = owner;
+		this.color = color;
 	}
 
 	@Override
@@ -30,15 +35,15 @@ public class BasicWeapon extends GameObject implements Weapon {
 	public void draw() {
 		if (game.isPressed('q')) {
 			color = Game.Color.GREEN;
-			oSprite.setFrame(0);
+			owner.setGreen();
 		}
 		if (game.isPressed('w')) {
 			color = Game.Color.RED;
-			oSprite.setFrame(1);
+			owner.setRed();
 		}
 		if (game.isPressed('e')) {
 			color = Game.Color.CYAN;
-			oSprite.setFrame(2);
+			owner.setBlue();
 		}
 	}
 	
