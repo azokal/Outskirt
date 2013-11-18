@@ -35,7 +35,7 @@ public class SpaceSheep extends GameObject implements MouseMotionListener{
 		if (game.getApp().isPressed(PApplet.RIGHT)) {
 			addAngle(-0.08f);
 		}
-		if (game.getApp().isPressed(' ')) {
+		if (game.getApp().isPressed(' ') || (game.getApp().mousePressed && game.getApp().mouseButton == PApplet.LEFT)) {
 			weapon.shoot();
 		}
 	}
