@@ -24,8 +24,10 @@ public class App extends PApplet {
 	}
 	
 	public void draw() {
-		debug.draw();
+		pushMatrix();
 		screen.draw();
+		popMatrix();
+		debug.draw();
 	}
 	
 	public Debug getDebug() {

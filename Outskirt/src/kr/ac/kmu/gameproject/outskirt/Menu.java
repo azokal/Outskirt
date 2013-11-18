@@ -10,6 +10,7 @@ public class Menu implements Screen {
 	
 	@Override
 	public void draw() {
+		app.pushStyle();
 		app.background(255);
 		app.textAlign(app.CENTER, app.TOP);
 		app.fill(0);
@@ -17,6 +18,7 @@ public class Menu implements Screen {
 		if (app.isPressed(App.ENTER)) {
 			app.setScreen(new Game(app));
 		}
+		app.popStyle();
 	}
 
 	@Override
