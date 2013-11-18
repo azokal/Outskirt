@@ -2,6 +2,8 @@ package kr.ac.kmu.gameproject.outskirt.screen;
 
 import java.awt.AWTException;
 import java.awt.Robot;
+import java.awt.event.KeyEvent;
+import java.awt.event.KeyListener;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -11,10 +13,11 @@ import kr.ac.kmu.gameproject.outskirt.GameObject;
 import kr.ac.kmu.gameproject.outskirt.Timer;
 import kr.ac.kmu.gameproject.outskirt.gameobject.Enemy;
 import kr.ac.kmu.gameproject.outskirt.gameobject.SpaceSheep;
+import processing.core.PApplet;
 import processing.core.PImage;
 import sprites.S4P;
 
-public class Game implements Screen {
+public class Game implements Screen, KeyListener {
 
 	private App app;
 	
@@ -54,6 +57,7 @@ public class Game implements Screen {
 		} catch (AWTException e) {
 			e.printStackTrace();
 		}
+		this.getApp().addKeyListener(this);
 	}
 	
 	public void draw() {
@@ -109,6 +113,25 @@ public class Game implements Screen {
 
 	public SpaceSheep getSpaceSheep() {
 		return spaceSheep;
+	}
+
+	@Override
+	public void keyPressed(KeyEvent e) {
+		if (e.getKeyChar() == 'p') {
+			app.setScreen(new PauseScreen(app, this));
+		}
+	}
+
+	@Override
+	public void keyReleased(KeyEvent arg0) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void keyTyped(KeyEvent arg0) {
+		// TODO Auto-generated method stub
+		
 	}
 	
 	public void unload() {
