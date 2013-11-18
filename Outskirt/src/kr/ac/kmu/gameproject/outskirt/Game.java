@@ -10,9 +10,9 @@ import kr.ac.kmu.gameproject.outskirt.gameobject.SpaceSheep;
 import processing.core.PImage;
 import sprites.S4P;
 
-public class Game {
+public class Game implements Screen {
 
-	private App owner;
+	private App app;
 	
 	public List<GameObject> gameObjectList = new ArrayList<GameObject>();
 	public List<GameObject> toAddList = new ArrayList<GameObject>();
@@ -32,8 +32,11 @@ public class Game {
 		GREEN, RED, CYAN
 	}
 	
-	public Game(App owner) {
-		this.owner = owner;
+	public Game(App app) {
+		this.app = app;
+	}
+
+	public void setup() {
 		this.camera = new Camera(this);
 		this.bg = getApp().loadImage("bg.png");
 		this.timer = new Timer();
@@ -46,7 +49,7 @@ public class Game {
 			e.printStackTrace();
 		}
 	}
-
+	
 	public void draw() {
 		timer.updateTime();
 		getApp().background(bg);
@@ -95,7 +98,7 @@ public class Game {
 	}
 	
 	public App getApp() {
-		return owner;
+		return app;
 	}
 	
 }

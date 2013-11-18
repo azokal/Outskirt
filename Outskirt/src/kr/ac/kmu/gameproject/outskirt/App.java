@@ -8,8 +8,8 @@ import processing.core.PApplet;
 public class App extends PApplet {
 
 	private Debug debug;
-	private Game game;
-	
+	private Screen screen;
+
 	public Map<Character, Boolean> keys = new HashMap<Character, Boolean>();
 	public Map<Integer, Boolean> keysCode = new HashMap<Integer, Boolean>();
 	
@@ -19,13 +19,13 @@ public class App extends PApplet {
 	}
 
 	public void setup() {
-		game = new Game(this);
+		setScreen(new Menu(this));
 		debug = new Debug(this);
 	}
 	
 	public void draw() {
 		debug.draw();
-		game.draw();
+		screen.draw();
 	}
 	
 	public Debug getDebug() {
@@ -62,4 +62,13 @@ public class App extends PApplet {
 		return false;
 	}
 	
+	public Screen getScreen() {
+		return screen;
+	}
+
+	public void setScreen(Screen screen) {
+		this.screen = screen;
+		screen.setup();
+	}
+
 }
