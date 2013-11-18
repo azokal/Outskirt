@@ -2,6 +2,7 @@ package kr.ac.kmu.gameproject.outskirt.gameobject;
 
 import java.util.Random;
 
+import kr.ac.kmu.gameproject.outskirt.EndScreen;
 import kr.ac.kmu.gameproject.outskirt.Game;
 import kr.ac.kmu.gameproject.outskirt.GameObject;
 import processing.core.PApplet;
@@ -44,7 +45,7 @@ public class Enemy extends GameObject {
 	
 	public void onCollide(GameObject obj) {
 		if (obj instanceof SpaceSheep) {
-			game.getApp().exit();
+			game.getApp().setScreen(new EndScreen(game.getApp(), game));
 		}
 	}
 	

@@ -96,4 +96,10 @@ public abstract class GameObject {
 	public void onCollide(GameObject obj) {
 
 	}
+	
+	@Override
+	protected void finalize() throws Throwable {
+		super.finalize();
+		game.getApp().getDebug().put("GameObject", "Destroyed !");
+	}
 }

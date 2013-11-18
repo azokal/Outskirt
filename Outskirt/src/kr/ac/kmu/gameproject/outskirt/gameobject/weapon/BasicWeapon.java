@@ -26,11 +26,11 @@ public class BasicWeapon extends GameObject implements Weapon {
 	public void shoot() {
 		if (game.timer.getTotalTime() - lastShoot > cooldownShoot)
 		{
-			BasicBullet tmp = new BasicBullet(game, owner, owner.getRadius(), owner.getAngle(), 4, color);
+			new BasicBullet(game, owner, owner.getRadius(), owner.getAngle(), 4, color);
 			lastShoot = game.timer.getTotalTime();
 		}
 	}
-
+	
 	@Override
 	public void draw() {
 		if (game.getApp().isPressed('q')) {

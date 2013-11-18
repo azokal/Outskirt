@@ -100,5 +100,9 @@ public class Game implements Screen {
 	public App getApp() {
 		return app;
 	}
+
+	public SpaceSheep getSpaceSheep() {
+		return spaceSheep;
+	}
 	
 }

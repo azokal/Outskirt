@@ -72,6 +72,10 @@ public class SpaceSheep extends GameObject implements MouseMotionListener{
 		score += i;
 	}
 	
+	public int getScore() {
+		return score;
+	}
+
 	public void setRed() {
 		color = Game.Color.RED;
 		oSprite.setFrame(1);
