@@ -109,4 +109,10 @@ public class Game implements Screen {
 		return spaceSheep;
 	}
 	
+	public void unload() {
+		for (GameObject g: gameObjectList) {
+			g.kill();
+		}
+	}
+	
 }

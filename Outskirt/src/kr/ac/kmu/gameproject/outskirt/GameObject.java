@@ -43,8 +43,10 @@ public abstract class GameObject {
 
 	public void kill() {
 		game.delGameObject(this);
-		oSprite.setDead(true);
-		S4P.deregisterSprite(oSprite);
+		if (oSprite != null) {
+			oSprite.setDead(true);
+			S4P.deregisterSprite(oSprite);
+		}
 	}
 
 	public float getRadius() {
