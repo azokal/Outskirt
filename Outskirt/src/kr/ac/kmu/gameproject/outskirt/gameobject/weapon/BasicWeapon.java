@@ -11,9 +11,11 @@ public class BasicWeapon extends GameObject implements Weapon {
 	float cooldownShoot = 100f; //100ms
 	float lastShoot = 0.0f;
 	Game.Color color;
+	float[] power = {10, 10, 10};
 
 	public BasicWeapon(Game game, SpaceSheep owner) {
 		this(game, owner, Game.Color.GREEN);
+		
 	}
 	
 	public BasicWeapon(Game game, SpaceSheep owner, Game.Color color) {
@@ -26,7 +28,7 @@ public class BasicWeapon extends GameObject implements Weapon {
 	public void shoot() {
 		if (game.timer.getTotalTime() - lastShoot > cooldownShoot)
 		{
-			new BasicBullet(game, owner, owner.getRadius(), owner.getAngle(), 4, color);
+			new BasicBullet(game, owner, owner.getRadius(), owner.getAngle(), 4, color, power[color.ordinal()]);
 			lastShoot = game.timer.getTotalTime();
 		}
 	}

@@ -33,7 +33,9 @@ public class Game implements Screen {
 	float testLastPop = 0;
 
 	public enum Color {
-		GREEN, RED, CYAN
+		GREEN,
+		RED,
+		CYAN
 	}
 	
 	public Game(App app) {

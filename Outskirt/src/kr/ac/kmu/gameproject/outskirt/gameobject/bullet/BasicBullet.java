@@ -8,10 +8,11 @@ import kr.ac.kmu.gameproject.outskirt.screen.Game;
 public class BasicBullet extends GameObject {
 
 	float velocity;
+	float power;
 	Game.Color color;
 	SpaceSheep owner;
 	
-	public BasicBullet(Game game, SpaceSheep owner, float radius, float angle, float velocity, Game.Color color) {
+	public BasicBullet(Game game, SpaceSheep owner, float radius, float angle, float velocity, Game.Color color, float power) {
 		super(game);
 		this.velocity = velocity;
 		this.color = color;
@@ -22,6 +23,7 @@ public class BasicBullet extends GameObject {
 			oSprite.setFrame(2);
 		setPolar(radius, angle);
 		this.owner = owner;
+		this.power = power;
 	}
 
 	@Override
