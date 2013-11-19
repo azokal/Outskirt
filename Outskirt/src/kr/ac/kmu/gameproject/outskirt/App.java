@@ -75,4 +75,8 @@ public class App extends PApplet {
 		screen.setup();
 	}
 
+	public void resumeScreen(Screen screen) {
+		this.screen = screen;
+	}
+
 }
