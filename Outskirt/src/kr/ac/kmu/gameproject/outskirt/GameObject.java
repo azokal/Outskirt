@@ -14,7 +14,7 @@ public abstract class GameObject {
 	private float x;
 	private float y;
 	private boolean toDelete = false;
-	
+	protected Game.Color color;
 	
 	public GameObject(Game game) {
 		this.game = game;

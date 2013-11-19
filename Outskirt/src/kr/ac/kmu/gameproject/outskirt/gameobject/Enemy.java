@@ -3,11 +3,13 @@ package kr.ac.kmu.gameproject.outskirt.gameobject;
 import java.util.Random;
 
 import kr.ac.kmu.gameproject.outskirt.GameObject;
+import kr.ac.kmu.gameproject.outskirt.gameobject.bullet.BasicBullet;
+import kr.ac.kmu.gameproject.outskirt.life.Life;
 import kr.ac.kmu.gameproject.outskirt.screen.EndScreen;
 import kr.ac.kmu.gameproject.outskirt.screen.Game;
 import processing.core.PApplet;
 
-public class Enemy extends GameObject {
+public class Enemy extends Life {
 
 	float localAngle = 0;
 	float startAngle = 0;
@@ -15,7 +17,7 @@ public class Enemy extends GameObject {
 	float testOccDir = 1;
 	
 	public Enemy(Game game, float startAngle, Game.Color color) {
-		super(game);
+		super(game, 30);
 		oSprite = new sprites.Sprite(game.getApp(),"squareGrid.png", 3, 1, 10);
 		setPolar(0, 0);
 		this.startAngle = startAngle;
@@ -48,5 +50,19 @@ public class Enemy extends GameObject {
 			game.getApp().setScreen(new EndScreen(game.getApp(), game));
 		}
 	}
-	
+	public void looseLife(BasicBullet coll) {
+		if (color != coll.color) {
+			life -= coll.power;
+		} else {
+			life -= coll.power / 2;
+		}
+		if (life <= 0) {
+			kill();
+			if (color != coll.color) {
+				coll.owner.weapon.power[(color.ordinal()+1) %3] += 1;
+			} else {
+				coll.owner.weapon.power[color.ordinal()] += 5;
+			}
+		}
+	}
 }

@@ -8,9 +8,9 @@ import kr.ac.kmu.gameproject.outskirt.screen.Game;
 public class BasicBullet extends GameObject {
 
 	float velocity;
-	float power;
-	Game.Color color;
-	SpaceSheep owner;
+	public float power;
+	public Game.Color color;
+	public SpaceSheep owner;
 	
 	public BasicBullet(Game game, SpaceSheep owner, float radius, float angle, float velocity, Game.Color color, float power) {
 		super(game);
@@ -40,7 +40,8 @@ public class BasicBullet extends GameObject {
 	@Override
 	public void onCollide(GameObject obj) {
 		if (obj instanceof Enemy) {
-			obj.kill();
+			((Enemy)obj).looseLife(this);
+			kill();
 			owner.addScore(100);
 		}
 	}

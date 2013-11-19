@@ -10,12 +10,11 @@ public class BasicWeapon extends GameObject implements Weapon {
 	public SpaceSheep owner;
 	float cooldownShoot = 100f; //100ms
 	float lastShoot = 0.0f;
+	public float[] power = {10, 10, 10};
 	Game.Color color;
-	float[] power = {10, 10, 10};
 
 	public BasicWeapon(Game game, SpaceSheep owner) {
 		this(game, owner, Game.Color.GREEN);
-		
 	}
 	
 	public BasicWeapon(Game game, SpaceSheep owner, Game.Color color) {
