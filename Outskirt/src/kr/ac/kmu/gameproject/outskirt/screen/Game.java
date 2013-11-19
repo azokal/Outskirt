@@ -7,6 +7,7 @@ import java.util.List;
 
 import kr.ac.kmu.gameproject.outskirt.App;
 import kr.ac.kmu.gameproject.outskirt.Camera;
+import kr.ac.kmu.gameproject.outskirt.Debug;
 import kr.ac.kmu.gameproject.outskirt.GameObject;
 import kr.ac.kmu.gameproject.outskirt.Timer;
 import kr.ac.kmu.gameproject.outskirt.gameobject.Enemy;
@@ -93,6 +94,7 @@ public class Game implements Screen {
 
 		S4P.updateSprites(timer.getTotalTime());
 		S4P.drawSprites();
+		app.getDebug().put("fps", app.frameRate);
 	}
 
 	public void addGameObject(GameObject toAdd) {
