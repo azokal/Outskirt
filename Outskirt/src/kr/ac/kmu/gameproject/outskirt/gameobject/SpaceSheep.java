@@ -1,20 +1,26 @@
 package kr.ac.kmu.gameproject.outskirt.gameobject;
 
+import java.awt.event.KeyEvent;
+import java.awt.event.KeyListener;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseMotionListener;
+
+import org.openkinect.processing.Kinect;
 
 import kr.ac.kmu.gameproject.outskirt.Game;
 import kr.ac.kmu.gameproject.outskirt.GameObject;
 import processing.core.PApplet;
+import processing.core.PConstants;
 
-public class SpaceSheep extends GameObject implements MouseMotionListener{
+public class SpaceSheep extends GameObject implements MouseMotionListener {
 
 	//Set<Bullet> bullets = new HashSet<Bullet>();
 	Game.Color color = Game.Color.GREEN;
 	float cooldownShoot = 100f; //100ms
 	float lastShoot = 0.0f;
-	
-	
+	Kinect kinect;
+	float  angleKinect;
+
 	public SpaceSheep(Game game) {
 		super(game);
 		oSprite = new sprites.Sprite(game, "playerGrid.png", 3, 1, 10);
@@ -22,6 +28,9 @@ public class SpaceSheep extends GameObject implements MouseMotionListener{
 		setPolar(450, 0);
 		game.addMouseMotionListener(this);
 		game.noCursor();
+		kinect = new Kinect(game);
+		kinect.start();
+		angleKinect = 15.0f;
 	}
 
 	public void draw() {
@@ -51,6 +60,10 @@ public class SpaceSheep extends GameObject implements MouseMotionListener{
 		if (game.isPressed('e')) {
 			color = Game.Color.CYAN;
 			oSprite.setFrame(2);
+		}		
+		
+		if (game.isPressed('+')) {
+			kinect.tilt(angleKinect += 1);
 		}
 	}
 
@@ -70,7 +83,7 @@ public class SpaceSheep extends GameObject implements MouseMotionListener{
 			norme = 450;
 		}
 		setPolar(norme, Game.atan2(mouseY, mouseX));
-		
+
 		// Circular fly
 		/*
 		float normX = mouseX / norme;

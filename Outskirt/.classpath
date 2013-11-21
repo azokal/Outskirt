@@ -6,5 +6,6 @@
 	<classpathentry kind="var" path="PROCESSING_HOME"/>
 	<classpathentry kind="var" path="PROCESSING_USER_HOME/libraries/Sprites/library/Sprites.jar"/>
 	<classpathentry kind="var" path="PROCESSING_USER_HOME"/>
+	<classpathentry kind="var" path="PROCESSING_USER_HOME/libraries/openkinect/library/openkinect.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>
