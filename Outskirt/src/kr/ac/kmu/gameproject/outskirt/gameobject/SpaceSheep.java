@@ -80,6 +80,10 @@ public class SpaceSheep extends GameObject implements MouseMotionListener{
 	public int getScore() {
 		return score;
 	}
+	
+	public Game.Color getColor() {
+		return color;
+	}
 
 	public void setRed() {
 		color = Game.Color.RED;

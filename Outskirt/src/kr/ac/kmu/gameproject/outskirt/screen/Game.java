@@ -17,6 +17,7 @@ import kr.ac.kmu.gameproject.outskirt.gameobject.SpaceSheep;
 import processing.core.PApplet;
 import processing.core.PImage;
 import sprites.S4P;
+import sprites.Sprite;
 
 public class Game implements Screen, KeyListener {
 
@@ -27,7 +28,7 @@ public class Game implements Screen, KeyListener {
 	public List<GameObject> toDelList = new ArrayList<GameObject>();
 
 	public Camera camera;
-	public PImage bg;
+	public PImage[] bg;
 	public Timer timer;
 	public SpaceSheep spaceSheep;
 	public Enemy enemy;// = new Enemy(this, random(0, 360));
@@ -48,10 +49,14 @@ public class Game implements Screen, KeyListener {
 
 	public void setup() {
 		this.camera = new Camera(this);
-		this.bg = getApp().loadImage("bg.png");
+		this.bg = new PImage[4];
+		this.bg[0] = getApp().loadImage("greenCircle.png");
+		this.bg[1] = getApp().loadImage("redCircle.png");
+		this.bg[2] = getApp().loadImage("cyanCircle.png");
+		this.bg[3] = getApp().loadImage("whiteCircle.png");
 		this.timer = new Timer();
 		getApp().size(getApp().displayWidth, getApp().displayHeight);
-		bg.resize(getApp().displayWidth, getApp().displayHeight);
+
 		spaceSheep = new SpaceSheep(this);
 		try {
 			robot = new Robot();
@@ -63,9 +68,10 @@ public class Game implements Screen, KeyListener {
 	
 	public void draw() {
 		timer.updateTime();
-		getApp().background(bg);
+		getApp().background(0);
 		getApp().color(255);
 		camera.draw();
+		getApp().image(bg[spaceSheep.getColor().ordinal()], 0, 0);
 		if (this.timer.getTotalTime() - testLastPop > testCooldownPopEnemy) {
 			enemy = new Enemy(this, getApp().random(0, 359),
 					Color.values()[(int) getApp().random(0, 3)]);
