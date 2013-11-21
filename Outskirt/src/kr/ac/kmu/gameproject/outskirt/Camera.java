@@ -7,7 +7,7 @@ import kr.ac.kmu.gameproject.outskirt.screen.Game;
 import processing.core.PApplet;
 import processing.core.PVector;
 
-public class Camera implements MouseWheelListener{
+public class Camera /*implements MouseWheelListener*/{
 
 	PVector position = new PVector();
 	float zoom = 1;
@@ -23,7 +23,7 @@ public class Camera implements MouseWheelListener{
 		this.game = game;
 		position.x = x;
 		position.y = y;
-		game.getApp().addMouseWheelListener(this);
+		/*game.getApp().addMouseWheelListener(this);*/
 	}
 
 	public void draw() {
@@ -48,10 +48,10 @@ public class Camera implements MouseWheelListener{
 		this.zoom = PApplet.max(min, this.zoom);
 	}
 
-	@Override
+	/*@Override
 	public void mouseWheelMoved(MouseWheelEvent e) {
 		int rot = e.getWheelRotation();
 		addZoom(rot / 100f);
-	}
+	}*/
 	
 }

@@ -71,7 +71,6 @@ public class Game implements Screen, KeyListener {
 		getApp().background(0);
 		getApp().color(255);
 		camera.draw();
-		getApp().image(bg[spaceSheep.getColor().ordinal()], 0, 0);
 		if (this.timer.getTotalTime() - testLastPop > testCooldownPopEnemy) {
 			enemy = new Enemy(this, getApp().random(0, 359),
 					Color.values()[(int) getApp().random(0, 3)]);
@@ -104,6 +103,7 @@ public class Game implements Screen, KeyListener {
 
 		S4P.updateSprites(timer.getTotalTime());
 		S4P.drawSprites();
+		getApp().image(bg[spaceSheep.getColor().ordinal()], 0, 0);
 		app.getDebug().put("fps", app.frameRate);
 	}
 
