@@ -15,9 +15,11 @@ public class Enemy extends Life {
 	float startAngle = 0;
 	Game.Color color;
 	float testOccDir = 1;
+	float timing;
 	
-	public Enemy(Game game, float startAngle, Game.Color color) {
-		super(game, 30);
+	public Enemy(Game game, float startAngle, Game.Color color, float life, float timing) {
+		super(game, life);
+		this.timing = timing;
 		oSprite = new sprites.Sprite(game.getApp(),"squareGrid.png", 3, 1, 10);
 		setPolar(0, 0);
 		this.startAngle = startAngle;
@@ -32,6 +34,8 @@ public class Enemy extends Life {
 	}
 	
 	public void draw() {
+		if (game.timer.getElapsedTime() < timing)
+			return ;
 		if (getRadius() > 550) {
 			this.kill();
 		} else {

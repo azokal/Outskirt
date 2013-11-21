@@ -73,7 +73,7 @@ public class Game implements Screen, KeyListener {
 		camera.draw();
 		if (this.timer.getTotalTime() - testLastPop > testCooldownPopEnemy) {
 			enemy = new Enemy(this, getApp().random(0, 359),
-					Color.values()[(int) getApp().random(0, 3)]);
+					Color.values()[(int) getApp().random(0, 3)], 30, 0);
 			testLastPop = timer.getTotalTime();
 		}
 		
