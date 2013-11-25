@@ -43,8 +43,28 @@ public class SpaceSheep extends GameObject implements MouseMotionListener{
 		game.getApp().getDebug().put("Percentage Green", weapon.percentage[0]);
 		game.getApp().getDebug().put("Percentage Red", weapon.percentage[1]);
 		game.getApp().getDebug().put("Percentage Cyan", weapon.percentage[2]);
+		pieChart(200, weapon.percentage);
 	}
 
+	void pieChart(float diameter, float[] data) {
+		game.getApp().smooth();
+		  float lastAngle = 0;
+		  for (int i = 0; i < data.length; i++) {
+			if (i == 0) {
+				game.getApp().fill(0, 255, 0);
+			}
+			if (i == 1) {
+				game.getApp().fill(255, 0, 0);
+			}
+			if (i == 2) {
+				game.getApp().fill(0, 255, 255);
+			}
+		    game.getApp().arc(600, 400, diameter, diameter, lastAngle, lastAngle+game.getApp().radians(360.0f * data[i] / 100.0f));
+		    lastAngle += game.getApp().radians(360.0f * data[i] / 100.0f);
+		  }
+		  game.getApp().fill(255,255,255);
+	}
+	
 	@Override
 	public void mouseDragged(MouseEvent e) {
 		mouseMoved(e);

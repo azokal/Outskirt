@@ -10,7 +10,7 @@ public class BasicWeapon extends GameObject implements Weapon {
 	public SpaceSheep owner;
 	float cooldownShoot = 100f; //100ms
 	float lastShoot = 0.0f;
-	public float[] percentage = {33, 33, 33}; 
+	public float[] percentage = {34, 33, 33}; 
 	public float power = 20.0f;
 	Game.Color color;
 
