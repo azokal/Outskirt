@@ -1,197 +1,49 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <OutSkirt>
   <monsters>
-    <monster>
-      <angle>133.01515</angle>
-      <color>2</color>
-      <life>30.0</life>
-      <timing>152.0</timing>
-    </monster>
-    <monster>
-      <angle>350.01733</angle>
-      <color>0</color>
-      <life>30.0</life>
-      <timing>328.0</timing>
-    </monster>
-    <monster>
-      <angle>240.12708</angle>
-      <color>1</color>
-      <life>30.0</life>
-      <timing>482.0</timing>
-    </monster>
-    <monster>
-      <angle>215.97643</angle>
-      <color>0</color>
-      <life>30.0</life>
-      <timing>638.0</timing>
-    </monster>
-    <monster>
-      <angle>244.10455</angle>
-      <color>1</color>
-      <life>30.0</life>
-      <timing>791.0</timing>
-    </monster>
-    <monster>
-      <angle>358.65952</angle>
-      <color>0</color>
-      <life>30.0</life>
-      <timing>946.0</timing>
-    </monster>
-    <monster>
-      <angle>184.49355</angle>
-      <color>0</color>
-      <life>30.0</life>
-      <timing>1099.0</timing>
-    </monster>
-    <monster>
-      <angle>231.42787</angle>
-      <color>1</color>
-      <life>30.0</life>
-      <timing>1250.0</timing>
-    </monster>
-    <monster>
-      <angle>302.50604</angle>
-      <color>1</color>
-      <life>30.0</life>
-      <timing>1406.0</timing>
-    </monster>
-    <monster>
-      <angle>174.50725</angle>
-      <color>1</color>
-      <life>30.0</life>
-      <timing>1568.0</timing>
-    </monster>
-    <monster>
-      <angle>165.11273</angle>
-      <color>1</color>
-      <life>30.0</life>
-      <timing>1723.0</timing>
-    </monster>
-    <monster>
-      <angle>99.212845</angle>
-      <color>2</color>
-      <life>30.0</life>
-      <timing>1878.0</timing>
-    </monster>
-    <monster>
-      <angle>350.55756</angle>
-      <color>1</color>
-      <life>30.0</life>
-      <timing>2037.0</timing>
-    </monster>
-    <monster>
-      <angle>209.82692</angle>
-      <color>1</color>
-      <life>30.0</life>
-      <timing>2196.0</timing>
-    </monster>
-    <monster>
-      <angle>283.98422</angle>
-      <color>2</color>
-      <life>30.0</life>
-      <timing>2355.0</timing>
-    </monster>
-    <monster>
-      <angle>97.25244</angle>
-      <color>0</color>
-      <life>30.0</life>
-      <timing>2511.0</timing>
-    </monster>
-    <monster>
-      <angle>206.06389</angle>
-      <color>1</color>
-      <life>30.0</life>
-      <timing>2668.0</timing>
-    </monster>
-    <monster>
-      <angle>34.38477</angle>
-      <color>1</color>
-      <life>30.0</life>
-      <timing>2825.0</timing>
-    </monster>
-    <monster>
-      <angle>341.26093</angle>
-      <color>2</color>
-      <life>30.0</life>
-      <timing>2981.0</timing>
-    </monster>
-    <monster>
-      <angle>303.1739</angle>
-      <color>0</color>
-      <life>30.0</life>
-      <timing>3139.0</timing>
-    </monster>
-    <monster>
-      <angle>38.75755</angle>
-      <color>0</color>
-      <life>30.0</life>
-      <timing>3293.0</timing>
-    </monster>
-    <monster>
-      <angle>254.42204</angle>
-      <color>2</color>
-      <life>30.0</life>
-      <timing>3450.0</timing>
-    </monster>
-    <monster>
-      <angle>128.8397</angle>
-      <color>0</color>
-      <life>30.0</life>
-      <timing>3608.0</timing>
-    </monster>
-    <monster>
-      <angle>11.853951</angle>
-      <color>0</color>
-      <life>30.0</life>
-      <timing>3765.0</timing>
-    </monster>
-    <monster>
-      <angle>237.90616</angle>
-      <color>2</color>
-      <life>30.0</life>
-      <timing>3922.0</timing>
-    </monster>
-    <monster>
-      <angle>48.584034</angle>
-      <color>1</color>
-      <life>30.0</life>
-      <timing>4081.0</timing>
-    </monster>
-    <monster>
-      <angle>25.559093</angle>
-      <color>1</color>
-      <life>30.0</life>
-      <timing>4240.0</timing>
-    </monster>
-    <monster>
-      <angle>6.509292</angle>
-      <color>2</color>
-      <life>30.0</life>
-      <timing>4399.0</timing>
-    </monster>
-    <monster>
-      <angle>207.73972</angle>
-      <color>0</color>
-      <life>30.0</life>
-      <timing>4559.0</timing>
-    </monster>
-    <monster>
-      <angle>8.895476</angle>
-      <color>0</color>
-      <life>30.0</life>
-      <timing>4721.0</timing>
-    </monster>
-    <monster>
-      <angle>325.5368</angle>
-      <color>2</color>
-      <life>30.0</life>
-      <timing>4880.0</timing>
-    </monster>
-    <monster>
-      <angle>17.563555</angle>
-      <color>0</color>
-      <life>30.0</life>
-      <timing>5040.0</timing>
-    </monster>
+    <monster angle="285.86737" color="0" life="30.0" timing="171.0"/>
+    <monster angle="215.61664" color="0" life="30.0" timing="332.0"/>
+    <monster angle="31.909311" color="2" life="30.0" timing="502.0"/>
+    <monster angle="40.776886" color="0" life="30.0" timing="687.0"/>
+    <monster angle="19.477827" color="1" life="30.0" timing="860.0"/>
+    <monster angle="299.51697" color="2" life="30.0" timing="1027.0"/>
+    <monster angle="182.23895" color="0" life="30.0" timing="1198.0"/>
+    <monster angle="91.95239" color="0" life="30.0" timing="1363.0"/>
+    <monster angle="33.472977" color="0" life="30.0" timing="1546.0"/>
+    <monster angle="237.24718" color="2" life="30.0" timing="1721.0"/>
+    <monster angle="307.72125" color="2" life="30.0" timing="1882.0"/>
+    <monster angle="281.5681" color="2" life="30.0" timing="2048.0"/>
+    <monster angle="99.71159" color="0" life="30.0" timing="2203.0"/>
+    <monster angle="209.39772" color="2" life="30.0" timing="2356.0"/>
+    <monster angle="195.63342" color="1" life="30.0" timing="2529.0"/>
+    <monster angle="133.74382" color="2" life="30.0" timing="2686.0"/>
+    <monster angle="81.752174" color="0" life="30.0" timing="2854.0"/>
+    <monster angle="333.30792" color="1" life="30.0" timing="3018.0"/>
+    <monster angle="322.7441" color="0" life="30.0" timing="3193.0"/>
+    <monster angle="92.76154" color="0" life="30.0" timing="3353.0"/>
+    <monster angle="214.42252" color="1" life="30.0" timing="3518.0"/>
+    <monster angle="319.44327" color="1" life="30.0" timing="3684.0"/>
+    <monster angle="182.255" color="1" life="30.0" timing="3852.0"/>
+    <monster angle="54.029434" color="2" life="30.0" timing="4020.0"/>
+    <monster angle="7.6354294" color="1" life="30.0" timing="4176.0"/>
+    <monster angle="288.28107" color="1" life="30.0" timing="4329.0"/>
+    <monster angle="170.27992" color="0" life="30.0" timing="4492.0"/>
+    <monster angle="1.0457878" color="0" life="30.0" timing="4654.0"/>
+    <monster angle="265.73068" color="2" life="30.0" timing="4818.0"/>
+    <monster angle="76.250534" color="1" life="30.0" timing="4992.0"/>
+    <monster angle="115.25055" color="0" life="30.0" timing="5165.0"/>
+    <monster angle="321.09235" color="2" life="30.0" timing="5339.0"/>
+    <monster angle="109.707634" color="1" life="30.0" timing="5515.0"/>
+    <monster angle="145.694" color="2" life="30.0" timing="5678.0"/>
+    <monster angle="65.33123" color="0" life="30.0" timing="5833.0"/>
+    <monster angle="3.7917376" color="2" life="30.0" timing="6008.0"/>
+    <monster angle="337.7672" color="2" life="30.0" timing="6165.0"/>
+    <monster angle="266.95648" color="1" life="30.0" timing="6333.0"/>
+    <monster angle="221.08939" color="0" life="30.0" timing="6506.0"/>
+    <monster angle="185.28706" color="1" life="30.0" timing="6675.0"/>
+    <monster angle="210.60402" color="1" life="30.0" timing="6841.0"/>
+    <monster angle="103.56823" color="2" life="30.0" timing="6993.0"/>
+    <monster angle="300.299" color="2" life="30.0" timing="7161.0"/>
+    <monster angle="332.64545" color="1" life="30.0" timing="7331.0"/>
   </monsters>
 </OutSkirt>

@@ -13,6 +13,7 @@ import kr.ac.kmu.gameproject.outskirt.GameObject;
 import kr.ac.kmu.gameproject.outskirt.gameobject.Enemy;
 import kr.ac.kmu.gameproject.outskirt.gameobject.bullet.BasicBullet;
 import kr.ac.kmu.gameproject.outskirt.screen.Game;
+import kr.ac.kmu.gameproject.outskirt.screen.Game.Color;
 import processing.data.XML;
 
 public class Partition {
@@ -40,9 +41,10 @@ public class Partition {
 						
 				XML[] children = monsters.getChildren("monster");
 				app.getDebug().put("child lenght :", children.length);
-				for (int i = 0; i < children.length; i++) {
-					new Enemy(game, children[i].getFloat("angle"), Game.Color.values()[children[i].getInt("color")], 
+				for (int i = 0; i < children.length; i++) {	
+					Enemy e = new Enemy(game, children[i].getFloat("angle"), Game.Color.values()[children[i].getInt("color")], 
 							children[i].getFloat("life"), children[i].getFloat("timing"));
+	//				e.get
 				}
 
 //				children = bullets.getChildren("bullet");
@@ -56,14 +58,10 @@ public class Partition {
 	
 	public void addEnemy(Enemy en) {
 		XML child = new XML("monster");
-  		child.addChild("angle");
-  		child.getChild("angle").setFloatContent(en.getAngle());
-  		child.addChild("color");
-  		child.getChild("color").setIntContent(en.getColor());
-  		child.addChild("life");
-  		child.getChild("life").setFloatContent(en.getLife());
-  		child.addChild("timing");
-  		child.getChild("timing").setFloatContent(en.getTiming());
+  		child.setFloat("angle", en.getAngle());
+  		child.setInt("color", en.getColor());
+  		child.setFloat("life", en.getLife());
+  		child.setFloat("timing", en.getTiming());
   		monsters.addChild(child);
 	}
 	

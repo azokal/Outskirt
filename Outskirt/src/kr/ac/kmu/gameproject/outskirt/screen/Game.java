@@ -67,17 +67,18 @@ public class Game implements Screen, KeyListener {
 	}
 	
 	public void draw() {
+		app.getDebug().put("number enemy", gameObjectList.size());
 		timer.updateTime();
 		getApp().background(0);
 		getApp().color(255);
 		camera.draw();
 		totalTime = this.timer.getTotalTime();
-		if (totalTime - testLastPop > testCooldownPopEnemy) {
-			enemy = new Enemy(this, getApp().random(0, 359),
-					Color.values()[(int) getApp().random(0, 3)], 30, totalTime);//timer.getTotalTime());
-			part.addEnemy(enemy);
-			testLastPop = timer.getTotalTime();
-		}
+	//	if (totalTime - testLastPop > testCooldownPopEnemy) {
+	//		enemy = new Enemy(this, getApp().random(0, 359),
+	//				Color.values()[(int) getApp().random(0, 3)], 30, totalTime);
+	//		part.addEnemy(enemy);
+	//		testLastPop = timer.getTotalTime();
+	//	}
 		
 		//Draw
 		for (GameObject gameObject : gameObjectList) {

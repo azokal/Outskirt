@@ -10,7 +10,7 @@ import kr.ac.kmu.gameproject.outskirt.screen.Game;
 import processing.core.PApplet;
 
 public class Enemy extends Life {
-
+	boolean isPop = false;
 	float localAngle = 0;
 	float startAngle = 0;
 	Game.Color color;
@@ -21,9 +21,8 @@ public class Enemy extends Life {
 		super(game, life);
 		this.timing = timing;
 		oSprite = new sprites.Sprite(game.getApp(),"squareGrid.png", 3, 1, 10);
-		setPolar(0, 0);
 		this.startAngle = startAngle;
-		setAngle(this.startAngle);
+		setPolar(0, this.startAngle);
 		oSprite.setScale(getRadius()/300f);
 		this.color = color;
 		if (color == Game.Color.RED)
@@ -47,14 +46,14 @@ public class Enemy extends Life {
 	}
 	
 	public void draw() {
-		if (this.game.totalTime < timing)
+		if (game.totalTime < timing)
 			return ;
 		if (getRadius() > 550) {
 			this.kill();
 		} else {
 			oSprite.setScale(getRadius() / 300f);
 			float angle = PApplet.sin(testOccDir
-					* PApplet.radians(this.game.totalTime) / 8) / 3;
+					* PApplet.radians(game.totalTime) / 8) / 3;
 			setAngle(angle + PApplet.radians(startAngle));
 			addRadius(2f);
 			localAngle += PApplet.PI / 30.f;

@@ -54,6 +54,7 @@ public abstract class GameObject {
 	}
 
 	public float getAngle() {
+		game.getApp().getDebug().put("test :", angle);
 		return angle;
 	}
 
