@@ -54,7 +54,7 @@ public abstract class GameObject {
 	}
 
 	public float getAngle() {
-		game.getApp().getDebug().put("test :", angle);
+		//game.getApp().getDebug().put("test :", angle);
 		return angle;
 	}
 
@@ -104,6 +104,6 @@ public abstract class GameObject {
 	@Override
 	protected void finalize() throws Throwable {
 		super.finalize();
-		game.getApp().getDebug().put("GameObject", "Destroyed !");
+		//game.getApp().getDebug().put("GameObject", "Destroyed !");
 	}
 }

@@ -32,6 +32,8 @@ public class Game implements Screen, KeyListener {
 	public Enemy enemy;// = new Enemy(this, random(0, 360));
 	public Robot robot;
 	public float totalTime;
+	public String pathSprites =  ".\\data\\sprites\\";
+	public String pathMaps =  ".\\data\\maps\\";
 	Partition part;
 	float testCooldownPopEnemy = 150f;
 	float testLastPop = 0;
@@ -49,14 +51,12 @@ public class Game implements Screen, KeyListener {
 	public void setup() {
 		this.camera = new Camera(this);
 		this.bg = new PImage[4];
-		this.bg[0] = getApp().loadImage("greenCircle.png");
-		this.bg[1] = getApp().loadImage("redCircle.png");
-		this.bg[2] = getApp().loadImage("cyanCircle.png");
-		this.bg[3] = getApp().loadImage("whiteCircle.png");
+		this.bg[0] = getApp().loadImage(pathSprites+"greenCircle.png");
+		this.bg[1] = getApp().loadImage(pathSprites+"redCircle.png");
+		this.bg[2] = getApp().loadImage(pathSprites+"cyanCircle.png");
+		this.bg[3] = getApp().loadImage(pathSprites+"whiteCircle.png");
 		this.timer = new Timer();
 		getApp().size(getApp().displayWidth, getApp().displayHeight);
-
-		part = new Partition(app, this, "test.xml");
 		spaceSheep = new SpaceSheep(this);
 		try {
 			robot = new Robot();
@@ -67,7 +67,7 @@ public class Game implements Screen, KeyListener {
 	}
 	
 	public void draw() {
-		app.getDebug().put("number enemy", gameObjectList.size());
+		app.getDebug().put("number gameobject", gameObjectList.size());
 		timer.updateTime();
 		getApp().background(0);
 		getApp().color(255);

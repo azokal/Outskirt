@@ -19,7 +19,7 @@ public class SpaceSheep extends GameObject implements MouseMotionListener{
 	
 	public SpaceSheep(Game game) {
 		super(game);
-		oSprite = new sprites.Sprite(game.getApp(), "playerGrid.png", 3, 1, 10);
+		oSprite = new sprites.Sprite(game.getApp(), game.pathSprites+"playerGrid.png", 3, 1, 10);
 		oSprite.setScale(1.4f);
 		setPolar(450, 0);
 		color = Game.Color.GREEN;
@@ -41,9 +41,6 @@ public class SpaceSheep extends GameObject implements MouseMotionListener{
 		if (game.getApp().isPressed(' ') || (game.getApp().mousePressed && game.getApp().mouseButton == PApplet.LEFT)) {
 			weapon.shoot();
 		}
-		game.getApp().getDebug().put("Percentage Green", weapon.percentage[0]);
-		game.getApp().getDebug().put("Percentage Red", weapon.percentage[1]);
-		game.getApp().getDebug().put("Percentage Cyan", weapon.percentage[2]);
 		pieChart(200, weapon.percentage);
 	}
 

@@ -40,7 +40,6 @@ public class Partition {
 				
 						
 				XML[] children = monsters.getChildren("monster");
-				app.getDebug().put("child lenght :", children.length);
 				for (int i = 0; i < children.length; i++) {	
 					Enemy e = new Enemy(game, children[i].getFloat("angle"), Game.Color.values()[children[i].getInt("color")], 
 							children[i].getFloat("life"), children[i].getFloat("timing"));

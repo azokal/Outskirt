@@ -20,7 +20,7 @@ public class Enemy extends Life {
 	public Enemy(Game game, float startAngle, Game.Color color, float life, float timing) {
 		super(game, life);
 		this.timing = timing;
-		oSprite = new sprites.Sprite(game.getApp(),"squareGrid.png", 3, 1, 10);
+		oSprite = new sprites.Sprite(game.getApp(),game.pathSprites+"squareGrid.png", 3, 1, 10);
 		this.startAngle = startAngle;
 		setPolar(0, this.startAngle);
 		oSprite.setScale(getRadius()/300f);
