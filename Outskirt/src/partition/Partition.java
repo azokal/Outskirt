@@ -18,7 +18,8 @@ import processing.data.XML;
 public class Partition {
 	XML xml;
 	Game game;
-	XML export = new XML("monsters");
+	XML export = new XML("OutSkirt");
+	XML monsters = new XML("monsters");
 	
 	public Partition(App app, Game game, String name) {
 	
@@ -38,6 +39,7 @@ public class Partition {
 				
 						
 				XML[] children = monsters.getChildren("monster");
+				app.getDebug().put("child lenght :", children.length);
 				for (int i = 0; i < children.length; i++) {
 					new Enemy(game, children[i].getFloat("angle"), Game.Color.values()[children[i].getInt("color")], 
 							children[i].getFloat("life"), children[i].getFloat("timing"));
@@ -62,7 +64,7 @@ public class Partition {
   		child.getChild("life").setFloatContent(en.getLife());
   		child.addChild("timing");
   		child.getChild("timing").setFloatContent(en.getTiming());
-  		export.addChild(child);
+  		monsters.addChild(child);
 	}
 	
 	public void exportMap(String name, App app) {
@@ -70,6 +72,7 @@ public class Partition {
 	  	if (file.exists() == true) {
 			file.delete();
 	  	}
+		export.addChild(monsters);
   		app.saveXML(export, name);
 	}
 }
