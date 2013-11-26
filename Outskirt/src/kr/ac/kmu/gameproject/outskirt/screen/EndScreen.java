@@ -21,6 +21,7 @@ public class EndScreen implements Screen {
 	public void draw() {
 	
 		if (toto == false){
+			game.part.exportMap("new.xml", app);
 			toto = true;
 		}
 		app.pushStyle();

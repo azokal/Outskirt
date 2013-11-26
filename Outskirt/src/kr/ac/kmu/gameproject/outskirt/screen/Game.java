@@ -13,6 +13,7 @@ import kr.ac.kmu.gameproject.outskirt.GameObject;
 import kr.ac.kmu.gameproject.outskirt.Timer;
 import kr.ac.kmu.gameproject.outskirt.gameobject.Enemy;
 import kr.ac.kmu.gameproject.outskirt.gameobject.SpaceSheep;
+import partition.Partition;
 import processing.core.PImage;
 import sprites.S4P;
 
@@ -31,7 +32,7 @@ public class Game implements Screen, KeyListener {
 	public Enemy enemy;// = new Enemy(this, random(0, 360));
 	public Robot robot;
 	public float totalTime;
-
+	Partition part;
 	float testCooldownPopEnemy = 150f;
 	float testLastPop = 0;
 
@@ -55,6 +56,7 @@ public class Game implements Screen, KeyListener {
 		this.timer = new Timer();
 		getApp().size(getApp().displayWidth, getApp().displayHeight);
 
+		part = new Partition(app, this, "test.xml");
 		spaceSheep = new SpaceSheep(this);
 		try {
 			robot = new Robot();
@@ -72,8 +74,8 @@ public class Game implements Screen, KeyListener {
 		totalTime = this.timer.getTotalTime();
 		if (totalTime - testLastPop > testCooldownPopEnemy) {
 			enemy = new Enemy(this, getApp().random(0, 359),
-					Color.values()[(int) getApp().random(0, 3)], 30, 0);//timer.getTotalTime());
-			//part.addEnemy(enemy);
+					Color.values()[(int) getApp().random(0, 3)], 30, totalTime);//timer.getTotalTime());
+			part.addEnemy(enemy);
 			testLastPop = timer.getTotalTime();
 		}
 		

@@ -47,7 +47,7 @@ public class Enemy extends Life {
 	}
 	
 	public void draw() {
-		if (game.timer.getTotalTime() < timing)
+		if (this.game.totalTime < timing)
 			return ;
 		if (getRadius() > 550) {
 			this.kill();
