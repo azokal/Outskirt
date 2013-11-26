@@ -40,9 +40,9 @@ public class SpaceSheep extends GameObject implements MouseMotionListener{
 		if (game.getApp().isPressed(' ') || (game.getApp().mousePressed && game.getApp().mouseButton == PApplet.LEFT)) {
 			weapon.shoot();
 		}
-		game.getApp().getDebug().put("Power Green", weapon.power[0]);
-		game.getApp().getDebug().put("Power Red", weapon.power[1]);
-		game.getApp().getDebug().put("Power Cyan", weapon.power[2]);
+		game.getApp().getDebug().put("Percentage Green", weapon.percentage[0]);
+		game.getApp().getDebug().put("Percentage Red", weapon.percentage[1]);
+		game.getApp().getDebug().put("Percentage Cyan", weapon.percentage[2]);
 	}
 
 	@Override
