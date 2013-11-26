@@ -9,16 +9,12 @@ import java.util.List;
 
 import kr.ac.kmu.gameproject.outskirt.App;
 import kr.ac.kmu.gameproject.outskirt.Camera;
-import kr.ac.kmu.gameproject.outskirt.Debug;
 import kr.ac.kmu.gameproject.outskirt.GameObject;
 import kr.ac.kmu.gameproject.outskirt.Timer;
 import kr.ac.kmu.gameproject.outskirt.gameobject.Enemy;
 import kr.ac.kmu.gameproject.outskirt.gameobject.SpaceSheep;
-import partition.Partition;
-import processing.core.PApplet;
 import processing.core.PImage;
 import sprites.S4P;
-import sprites.Sprite;
 
 public class Game implements Screen, KeyListener {
 
@@ -34,7 +30,8 @@ public class Game implements Screen, KeyListener {
 	public SpaceSheep spaceSheep;
 	public Enemy enemy;// = new Enemy(this, random(0, 360));
 	public Robot robot;
-	public Partition part;
+	public float totalTime;
+
 	float testCooldownPopEnemy = 150f;
 	float testLastPop = 0;
 
@@ -46,7 +43,6 @@ public class Game implements Screen, KeyListener {
 	
 	public Game(App app) {
 		this.app = app;
-		part = new Partition(app, this, "test.xml");
 	}
 
 	public void setup() {
@@ -73,7 +69,8 @@ public class Game implements Screen, KeyListener {
 		getApp().background(0);
 		getApp().color(255);
 		camera.draw();
-		if (this.timer.getTotalTime() - testLastPop > testCooldownPopEnemy) {
+		totalTime = this.timer.getTotalTime();
+		if (totalTime - testLastPop > testCooldownPopEnemy) {
 			enemy = new Enemy(this, getApp().random(0, 359),
 					Color.values()[(int) getApp().random(0, 3)], 30, 0);//timer.getTotalTime());
 			//part.addEnemy(enemy);

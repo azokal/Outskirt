@@ -54,7 +54,7 @@ public class Enemy extends Life {
 		} else {
 			oSprite.setScale(getRadius() / 300f);
 			float angle = PApplet.sin(testOccDir
-					* PApplet.radians(game.timer.getTotalTime()) / 8) / 3;
+					* PApplet.radians(this.game.totalTime) / 8) / 3;
 			setAngle(angle + PApplet.radians(startAngle));
 			addRadius(2f);
 			localAngle += PApplet.PI / 30.f;
