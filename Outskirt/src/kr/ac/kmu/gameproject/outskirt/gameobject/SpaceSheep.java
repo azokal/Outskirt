@@ -26,6 +26,7 @@ public class SpaceSheep extends GameObject implements MouseMotionListener{
 		weapon = new BasicWeapon(game, this, color);
 		game.getApp().addMouseMotionListener(this);
 		game.getApp().noCursor();
+		oSprite.setCollisionRadius(oSprite.getCollisionRadius()/10.0f);
 	}
 
 	public void draw() {

@@ -31,6 +31,7 @@ public class Enemy extends Life {
 			oSprite.setFrame(2);
 		Random rand = new Random();
 		testOccDir = rand.nextInt(2) == 1 ? 1: -1;
+		oSprite.setVisible(false);
 	}
 	
 	public int getColor() {
@@ -48,6 +49,10 @@ public class Enemy extends Life {
 	public void draw() {
 		if (game.totalTime < timing)
 			return ;
+		else if (isPop == false) {
+			oSprite.setVisible(true);
+			isPop = true;
+		}
 		if (getRadius() > 550) {
 			this.kill();
 		} else {
