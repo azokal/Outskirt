@@ -33,7 +33,9 @@ public class Game implements Screen, KeyListener {
 	public SpaceSheep spaceSheep;
 	public Enemy enemy;// = new Enemy(this, random(0, 360));
 	public Robot robot;
-	
+	public float totalTime;
+	public float elapsedTime;
+
 	float testCooldownPopEnemy = 150f;
 	float testLastPop = 0;
 
@@ -71,7 +73,8 @@ public class Game implements Screen, KeyListener {
 		getApp().background(0);
 		getApp().color(255);
 		camera.draw();
-		if (this.timer.getTotalTime() - testLastPop > testCooldownPopEnemy) {
+		totalTime = this.timer.getTotalTime();
+		if (totalTime - testLastPop > testCooldownPopEnemy) {
 			enemy = new Enemy(this, getApp().random(0, 359),
 					Color.values()[(int) getApp().random(0, 3)], 30, 0);
 			testLastPop = timer.getTotalTime();
