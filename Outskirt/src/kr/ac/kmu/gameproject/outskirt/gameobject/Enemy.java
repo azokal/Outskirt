@@ -23,6 +23,7 @@ public class Enemy extends Life {
 		oSprite = new sprites.Sprite(game.getApp(),"squareGrid.png", 3, 1, 10);
 		setPolar(0, 0);
 		this.startAngle = startAngle;
+		setAngle(this.startAngle);
 		oSprite.setScale(getRadius()/300f);
 		this.color = color;
 		if (color == Game.Color.RED)
@@ -33,8 +34,20 @@ public class Enemy extends Life {
 		testOccDir = rand.nextInt(2) == 1 ? 1: -1;
 	}
 	
+	public int getColor() {
+		return (color.ordinal());
+	}
+	
+	public float getLife() {
+		return (life);
+	}
+	
+	public float getTiming() {
+		return (timing);
+	}
+	
 	public void draw() {
-		if (game.timer.getElapsedTime() < timing)
+		if (game.timer.getTotalTime() < timing)
 			return ;
 		if (getRadius() > 550) {
 			this.kill();

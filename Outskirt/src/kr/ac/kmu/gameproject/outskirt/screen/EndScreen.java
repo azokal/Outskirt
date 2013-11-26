@@ -1,6 +1,7 @@
 package kr.ac.kmu.gameproject.outskirt.screen;
 
 import kr.ac.kmu.gameproject.outskirt.App;
+import partition.Partition;
 import processing.core.PApplet;
 import sprites.S4P;
 
@@ -8,14 +9,21 @@ public class EndScreen implements Screen {
 
 	App app;
 	Game game;
+	boolean toto;
 	
 	public EndScreen(App app, Game game) {
 		this.app = app;
 		this.game = game;
+		toto = false;
 	}
 	
 	@Override
 	public void draw() {
+	
+		if (toto == false){
+			game.part.exportMap("test.xml", app);
+			toto = true;
+		}
 		app.pushStyle();
 		app.background(255);
 		app.textAlign(PApplet.CENTER, PApplet.CENTER);
