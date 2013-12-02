@@ -15,9 +15,10 @@ public class HUD {
 	}
 
 	void pieChart(float diameter, float[] data) {
+		game.getApp().pushStyle();
 		game.getApp().smooth();
-		  float lastAngle = 0;
-		  for (int i = 0; i < data.length; i++) {
+		float lastAngle = 0;
+		for (int i = 0; i < data.length; i++) {
 			if (i == 0) {
 				game.getApp().fill(0, 255, 0);
 			}
@@ -30,11 +31,12 @@ public class HUD {
 		    game.getApp().arc(600, 400, diameter, diameter, lastAngle, lastAngle+game.getApp().radians(360.0f * data[i] / 100.0f));
 		    lastAngle += game.getApp().radians(360.0f * data[i] / 100.0f);
 		  }
-		  game.getApp().fill(255,255,255);
+		game.getApp().popStyle();
 	}
 	
 	void comboShow(int x, int y) {
-		game.getApp().text("Combo:", x-20, y);
+		game.getApp().text("Combo:", x+20, y);
+		game.getApp().pushStyle();
 		for (Game.Color c: this.player.combo) {
 			if (c == Game.Color.GREEN) {
 				game.getApp().fill(0, 255, 0);
@@ -45,15 +47,15 @@ public class HUD {
 			if (c == Game.Color.CYAN) {
 				game.getApp().fill(0, 255, 255);
 			}
-			game.getApp().ellipse(x, y+40, 20, 20);
+			game.getApp().ellipse(x, y+20, 20, 20);
 			x += 40;
-			game.getApp().noFill();
 		}
+		game.getApp().popStyle();
 	}
 	
 	public void draw() {
 		pieChart(200, player.weapon.percentage);
-		comboShow(-600, -500);
+		comboShow(550, 250);
 		game.getApp().getDebug().put("Player power", this.player.weapon.power);
 	}
 }
