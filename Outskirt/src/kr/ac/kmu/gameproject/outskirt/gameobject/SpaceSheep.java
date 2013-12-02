@@ -61,17 +61,22 @@ public class SpaceSheep extends GameObject implements MouseMotionListener{
 		if (norme > 450) {
 			norme = 450;
 		}
-		setPolar(norme, PApplet.atan2(mouseY, mouseX));
 		
-		// Circular fly
-		/*
-		float normX = mouseX / norme;
-		float normY = mouseY / norme;
-		setPolar(450, Game.atan2(normY, normX));
-		int newMouseX = (int) (normX * 100) + (game.displayWidth / 2);
-		int newMouseY = (int) (normY * 100) + (game.displayHeight / 2);
-		game.robot.mouseMove(newMouseX, newMouseY);
-		*/
+		if (norme < 100) {
+			norme = 100;
+		}
+		
+		setPolar(norme, PApplet.atan2(mouseY, mouseX));
+		game.getApp().getDebug().put("old mouse x", e.getX());
+		game.getApp().getDebug().put("old mouse y", e.getY());
+		
+		int newMouseX = (int) (getX() + game.getApp().displayWidth / 2); 
+		int newMouseY = (int) (getY() + game.getApp().displayHeight / 2);
+
+		game.getApp().getDebug().put("new mouse x", newMouseX);
+		game.getApp().getDebug().put("new mouse y", newMouseY);
+
+		game.getApp().robot.mouseMove(newMouseX, newMouseY);
 	}
 
 	public void addCombo(Game.Color c) {

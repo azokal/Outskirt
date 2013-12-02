@@ -42,6 +42,7 @@ public class BasicBullet extends GameObject {
 		if (obj instanceof Enemy) {
 			((Enemy)obj).looseLife(this);
 			kill();
+			//TODO set explosion animation
 		}
 	}
 	

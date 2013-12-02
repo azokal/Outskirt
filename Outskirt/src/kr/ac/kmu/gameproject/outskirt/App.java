@@ -1,18 +1,19 @@
 package kr.ac.kmu.gameproject.outskirt;
 
+import java.awt.AWTException;
+import java.awt.Robot;
 import java.util.HashMap;
 import java.util.Map;
 
 import kr.ac.kmu.gameproject.outskirt.screen.Menu;
 import kr.ac.kmu.gameproject.outskirt.screen.Screen;
-import partition.Partition;
 import processing.core.PApplet;
 
 public class App extends PApplet {
 
 	private Debug debug;
 	private Screen screen;
-
+	public Robot robot;
 	public Map<Character, Boolean> keys = new HashMap<Character, Boolean>();
 	public Map<Integer, Boolean> keysCode = new HashMap<Integer, Boolean>();
 	
@@ -24,6 +25,12 @@ public class App extends PApplet {
 	public void setup() {
 		setScreen(new Menu(this));
 		debug = new Debug(this);
+		try {
+			robot = new Robot();
+		} catch (AWTException e) {
+			e.printStackTrace();
+		}
+		
 	}
 	
 	public void draw() {

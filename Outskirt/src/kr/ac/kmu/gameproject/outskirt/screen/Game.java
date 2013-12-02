@@ -1,7 +1,5 @@
 package kr.ac.kmu.gameproject.outskirt.screen;
 
-import java.awt.AWTException;
-import java.awt.Robot;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 import java.util.ArrayList;
@@ -31,7 +29,6 @@ public class Game implements Screen, KeyListener {
 	public Timer timer;
 	public SpaceSheep spaceSheep;
 	public Enemy enemy;// = new Enemy(this, random(0, 360));
-	public Robot robot;
 	public float totalTime;
 	public String pathSprites =  ".\\data\\sprites\\";
 	public String pathMaps =  ".\\data\\maps\\";
@@ -61,11 +58,6 @@ public class Game implements Screen, KeyListener {
 		getApp().size(getApp().displayWidth, getApp().displayHeight);
 		spaceSheep = new SpaceSheep(this);
 		this.hud = new HUD(this, spaceSheep);
-		try {
-			robot = new Robot();
-		} catch (AWTException e) {
-			e.printStackTrace();
-		}
 		this.getApp().addKeyListener(this);
 		part = new Partition(app, this, pathMaps+"test.xml");
 	}
@@ -110,7 +102,15 @@ public class Game implements Screen, KeyListener {
 
 		S4P.updateSprites(timer.getTotalTime());
 		S4P.drawSprites();
+		//draw outter circle
 		getApp().image(bg[spaceSheep.getColor().ordinal()], 0, 0);
+		
+		//draw inner circle
+		getApp().pushMatrix();
+		getApp().scale(0.22f);
+		getApp().image(bg[spaceSheep.getColor().ordinal()], 0, 0);
+		getApp().popMatrix();
+		
 		hud.draw();
 		app.getDebug().put("fps", app.frameRate);
 	}
