@@ -55,6 +55,7 @@ public class Partition {
 //							children[i].getFloat("life"), children[i].getFloat("timing"));
 //				}
 		} catch (Exception e) {
+			System.out.println(e.getMessage());
 		}
 	}
 	
