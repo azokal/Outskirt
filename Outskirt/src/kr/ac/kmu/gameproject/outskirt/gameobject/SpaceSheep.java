@@ -1,16 +1,14 @@
 package kr.ac.kmu.gameproject.outskirt.gameobject;
 
-import java.awt.event.KeyEvent;
-import java.awt.event.KeyListener;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseMotionListener;
 
-import org.openkinect.processing.Kinect;
-
 import kr.ac.kmu.gameproject.outskirt.Game;
 import kr.ac.kmu.gameproject.outskirt.GameObject;
+
+import org.openkinect.processing.Kinect;
+
 import processing.core.PApplet;
-import processing.core.PConstants;
 
 public class SpaceSheep extends GameObject implements MouseMotionListener {
 
