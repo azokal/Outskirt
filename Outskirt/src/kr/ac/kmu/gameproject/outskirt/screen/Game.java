@@ -64,6 +64,7 @@ public class Game implements Screen, KeyListener {
 			e.printStackTrace();
 		}
 		this.getApp().addKeyListener(this);
+		part = new Partition(app, this, pathMaps+"test.xml");
 	}
 	
 	public void draw() {

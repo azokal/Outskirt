@@ -19,7 +19,6 @@ public class Menu implements Screen {
 		app.text("Press enter to start the game!", app.width / 2, app.height / 2);
 		if (app.isPressed(App.ENTER)) {
 			Game g = new Game(app);
-			g.part = new Partition(app, g, g.pathMaps+"test.xml");
 			app.setScreen(g);
 		}
 		app.popStyle();
