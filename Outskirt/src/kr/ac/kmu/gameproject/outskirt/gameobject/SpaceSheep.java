@@ -2,6 +2,7 @@ package kr.ac.kmu.gameproject.outskirt.gameobject;
 
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseMotionListener;
+import java.util.ArrayList;
 
 import kr.ac.kmu.gameproject.outskirt.App;
 import kr.ac.kmu.gameproject.outskirt.GameObject;
@@ -16,6 +17,7 @@ public class SpaceSheep extends GameObject implements MouseMotionListener{
 	//Set<Bullet> bullets = new HashSet<Bullet>();
 	int	score = 0;
 	public BasicWeapon weapon;
+	public ArrayList<Game.Color> combo;
 	
 	public SpaceSheep(Game game) {
 		super(game);
@@ -27,6 +29,7 @@ public class SpaceSheep extends GameObject implements MouseMotionListener{
 		game.getApp().addMouseMotionListener(this);
 		game.getApp().noCursor();
 		oSprite.setCollisionRadius(oSprite.getCollisionRadius()/10.0f);
+		combo = new ArrayList<Game.Color>();
 	}
 
 	public void draw() {
@@ -41,28 +44,8 @@ public class SpaceSheep extends GameObject implements MouseMotionListener{
 		if (game.getApp().isPressed(' ') || (game.getApp().mousePressed && game.getApp().mouseButton == PApplet.LEFT)) {
 			weapon.shoot();
 		}
-		pieChart(200, weapon.percentage);
 	}
 
-	void pieChart(float diameter, float[] data) {
-		game.getApp().smooth();
-		  float lastAngle = 0;
-		  for (int i = 0; i < data.length; i++) {
-			if (i == 0) {
-				game.getApp().fill(0, 255, 0);
-			}
-			if (i == 1) {
-				game.getApp().fill(255, 0, 0);
-			}
-			if (i == 2) {
-				game.getApp().fill(0, 255, 255);
-			}
-		    game.getApp().arc(600, 400, diameter, diameter, lastAngle, lastAngle+game.getApp().radians(360.0f * data[i] / 100.0f));
-		    lastAngle += game.getApp().radians(360.0f * data[i] / 100.0f);
-		  }
-		  game.getApp().fill(255,255,255);
-	}
-	
 	@Override
 	public void mouseDragged(MouseEvent e) {
 		mouseMoved(e);
@@ -91,6 +74,20 @@ public class SpaceSheep extends GameObject implements MouseMotionListener{
 		*/
 	}
 
+	public void addCombo(Game.Color c) {
+		combo.add(c);
+		if (combo.size() == 3)
+		{
+			if (combo.get(0) == combo.get(1) && combo.get(0) == combo.get(2)) {
+				score += 1000;
+			}
+			if (combo.get(0) != combo.get(1) && combo.get(0) != combo.get(2) && combo.get(1) != combo.get(2)) {
+				weapon.power += 5;
+			}
+			combo.clear();
+		}
+	}
+	
 	public void addScore(int i) {
 		score += i;
 	}

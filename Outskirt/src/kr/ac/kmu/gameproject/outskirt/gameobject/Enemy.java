@@ -85,6 +85,7 @@ public class Enemy extends Life {
 				coll.owner.weapon.upPercentage(coll.color);
 				coll.owner.weapon.upPercentage(coll.color);
 			}
+			coll.owner.addCombo(color);
 		}
 	}
 }

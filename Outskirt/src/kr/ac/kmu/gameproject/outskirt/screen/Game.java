@@ -10,6 +10,7 @@ import java.util.List;
 import kr.ac.kmu.gameproject.outskirt.App;
 import kr.ac.kmu.gameproject.outskirt.Camera;
 import kr.ac.kmu.gameproject.outskirt.GameObject;
+import kr.ac.kmu.gameproject.outskirt.HUD;
 import kr.ac.kmu.gameproject.outskirt.Timer;
 import kr.ac.kmu.gameproject.outskirt.gameobject.Enemy;
 import kr.ac.kmu.gameproject.outskirt.gameobject.SpaceSheep;
@@ -35,6 +36,7 @@ public class Game implements Screen, KeyListener {
 	public String pathSprites =  ".\\data\\sprites\\";
 	public String pathMaps =  ".\\data\\maps\\";
 	Partition part;
+	HUD hud;
 	float testCooldownPopEnemy = 150f;
 	float testLastPop = 0;
 
@@ -58,6 +60,7 @@ public class Game implements Screen, KeyListener {
 		this.timer = new Timer();
 		getApp().size(getApp().displayWidth, getApp().displayHeight);
 		spaceSheep = new SpaceSheep(this);
+		this.hud = new HUD(this, spaceSheep);
 		try {
 			robot = new Robot();
 		} catch (AWTException e) {
@@ -107,6 +110,7 @@ public class Game implements Screen, KeyListener {
 		S4P.updateSprites(timer.getTotalTime());
 		S4P.drawSprites();
 		getApp().image(bg[spaceSheep.getColor().ordinal()], 0, 0);
+		hud.draw();
 		app.getDebug().put("fps", app.frameRate);
 	}
 
