@@ -9,7 +9,7 @@ import kr.ac.kmu.gameproject.outskirt.screen.Game;
 public abstract class BasicWeapon extends GameObject implements Weapon {
 	
 	public GameObject owner;
-	float cooldownShoot = 10f; //100ms
+	float cooldownShoot = 50f; //100ms
 	float lastShoot = 0.0f;
 	public float[] percentage = {34, 33, 33}; 
 	public float power = 20.0f;

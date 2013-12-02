@@ -118,12 +118,6 @@ public class Game implements Screen, KeyListener {
 		//draw outter circle
 		getApp().image(bg[spaceSheep.getColor().ordinal()], 0, 0);
 		
-		//draw inner circle
-		getApp().pushMatrix();
-		getApp().scale(0.22f);
-		getApp().image(bg[spaceSheep.getColor().ordinal()], 0, 0);
-		getApp().popMatrix();
-		
 		hud.draw();
 		app.getDebug().put("fps", app.frameRate);
 	}
