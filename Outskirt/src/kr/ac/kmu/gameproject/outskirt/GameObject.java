@@ -13,7 +13,6 @@ public abstract class GameObject {
 	private float radius;
 	private float x;
 	private float y;
-	private boolean toDelete = false;
 	protected Game.Color color;
 	
 	public GameObject(Game game) {
@@ -80,14 +79,6 @@ public abstract class GameObject {
 	
 	public void setRadius(float radius) {
 		setPolar(radius, angle);
-	}
-	
-	public void markToDelete() {
-		toDelete = true;
-	}
-	
-	public boolean isToDelete() {
-		return toDelete;
 	}
 	
 	public boolean collide(GameObject obj) {
