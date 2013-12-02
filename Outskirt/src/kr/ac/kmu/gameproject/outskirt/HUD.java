@@ -54,8 +54,8 @@ public class HUD {
 	}
 	
 	public void draw() {
-		pieChart(200, player.weapon.percentage);
+		pieChart(200, player.getCurrentWeapon().percentage);
 		comboShow(550, 250);
-		game.getApp().getDebug().put("Player power", this.player.weapon.power);
+		game.getApp().getDebug().put("Player power", this.player.getCurrentWeapon().power);
 	}
 }

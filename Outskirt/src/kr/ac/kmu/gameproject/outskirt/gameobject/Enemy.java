@@ -60,7 +60,14 @@ public class Enemy extends Life {
 			float angle = PApplet.sin(testOccDir
 					* PApplet.radians(game.totalTime) / 8) / 3;
 			setAngle(angle + PApplet.radians(startAngle));
-			addRadius(2f);
+			
+			if (game.getApp().isPressed('o')) {
+				addRadius(2f);
+				game.getApp().getDebug().put("speedType", "slow");
+			} else {
+				addRadius(1 + getRadius() / 200);//Progressive speed
+				game.getApp().getDebug().put("speedType", "fast");
+			}
 			localAngle += PApplet.PI / 30.f;
 			oSprite.setRot(localAngle);
 		}
@@ -81,10 +88,10 @@ public class Enemy extends Life {
 			kill();
 			((SpaceSheep)coll.owner).addScore(100);
 			if (color != coll.color) {
-				((SpaceSheep)coll.owner).weapon.upPercentage(coll.color);
+				((SpaceSheep)coll.owner).getCurrentWeapon().upPercentage(coll.color);
 			} else {
-				((SpaceSheep)coll.owner).weapon.upPercentage(coll.color);
-				((SpaceSheep)coll.owner).weapon.upPercentage(coll.color);
+				((SpaceSheep)coll.owner).getCurrentWeapon().upPercentage(coll.color);
+				((SpaceSheep)coll.owner).getCurrentWeapon().upPercentage(coll.color);
 			}
 			((SpaceSheep)coll.owner).addCombo(color);
 		}

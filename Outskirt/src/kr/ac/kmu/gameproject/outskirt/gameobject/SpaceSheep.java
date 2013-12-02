@@ -4,20 +4,19 @@ import java.awt.event.MouseEvent;
 import java.awt.event.MouseMotionListener;
 import java.util.ArrayList;
 
-import kr.ac.kmu.gameproject.outskirt.App;
 import kr.ac.kmu.gameproject.outskirt.GameObject;
-import kr.ac.kmu.gameproject.outskirt.gameobject.bullet.BasicBullet;
 import kr.ac.kmu.gameproject.outskirt.gameobject.weapon.BasicPlayerWeapon;
 import kr.ac.kmu.gameproject.outskirt.gameobject.weapon.BasicWeapon;
-import kr.ac.kmu.gameproject.outskirt.gameobject.weapon.Weapon;
+import kr.ac.kmu.gameproject.outskirt.gameobject.weapon.CurveWeapon;
+import kr.ac.kmu.gameproject.outskirt.gameobject.weapon.StraightWeapon;
 import kr.ac.kmu.gameproject.outskirt.screen.Game;
 import processing.core.PApplet;
 
 public class SpaceSheep extends GameObject implements MouseMotionListener{
 
-	//Set<Bullet> bullets = new HashSet<Bullet>();
 	int	score = 0;
-	public BasicWeapon weapon;
+	public int currentWeapon = 0;
+	public BasicWeapon[] weaponList = new BasicPlayerWeapon[3];
 	public ArrayList<Game.Color> combo;
 	
 	public SpaceSheep(Game game) {
@@ -26,7 +25,9 @@ public class SpaceSheep extends GameObject implements MouseMotionListener{
 		oSprite.setScale(1.4f);
 		setPolar(450, 0);
 		color = Game.Color.GREEN;
-		weapon = new BasicPlayerWeapon(game, this, color);
+		weaponList[0] = new BasicPlayerWeapon(game, this, color);
+		weaponList[1] = new CurveWeapon(game, this, color);
+		weaponList[2] = new StraightWeapon(game, this, color);
 		game.getApp().addMouseMotionListener(this);
 		game.getApp().noCursor();
 		oSprite.setCollisionRadius(oSprite.getCollisionRadius()/10.0f);
@@ -42,8 +43,23 @@ public class SpaceSheep extends GameObject implements MouseMotionListener{
 		if (game.getApp().isPressed(PApplet.RIGHT)) {
 			addAngle(-0.08f);
 		}
+		
+		if (game.getApp().isPressed('1')) {
+			currentWeapon = 0;
+		}
+
+		if (game.getApp().isPressed('2')) {
+			currentWeapon = 1;
+		}
+
+		if (game.getApp().isPressed('3')) {
+			currentWeapon = 2;
+		}
+		
+		game.getApp().getDebug().put("Current Weapon", weaponList[currentWeapon].getClass().getName());
+		
 		if (game.getApp().isPressed(' ') || (game.getApp().mousePressed && game.getApp().mouseButton == PApplet.LEFT)) {
-			weapon.shoot();
+			getCurrentWeapon().shoot();
 		}
 	}
 
@@ -80,6 +96,10 @@ public class SpaceSheep extends GameObject implements MouseMotionListener{
 		game.getApp().robot.mouseMove(newMouseX, newMouseY);
 	}
 
+	public BasicWeapon getCurrentWeapon() {
+		return weaponList[currentWeapon];
+	}
+	
 	public void addCombo(Game.Color c) {
 		combo.add(c);
 		if (combo.size() >= 3)
@@ -91,7 +111,7 @@ public class SpaceSheep extends GameObject implements MouseMotionListener{
 				score += 1000;
 			}
 			if (combo.get(0) != combo.get(1) && combo.get(0) != combo.get(2) && combo.get(1) != combo.get(2)) {
-				weapon.power += 5;
+				getCurrentWeapon().power += 5;
 			}
 		}
 	}

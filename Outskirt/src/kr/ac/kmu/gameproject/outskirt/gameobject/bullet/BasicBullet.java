@@ -36,7 +36,14 @@ public class BasicBullet extends GameObject {
 		if (getRadius() < 0) {
 			kill();
 		} else {
-			addRadius(-velocity);			
+			addRadius(-velocity);
+			if (game.getApp().isPressed('o')) {
+				addRadius(-velocity);
+				game.getApp().getDebug().put("speedType", "slow");
+			} else {
+				addRadius(- (1 + getRadius() * velocity / 200f));//Progressive speed
+				game.getApp().getDebug().put("speedType", "fast");
+			}
 		}
 	}
 	
