@@ -1,24 +1,22 @@
 package kr.ac.kmu.gameproject.outskirt.gameobject.weapon;
 
 import kr.ac.kmu.gameproject.outskirt.GameObject;
+import kr.ac.kmu.gameproject.outskirt.gameobject.Enemy;
 import kr.ac.kmu.gameproject.outskirt.gameobject.SpaceSheep;
 import kr.ac.kmu.gameproject.outskirt.gameobject.bullet.BasicBullet;
 import kr.ac.kmu.gameproject.outskirt.screen.Game;
 
-public class BasicWeapon extends GameObject implements Weapon {
+public abstract class BasicWeapon extends GameObject implements Weapon {
 	
-	public SpaceSheep owner;
-	float cooldownShoot = 100f; //100ms
+	public GameObject owner;
+	float cooldownShoot = 10f; //100ms
 	float lastShoot = 0.0f;
 	public float[] percentage = {34, 33, 33}; 
 	public float power = 20.0f;
 	Game.Color color;
-
-	public BasicWeapon(Game game, SpaceSheep owner) {
-		this(game, owner, Game.Color.GREEN);
-	}
+	boolean player;
 	
-	public BasicWeapon(Game game, SpaceSheep owner, Game.Color color) {
+	public BasicWeapon(Game game, GameObject owner, Game.Color color) {
 		super(game);
 		this.owner = owner;
 		this.color = color;
@@ -28,26 +26,13 @@ public class BasicWeapon extends GameObject implements Weapon {
 	public void shoot() {
 		if (game.timer.getTotalTime() - lastShoot > cooldownShoot)
 		{
-			new BasicBullet(game, owner, owner.getRadius(), owner.getAngle(), 4, color, percentage[color.ordinal()] * power / 100.0f);
+			new BasicBullet(game, owner, owner.getRadius(), owner.getAngle(), 8, color, percentage[color.ordinal()] * power / 100.0f);
 			lastShoot = game.timer.getTotalTime();
 		}
 	}
 	
 	@Override
-	public void draw() {
-		if (game.getApp().isPressed('q')) {
-			color = Game.Color.GREEN;
-			owner.setGreen();
-		}
-		if (game.getApp().isPressed('w')) {
-			color = Game.Color.RED;
-			owner.setRed();
-		}
-		if (game.getApp().isPressed('e')) {
-			color = Game.Color.CYAN;
-			owner.setBlue();
-		}
-	}
+	public abstract void draw();
 	
 	void manipulatePercentage(int[] minus, int add) {
 		if (percentage[minus[0]] > 1) {

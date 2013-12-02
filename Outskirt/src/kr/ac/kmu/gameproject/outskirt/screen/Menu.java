@@ -1,7 +1,7 @@
 package kr.ac.kmu.gameproject.outskirt.screen;
 
-import partition.Partition;
 import kr.ac.kmu.gameproject.outskirt.App;
+import kr.ac.kmu.gameproject.outskirt.partition.Partition;
 
 public class Menu implements Screen {
 

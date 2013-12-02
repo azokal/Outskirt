@@ -1,4 +1,4 @@
-package partition;
+package kr.ac.kmu.gameproject.outskirt.partition;
 
 import java.io.File;
 import java.io.IOException;

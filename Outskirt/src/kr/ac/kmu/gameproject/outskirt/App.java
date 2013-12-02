@@ -5,6 +5,7 @@ import java.awt.Robot;
 import java.util.HashMap;
 import java.util.Map;
 
+import kr.ac.kmu.gameproject.outskirt.partition.Partition;
 import kr.ac.kmu.gameproject.outskirt.screen.Menu;
 import kr.ac.kmu.gameproject.outskirt.screen.Screen;
 import processing.core.PApplet;
