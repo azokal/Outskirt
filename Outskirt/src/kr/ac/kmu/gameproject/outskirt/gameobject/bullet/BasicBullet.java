@@ -3,6 +3,7 @@ package kr.ac.kmu.gameproject.outskirt.gameobject.bullet;
 import kr.ac.kmu.gameproject.outskirt.GameObject;
 import kr.ac.kmu.gameproject.outskirt.gameobject.Enemy;
 import kr.ac.kmu.gameproject.outskirt.gameobject.SpaceSheep;
+import kr.ac.kmu.gameproject.outskirt.screen.EndScreen;
 import kr.ac.kmu.gameproject.outskirt.screen.Game;
 
 public class BasicBullet extends GameObject {
@@ -10,9 +11,9 @@ public class BasicBullet extends GameObject {
 	float velocity;
 	public float power;
 	public Game.Color color;
-	public SpaceSheep owner;
+	public GameObject owner;
 	
-	public BasicBullet(Game game, SpaceSheep owner, float radius, float angle, float velocity, Game.Color color, float power) {
+	public BasicBullet(Game game, GameObject owner, float radius, float angle, float velocity, Game.Color color, float power) {
 		super(game);
 		this.velocity = velocity;
 		this.color = color;
@@ -39,9 +40,12 @@ public class BasicBullet extends GameObject {
 	
 	@Override
 	public void onCollide(GameObject obj) {
-		if (obj instanceof Enemy) {
-			((Enemy)obj).looseLife(this);
-			kill();
+		if (owner instanceof SpaceSheep && obj instanceof Enemy) {
+					((Enemy)obj).looseLife(this);
+					kill();
+		}
+		else if (owner instanceof Enemy && obj instanceof SpaceSheep) {
+			game.getApp().setScreen(new EndScreen(game.getApp(), game));
 		}
 	}
 	

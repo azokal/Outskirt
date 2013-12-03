@@ -7,6 +7,7 @@ import java.util.ArrayList;
 import kr.ac.kmu.gameproject.outskirt.App;
 import kr.ac.kmu.gameproject.outskirt.GameObject;
 import kr.ac.kmu.gameproject.outskirt.gameobject.bullet.BasicBullet;
+import kr.ac.kmu.gameproject.outskirt.gameobject.weapon.BasicPlayerWeapon;
 import kr.ac.kmu.gameproject.outskirt.gameobject.weapon.BasicWeapon;
 import kr.ac.kmu.gameproject.outskirt.gameobject.weapon.Weapon;
 import kr.ac.kmu.gameproject.outskirt.screen.Game;
@@ -25,7 +26,7 @@ public class SpaceSheep extends GameObject implements MouseMotionListener{
 		oSprite.setScale(1.4f);
 		setPolar(450, 0);
 		color = Game.Color.GREEN;
-		weapon = new BasicWeapon(game, this, color);
+		weapon = new BasicPlayerWeapon(game, this, color);
 		game.getApp().addMouseMotionListener(this);
 		game.getApp().noCursor();
 		oSprite.setCollisionRadius(oSprite.getCollisionRadius()/10.0f);
