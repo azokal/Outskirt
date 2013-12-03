@@ -41,11 +41,14 @@ public class Partition {
 						
 				XML[] children = monsters.getChildren("monster");
 				for (int i = 0; i < children.length; i++) {	
-					Enemy e = new Enemy(game, children[i].getFloat("angle"), Game.Color.values()[children[i].getInt("color")], 
+					new Enemy(game, children[i].getFloat("angle"), Game.Color.values()[children[i].getInt("color")], 
 							children[i].getFloat("life"), children[i].getFloat("timing"));
-	//				e.get
 				}
-
+				children = monsters.getChildren("boss");
+				for (int i = 0; i < children.length; i++) {	
+					game.BossFactory(Game.BossType.values()[children[i].getInt("type")], children[i].getFloat("life"), children[i].getFloat("timing"));
+				}
+				
 //				children = bullets.getChildren("bullet");
 //				for (int i = 0; i < children.length; i++) {
 //					new BasicBullet(game, children[i].getFloat("angle"), Game.Color.values()[children[i].getInt("life")], 

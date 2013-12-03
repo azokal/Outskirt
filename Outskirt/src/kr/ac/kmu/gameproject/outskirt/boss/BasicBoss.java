@@ -14,3 +14,5 @@ public abstract class BasicBoss extends Life {
 		// TODO Auto-generated constructor stub
 	}
 }
+
+
