@@ -14,7 +14,15 @@ public class BossOnePart extends Life{
 		this.owner = owner;
 		oSprite = new sprites.Sprite(game.getApp(),game.pathSprites+"squareGrid.png", 3, 1, 10);
 		oSprite.setScale(3);
-		
+		this.setPolar(50, 0);
+		if (color == Game.Color.RED) {
+			oSprite.setFrame(1);
+			this.setPolar(50, 120);
+		}
+		if (color == Game.Color.CYAN) {
+			oSprite.setFrame(2);
+			this.setPolar(50, 240);
+		}
 	}
 
 	@Override
