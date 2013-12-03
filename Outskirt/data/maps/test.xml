@@ -1,51 +1,51 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <OutSkirt>
+<pattern id="1">
   <monsters>
-    <monster angle="285.86737" color="0" life="30.0" timing="171.0"/>
-    <monster angle="215.61664" color="0" life="30.0" timing="1000.0"/>
-    <monster angle="31.909311" color="2" life="30.0" timing="2000.0"/>
-    <monster angle="40.776886" color="0" life="30.0" timing="3000.0"/>
-    <monster angle="19.477827" color="1" life="30.0" timing="4000.0"/>
-    <monster angle="299.51697" color="2" life="30.0" timing="5000.0"/>
-    <monster angle="182.23895" color="0" life="30.0" timing="6000.0"/>
-    <monster angle="91.95239" color="0" life="30.0" timing="7000.0"/>
-    <monster angle="33.472977" color="0" life="30.0" timing="8000.0"/>
-    <monster angle="237.24718" color="2" life="30.0" timing="9000.0"/>
-    <monster angle="307.72125" color="2" life="30.0" timing="10000.0"/>
-    <monster angle="281.5681" color="2" life="30.0" timing="11000.0"/>
-    <monster angle="99.71159" color="0" life="30.0" timing="12000.0"/>
-    <monster angle="209.39772" color="2" life="30.0" timing="13000.0"/>
-    <monster angle="195.63342" color="1" life="30.0" timing="14000.0"/>
-    <monster angle="133.74382" color="2" life="30.0" timing="15000.0"/>
-    <monster angle="81.752174" color="0" life="30.0" timing="16000.0"/>
-    <monster angle="333.30792" color="1" life="30.0" timing="17000.0"/>
-    <monster angle="322.7441" color="0" life="30.0" timing="18000.0"/>
-    <monster angle="92.76154" color="0" life="30.0" timing="19000.0"/>
-    <monster angle="214.42252" color="1" life="30.0" timing="20000.0"/>
-    <monster angle="319.44327" color="1" life="30.0" timing="21000.0"/>
-    <monster angle="182.255" color="1" life="30.0" timing="22000.0"/>
-    <monster angle="54.029434" color="2" life="30.0" timing="23000.0"/>
-    <monster angle="7.6354294" color="1" life="30.0" timing="24000.0"/>
-    <monster angle="288.28107" color="1" life="30.0" timing="25000.0"/>
-    <monster angle="170.27992" color="0" life="30.0" timing="26000.0"/>
-    <monster angle="1.0457878" color="0" life="30.0" timing="27000.0"/>
-    <monster angle="265.73068" color="2" life="30.0" timing="28000.0"/>
-    <monster angle="76.250534" color="1" life="30.0" timing="4992.0"/>
-    <monster angle="115.25055" color="0" life="30.0" timing="29000.0"/>
-    <monster angle="321.09235" color="2" life="30.0" timing="30000.0"/>
-    <monster angle="109.707634" color="1" life="30.0" timing="31000.0"/>
-    <monster angle="145.694" color="2" life="30.0" timing="32000.0"/>
-    <monster angle="65.33123" color="0" life="30.0" timing="33000.0"/>
-    <monster angle="3.7917376" color="2" life="30.0" timing="34000.0"/>
-    <monster angle="337.7672" color="2" life="30.0" timing="35000.0"/>
-    <monster angle="266.95648" color="1" life="30.0" timing="36000.0"/>
-    <monster angle="221.08939" color="0" life="30.0" timing="37000.0"/>
-    <monster angle="185.28706" color="1" life="30.0" timing="38000.0"/>
-    <monster angle="210.60402" color="1" life="30.0" timing="39000.0"/>
-    <monster angle="103.56823" color="2" life="30.0" timing="40000.0"/>
-    <monster angle="300.299" color="2" life="30.0" timing="41000.0"/>
-    <monster angle="332.64545" color="1" life="30.0" timing="42000.0"/>
-    <monster angle="332.64545" color="1" life="30.0" timing="42000.0"/>
-    <boss type="0" life="40.0" timing="43000.0" />
+    <monster angle="0" color="0" life="30.0" timing="171.0"/>
+    <monster angle="240" color="1" life="30.0" timing="171.0"/>
+    <monster angle="120" color="2" life="30.0" timing="171.0"/>
+    <monster angle="30" color="0" life="30.0" timing="1000.0"/>
+    <monster angle="270" color="1" life="30.0" timing="1000.0"/>
+    <monster angle="150" color="2" life="30.0" timing="1000.0"/>
+    <monster angle="60" color="0" life="30.0" timing="2000.0"/>
+    <monster angle="300" color="1" life="30.0" timing="2000.0"/>
+    <monster angle="180" color="2" life="30.0" timing="2000.0"/>
+    <monster angle="90" color="0" life="30.0" timing="3000.0"/>
+    <monster angle="330" color="1" life="30.0" timing="3000.0"/>
+    <monster angle="210" color="2" life="30.0" timing="3000.0"/>
+    <monster angle="120" color="0" life="30.0" timing="4000.0"/>
+    <monster angle="0" color="1" life="30.0" timing="4000.0"/>
+    <monster angle="240" color="2" life="30.0" timing="4000.0"/>
+    <monster angle="150" color="0" life="30.0" timing="5000.0"/>
+    <monster angle="30" color="1" life="30.0" timing="5000.0"/>
+    <monster angle="270" color="2" life="30.0" timing="5000.0"/>
+    <monster angle="180" color="0" life="30.0" timing="6000.0"/>
+    <monster angle="60" color="1" life="30.0" timing="6000.0"/>
+    <monster angle="300" color="2" life="30.0" timing="6000.0"/>
+    <monster angle="210" color="0" life="30.0" timing="7000.0"/>
+    <monster angle="90" color="1" life="30.0" timing="7000.0"/>
+    <monster angle="330" color="2" life="30.0" timing="7000.0"/>
+    <monster angle="240" color="0" life="30.0" timing="8000.0"/>
+    <monster angle="120" color="1" life="30.0" timing="8000.0"/>
+    <monster angle="0" color="2" life="30.0" timing="8000.0"/>
+    <monster angle="270" color="0" life="30.0" timing="9000.0"/>
+    <monster angle="150" color="1" life="30.0" timing="9000.0"/>
+    <monster angle="30" color="2" life="30.0" timing="9000.0"/>
+    <monster angle="300" color="0" life="30.0" timing="10000.0"/>
+    <monster angle="180" color="1" life="30.0" timing="10000.0"/>
+    <monster angle="60" color="2" life="30.0" timing="10000.0"/>
+    <monster angle="330" color="0" life="30.0" timing="11000.0"/>
+    <monster angle="210" color="1" life="30.0" timing="11000.0"/>
+    <monster angle="90" color="2" life="30.0" timing="11000.0"/>
   </monsters>
+</pattern>
+
+<level>
+<pattern id="1" timing="0.0"/>
+<pattern id="1" timing="12000.0"/>
+<monsters>
+	<boss type="0" life="40.0" timing="12000.0"/>
+</monsters>
+</level>
 </OutSkirt>

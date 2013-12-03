@@ -5,6 +5,8 @@ import java.io.IOException;
 import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.HashMap;
+import java.util.Map;
 
 import org.xml.sax.SAXParseException;
 
@@ -21,10 +23,12 @@ public class Partition {
 	Game game;
 	XML export = new XML("OutSkirt");
 	XML monsters = new XML("monsters");
+	Map<String, XML> patterns;
 	
 	public Partition(App app, Game game, String name) {
 	
 		this.game = game;
+		patterns = new HashMap<String, XML>();
 			  	File file = new File(name);
 			  	if (file.exists() == false) {
 					try {
@@ -35,19 +39,22 @@ public class Partition {
 			  	}
 		try {
 				xml = app.loadXML(name);
-				XML monsters = xml.getChild("monsters");
+				XML[] pattern = xml.getChildren("pattern");
+				for (int i = 0; i < pattern.length; i++) {
+					patterns.put(pattern[i].getString("id"), pattern[i]);
+				}
+				
+				XML level = xml.getChild("level");
+
+				pattern = level.getChildren("pattern");
+				for (int i = 0; i < pattern.length; i++) {
+					TreatXML(patterns.get(pattern[i].getString("id")), pattern[i].getFloat("timing"));
+				}
+				
+			TreatXML(level, 0);
 //				XML bullets = xml.getChild("bullets");
 				
 						
-				XML[] children = monsters.getChildren("monster");
-				for (int i = 0; i < children.length; i++) {	
-					new Enemy(game, children[i].getFloat("angle"), Game.Color.values()[children[i].getInt("color")], 
-							children[i].getFloat("life"), children[i].getFloat("timing"));
-				}
-				children = monsters.getChildren("boss");
-				for (int i = 0; i < children.length; i++) {	
-					game.BossFactory(Game.BossType.values()[children[i].getInt("type")], children[i].getFloat("life"), children[i].getFloat("timing"));
-				}
 				
 //				children = bullets.getChildren("bullet");
 //				for (int i = 0; i < children.length; i++) {
@@ -56,6 +63,18 @@ public class Partition {
 //				}
 		} catch (Exception e) {
 			System.out.println(e.getMessage());
+		}
+	}
+	
+	public void TreatXML(XML level, float timing) {
+		XML[] children = level.getChild("monsters").getChildren("monster");
+		for (int i = 0; i < children.length; i++) {	
+			new Enemy(game, children[i].getFloat("angle"), Game.Color.values()[children[i].getInt("color")], 
+					children[i].getFloat("life"), children[i].getFloat("timing") + timing);
+		}
+		children = level.getChild("monsters").getChildren("boss");
+		for (int i = 0; i < children.length; i++) {	
+			game.BossFactory(Game.BossType.values()[children[i].getInt("type")], children[i].getFloat("life"), children[i].getFloat("timing") + timing);
 		}
 	}
 	
