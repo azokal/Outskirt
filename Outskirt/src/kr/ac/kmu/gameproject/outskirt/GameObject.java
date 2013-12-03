@@ -35,7 +35,7 @@ public abstract class GameObject {
 		this.x  = x;
 		this.y = y;
 		this.radius = PApplet.sqrt(x * x + y * y);
-		this.angle = PApplet.tan(y / x);
+		this.angle = PApplet.atan2(y, x);
 		oSprite.setXY(x, y);
 		oSprite.setRot(radius);
 	}

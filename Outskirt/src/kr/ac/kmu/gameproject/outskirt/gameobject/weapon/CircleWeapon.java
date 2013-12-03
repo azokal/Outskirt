@@ -25,11 +25,9 @@ public class CircleWeapon  extends BasicWeapon {
 		for (float a = 0.0f; a < 360.0f; a += 20.0f) {
 			float tmpx = x + 10.0f * PApplet.cos(PApplet.radians(a));
 			float tmpy = y + 10.0f * PApplet.sin(PApplet.radians(a));
-			float C = PApplet.sqrt(tmpx * tmpx + tmpy * tmpy);
-			float B = PApplet.sqrt(x * -x + y * y);
-			float A = PApplet.sqrt((x-tmpx) * (x-tmpx) + (y-tmpy) * (y-tmpy));
 			
-			BasicBullet b = new BasicBullet(game, owner, C, PApplet.acos((C*C + B*B - A*A) / (2*B*C)), -2, color, 1);
+			BasicBullet b = new BasicBullet(game, owner, 0, 0, -2, color, 1);
+			b.setCart(tmpx, tmpy);
 			//new BasicBullet(game, owner, 50, PApplet.radians(a), -2, color, 1);
 		}
 	}
