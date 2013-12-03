@@ -7,7 +7,7 @@ import kr.ac.kmu.gameproject.outskirt.life.Life;
 import kr.ac.kmu.gameproject.outskirt.screen.Game;
 
 public abstract class BasicBoss extends Life {
-	ArrayList<GameObject> bossPart;
+	GameObject[] bossPart;
 	
 	public BasicBoss(Game game, float maxLife) {
 		super(game, maxLife);

@@ -46,6 +46,6 @@
     <monster angle="300.299" color="2" life="30.0" timing="41000.0"/>
     <monster angle="332.64545" color="1" life="30.0" timing="42000.0"/>
     <monster angle="332.64545" color="1" life="30.0" timing="42000.0"/>
-    <boss life="30.0" timing="43000.0"/>
+    <boss life="40.0" timing="43000.0" type="0" />
   </monsters>
 </OutSkirt>
