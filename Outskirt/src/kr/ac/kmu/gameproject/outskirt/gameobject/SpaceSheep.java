@@ -76,15 +76,17 @@ public class SpaceSheep extends GameObject implements MouseMotionListener{
 
 	public void addCombo(Game.Color c) {
 		combo.add(c);
-		if (combo.size() == 3)
+		if (combo.size() >= 3)
 		{
+			if (combo.size() == 4) {
+				combo.remove(0);
+			}
 			if (combo.get(0) == combo.get(1) && combo.get(0) == combo.get(2)) {
 				score += 1000;
 			}
 			if (combo.get(0) != combo.get(1) && combo.get(0) != combo.get(2) && combo.get(1) != combo.get(2)) {
 				weapon.power += 5;
 			}
-			combo.clear();
 		}
 	}
 	

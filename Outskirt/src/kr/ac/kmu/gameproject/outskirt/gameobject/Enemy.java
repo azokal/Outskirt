@@ -79,6 +79,7 @@ public class Enemy extends Life {
 		}
 		if (life <= 0) {
 			kill();
+			coll.owner.addScore(100);
 			if (color != coll.color) {
 				coll.owner.weapon.upPercentage(coll.color);
 			} else {
