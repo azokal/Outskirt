@@ -1,15 +1,17 @@
 package kr.ac.kmu.gameproject.outskirt.boss;
 
+import kr.ac.kmu.gameproject.outskirt.gameobject.Enemy;
 import kr.ac.kmu.gameproject.outskirt.gameobject.bullet.BasicBullet;
 import kr.ac.kmu.gameproject.outskirt.life.Life;
 import kr.ac.kmu.gameproject.outskirt.screen.Game;
 
-public class BossOnePart extends Life{
+public class BossOnePart extends Enemy{
 	Game.Color color;
 	BossOne owner;
+	float timing;
 	
-	public BossOnePart(Game game, float maxLife, BossOne owner, Game.Color color) {
-		super(game, maxLife);
+	public BossOnePart(Game game, float maxLife, BossOne owner, Game.Color color, float timing) {
+		super(game, maxLife, color, maxLife, timing);
 		this.color = color;
 		this.owner = owner;
 		oSprite = new sprites.Sprite(game.getApp(),game.pathSprites+"squareGrid.png", 3, 1, 10);
