@@ -14,7 +14,7 @@ import kr.ac.kmu.gameproject.outskirt.HUD;
 import kr.ac.kmu.gameproject.outskirt.Timer;
 import kr.ac.kmu.gameproject.outskirt.gameobject.Enemy;
 import kr.ac.kmu.gameproject.outskirt.gameobject.SpaceSheep;
-import partition.Partition;
+import kr.ac.kmu.gameproject.outskirt.partition.Partition;
 import processing.core.PImage;
 import sprites.S4P;
 
