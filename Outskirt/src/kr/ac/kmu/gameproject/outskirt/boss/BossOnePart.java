@@ -1,7 +1,10 @@
 package kr.ac.kmu.gameproject.outskirt.boss;
 
+import processing.core.PApplet;
 import kr.ac.kmu.gameproject.outskirt.gameobject.Enemy;
 import kr.ac.kmu.gameproject.outskirt.gameobject.bullet.BasicBullet;
+import kr.ac.kmu.gameproject.outskirt.gameobject.weapon.BasicWeapon;
+import kr.ac.kmu.gameproject.outskirt.gameobject.weapon.CircleWeapon;
 import kr.ac.kmu.gameproject.outskirt.life.Life;
 import kr.ac.kmu.gameproject.outskirt.screen.Game;
 
@@ -10,6 +13,7 @@ public class BossOnePart extends Life {
 	BossOne owner;
 	float timing;
 	boolean isPop = false;
+	BasicWeapon weapon;
 	
 	public BossOnePart(Game game, float maxLife, BossOne owner, Game.Color color, float timing) {
 		super(game, maxLife);
@@ -28,6 +32,7 @@ public class BossOnePart extends Life {
 		}
 		oSprite.setVisible(false);
 		this.timing = timing;
+		this.weapon = new CircleWeapon(game, this, color);
 	}
 
 	@Override
@@ -45,10 +50,18 @@ public class BossOnePart extends Life {
 			oSprite.setVisible(true);
 			isPop = true;
 		}
+		if (isPop == true) {
+			move();
+			weapon.shoot();
+		}
 	}
 	
 	public float getTiming() {
 		return timing;
+	}
+	
+	public void move() {
+		addAngle(game.getApp().radians(1));
 	}
 
 }

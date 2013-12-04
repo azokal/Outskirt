@@ -27,6 +27,7 @@ public class BasicBullet extends GameObject {
 		setPolar(radius, angle);
 		this.owner = owner;
 		this.power = power;
+		oSprite.setScale(getRadius() / 200f);
 	}
 
 	@Override
@@ -34,6 +35,8 @@ public class BasicBullet extends GameObject {
 		oSprite.setScale(getRadius() / 200f);
 		
 		if (getRadius() < 0) {
+			kill();
+		} else if (getRadius() > 550) {
 			kill();
 		} else {
 			addRadius(-velocity);
