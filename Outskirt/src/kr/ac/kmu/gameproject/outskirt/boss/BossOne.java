@@ -6,7 +6,6 @@ import kr.ac.kmu.gameproject.outskirt.life.Life;
 import kr.ac.kmu.gameproject.outskirt.screen.Game;
 
 public class BossOne extends BasicBoss {
-	float timing;
 	
 	public BossOne(Game game, float maxLife, float timing) {
 		super(game, maxLife);
@@ -34,7 +33,4 @@ public class BossOne extends BasicBoss {
 
 	}
 
-	public float getTiming() {
-		return timing;
-	}
 }

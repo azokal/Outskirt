@@ -8,10 +8,15 @@ import kr.ac.kmu.gameproject.outskirt.screen.Game;
 
 public abstract class BasicBoss extends Life {
 	GameObject[] bossPart;
+	float timing;
 	
 	public BasicBoss(Game game, float maxLife) {
 		super(game, maxLife);
 		// TODO Auto-generated constructor stub
+	}
+	
+	public float getTiming() {
+		return timing;
 	}
 }
 
