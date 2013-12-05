@@ -140,6 +140,11 @@ public class Game implements Screen, KeyListener {
 	public void keyPressed(KeyEvent e) {
 		if (e.getKeyChar() == 'p') {
 			app.setScreen(new PauseScreen(app, this));
+			if (timer.isRunning()) {
+				this.timer.stop();
+			} else {
+				this.timer.start();
+			}
 		}
 	}
 
