@@ -34,7 +34,7 @@ public abstract class BasicWeapon extends GameObject implements Weapon {
 	}
 	
 	public void generateBullet() {
-		new BasicBullet(game, owner, owner.getRadius(), owner.getAngle(), 4, color, percentage[color.ordinal()] * power / 100.0f);
+		new BasicBullet(game, owner, owner.getRadius(), owner.getAngle(), 0.001f, color, percentage[color.ordinal()] * power / 100.0f);
 	}
 	
 	@Override
