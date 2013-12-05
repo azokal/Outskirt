@@ -30,7 +30,6 @@ public class Game implements Screen, KeyListener {
 	public Timer timer;
 	public SpaceSheep spaceSheep;
 	public Enemy enemy;// = new Enemy(this, random(0, 360));
-	public float totalTime;
 	public String pathSprites =  ".\\data\\sprites\\";
 	public String pathMaps =  ".\\data\\maps\\";
 	Partition part;
@@ -81,7 +80,6 @@ public class Game implements Screen, KeyListener {
 		getApp().background(0);
 		getApp().color(255);
 		camera.draw();
-		totalTime = this.timer.getTotalTime();
 	//	if (totalTime - testLastPop > testCooldownPopEnemy) {
 	//		enemy = new Enemy(this, getApp().random(0, 359),
 	//				Color.values()[(int) getApp().random(0, 3)], 30, totalTime);

@@ -44,7 +44,7 @@ public class BossOnePart extends Life {
 
 	@Override
 	public void draw() {
-		if (game.totalTime < timing)
+		if (game.timer.getTotalTime() < timing)
 			return ;
 		else if (isPop == false) {
 			oSprite.setVisible(true);

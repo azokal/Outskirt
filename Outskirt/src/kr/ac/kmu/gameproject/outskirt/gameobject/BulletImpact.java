@@ -9,7 +9,7 @@ public class BulletImpact extends GameObject {
 	
 	public BulletImpact(Game game, float radius, float angle) {
 		super(game);
-		createtime = game.totalTime;
+		createtime = game.timer.getTotalTime();
 		oSprite = new sprites.Sprite(game.getApp(),game.pathSprites+"Impact.png", 1, 1, 10);
 		setPolar(radius, angle);
 	}
@@ -17,7 +17,7 @@ public class BulletImpact extends GameObject {
 	@Override
 	public void draw() {
 		oSprite.setScale(getRadius() / 1000f);
-		if (game.totalTime - createtime > 100) {
+		if (game.timer.getTotalTime() - createtime > 100) {
 			kill();
 		}
 	}

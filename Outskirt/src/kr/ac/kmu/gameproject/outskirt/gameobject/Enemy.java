@@ -47,7 +47,7 @@ public class Enemy extends Life {
 	}
 	
 	public void draw() {
-		if (game.totalTime < timing)
+		if (game.timer.getTotalTime() < timing)
 			return ;
 		else if (isPop == false) {
 			oSprite.setVisible(true);
@@ -58,7 +58,7 @@ public class Enemy extends Life {
 		} else {
 			oSprite.setScale(getRadius() / 300f);
 			float angle = PApplet.sin(testOccDir
-					* PApplet.radians(game.totalTime) / 8) / 3;
+					* PApplet.radians(game.timer.getTotalTime()) / 8) / 3;
 			setAngle(angle + PApplet.radians(startAngle));
 			
 			if (game.getApp().isPressed('o')) {
