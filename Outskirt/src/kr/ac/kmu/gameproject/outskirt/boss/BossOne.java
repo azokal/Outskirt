@@ -24,6 +24,7 @@ public class BossOne extends BasicBoss {
 			for (GameObject o: bossPart) {
 				o.kill();
 			}
+			game.tpop.start();
 			kill();
 		}
 	}

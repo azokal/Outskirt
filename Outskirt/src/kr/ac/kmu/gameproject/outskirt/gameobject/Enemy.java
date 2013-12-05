@@ -47,7 +47,7 @@ public class Enemy extends Life {
 	}
 	
 	public void draw() {
-		if (game.timer.getTotalTime() < timing)
+		if (game.pop < timing && isPop == false)
 			return ;
 		else if (isPop == false) {
 			oSprite.setVisible(true);

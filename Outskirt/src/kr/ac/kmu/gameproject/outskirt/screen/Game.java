@@ -28,10 +28,14 @@ public class Game implements Screen, KeyListener {
 	public Camera camera;
 	public PImage[] bg;
 	public Timer timer;
+	public Timer tpop;
 	public SpaceSheep spaceSheep;
 	public Enemy enemy;// = new Enemy(this, random(0, 360));
+	public float totalTime;
+	public float pop;
 	public String pathSprites =  ".\\data\\sprites\\";
 	public String pathMaps =  ".\\data\\maps\\";
+	public float endGame;
 	Partition part;
 	HUD hud;
 	float testCooldownPopEnemy = 150f;
@@ -66,7 +70,10 @@ public class Game implements Screen, KeyListener {
 		this.bg[1] = getApp().loadImage(pathSprites+"redCircle.png");
 		this.bg[2] = getApp().loadImage(pathSprites+"cyanCircle.png");
 		this.bg[3] = getApp().loadImage(pathSprites+"whiteCircle.png");
-		this.timer = new Timer();
+		this.timer = new Timer(true);
+		this.tpop = new Timer(true);
+		this.tpop.start();
+		this.timer.start();
 		getApp().size(getApp().displayWidth, getApp().displayHeight);
 		spaceSheep = new SpaceSheep(this);
 		this.hud = new HUD(this, spaceSheep);
@@ -77,10 +84,16 @@ public class Game implements Screen, KeyListener {
 	public void draw() {
 		app.getDebug().put("number gameobject", gameObjectList.size());
 		timer.updateTime();
+		tpop.updateTime();
 		getApp().background(0);
 		getApp().color(255);
 		camera.draw();
-	//	if (totalTime - testLastPop > testCooldownPopEnemy) {
+		totalTime = this.timer.getTotalTime();
+		pop = this.tpop.getTotalTime();
+		if (pop >= endGame) {
+			app.setScreen(new EndScreen(app, this));
+		}
+		//	if (totalTime - testLastPop > testCooldownPopEnemy) {
 	//		enemy = new Enemy(this, getApp().random(0, 359),
 	//				Color.values()[(int) getApp().random(0, 3)], 30, totalTime);
 	//		part.addEnemy(enemy);

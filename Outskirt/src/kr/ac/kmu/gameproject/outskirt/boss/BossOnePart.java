@@ -47,6 +47,7 @@ public class BossOnePart extends Life {
 		if (game.timer.getTotalTime() < timing)
 			return ;
 		else if (isPop == false) {
+			game.tpop.stop();
 			oSprite.setVisible(true);
 			isPop = true;
 		}

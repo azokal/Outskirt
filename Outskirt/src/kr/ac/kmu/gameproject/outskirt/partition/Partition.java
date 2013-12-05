@@ -52,8 +52,8 @@ public class Partition {
 				}
 				
 			TreatXML(level, 0);
+			game.endGame = level.getChild("endgame").getFloat("timing");
 //				XML bullets = xml.getChild("bullets");
-				
 						
 				
 //				children = bullets.getChildren("bullet");
@@ -76,6 +76,7 @@ public class Partition {
 		for (int i = 0; i < children.length; i++) {	
 			game.BossFactory(Game.BossType.values()[children[i].getInt("type")], children[i].getFloat("life"), children[i].getFloat("timing") + timing);
 		}
+		game.endGame = 0;
 	}
 	
 	public void addEnemy(Enemy en) {

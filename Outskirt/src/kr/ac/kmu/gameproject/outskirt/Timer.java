@@ -58,5 +58,4 @@ public class Timer {
 	public boolean isRunning() {
 		return running;
 	}
-    
 }
