@@ -35,11 +35,12 @@ public class Timer {
     }
 
     public void start() {
-    	running = true;
     	init();
+    	running = true;
     }
     
     public void stop() {
+    	init();
     	running = false;
     }
     

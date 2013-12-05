@@ -65,7 +65,9 @@ public class Enemy extends Life {
 				addRadius(2f);
 				game.getApp().getDebug().put("speedType", "slow");
 			} else {
-				addRadius(1 + getRadius() / 200);//Progressive speed
+				addRadius((1 + getRadius()) * game.timer.getElapsedTime() / 1000  );//Progressive speed
+				game.getApp().getDebug().put("Radius", getRadius());
+				game.getApp().getDebug().put("Elapsed Time", game.timer.getElapsedTime());
 				game.getApp().getDebug().put("speedType", "fast");
 			}
 			localAngle += PApplet.PI / 30.f;
