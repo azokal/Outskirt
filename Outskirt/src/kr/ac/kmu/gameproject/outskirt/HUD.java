@@ -53,9 +53,13 @@ public class HUD {
 		game.getApp().popStyle();
 	}
 	
+	void bossLifeShow(int x, int y) {
+		
+	}
+	
 	public void draw() {
 		pieChart(200, player.getCurrentWeapon().percentage);
-		comboShow(550, 250);
+		comboShow(560, 250);
 		game.getApp().getDebug().put("Player power", this.player.getCurrentWeapon().power);
 	}
 }

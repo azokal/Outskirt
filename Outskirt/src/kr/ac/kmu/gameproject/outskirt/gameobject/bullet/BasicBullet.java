@@ -56,8 +56,11 @@ public class BasicBullet extends GameObject {
 					((Enemy)obj).looseLife(this);
 					kill();
 					new BulletImpact(game, getRadius(), getAngle());
-		} else if (owner instanceof Enemy && obj instanceof SpaceSheep) {
-			game.getApp().setScreen(new EndScreen(game.getApp(), game));
+		} else if (owner instanceof Life && obj instanceof SpaceSheep) {
+			if (((SpaceSheep)obj).getColor() != this.color) {
+				game.getApp().setScreen(new EndScreen(game.getApp(), game));
+			}
+			kill();
 		} else if (owner instanceof SpaceSheep && obj instanceof Life) {
 			((Life)obj).looseLife(this);
 			kill();
