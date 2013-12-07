@@ -1,7 +1,7 @@
 package kr.ac.kmu.gameproject.outskirt.boss;
 
 import processing.core.PApplet;
-import kr.ac.kmu.gameproject.outskirt.gameobject.Enemy;
+import kr.ac.kmu.gameproject.outskirt.enemy.Enemy;
 import kr.ac.kmu.gameproject.outskirt.gameobject.bullet.BasicBullet;
 import kr.ac.kmu.gameproject.outskirt.gameobject.weapon.BasicWeapon;
 import kr.ac.kmu.gameproject.outskirt.gameobject.weapon.CircleWeapon;
@@ -33,6 +33,7 @@ public class BossOnePart extends Life {
 		oSprite.setVisible(false);
 		this.timing = timing;
 		this.weapon = new CircleWeapon(game, this, color);
+		this.weapon.power = 20;
 	}
 
 	@Override

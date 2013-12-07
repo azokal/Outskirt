@@ -6,6 +6,7 @@ import kr.ac.kmu.gameproject.outskirt.boss.BasicBoss;
 import kr.ac.kmu.gameproject.outskirt.gameobject.SpaceSheep;
 import kr.ac.kmu.gameproject.outskirt.screen.Game;
 import processing.core.PApplet;
+import processing.core.PFont;
 
 public class HUD {
 	Game game;
@@ -38,8 +39,8 @@ public class HUD {
 	}
 	
 	void comboShow(int x, int y) {
-		game.getApp().text("Combo:", x+20, y);
 		game.getApp().pushStyle();
+		game.getApp().text("Combo:", x+20, y);
 		for (Game.Color c: this.player.combo) {
 			if (c == Game.Color.GREEN) {
 				game.getApp().fill(0, 255, 0);
@@ -53,6 +54,15 @@ public class HUD {
 			game.getApp().ellipse(x, y+20, 20, 20);
 			x += 40;
 		}
+		game.getApp().popStyle();
+	}
+	
+	void verticalBar(int x, int y, int size, String label, float value, float valueMax) {
+		game.getApp().pushStyle();
+			game.getApp().textSize(24);
+			game.getApp().text(label, x-8, y + size + 32);
+			game.getApp().fill(255-255 * value/valueMax, 255 * value/valueMax, 0);
+			game.getApp().rect(x, y+size, 20, -size * value/valueMax);
 		game.getApp().popStyle();
 	}
 	
@@ -76,6 +86,8 @@ public class HUD {
 		pieChart(200, player.getCurrentWeapon().percentage);
 		comboShow(560, 250);
 		bossLifeShow(-200, -500);
+		verticalBar(500, -200, 400, "Life", player.getCurrentLife(), player.getLifeMax());
+		verticalBar(580, -200, 400, "Power", this.player.getCurrentWeapon().power, this.player.getCurrentWeapon().powerMax);
 		game.getApp().getDebug().put("Player power", this.player.getCurrentWeapon().power);
 	}
 }

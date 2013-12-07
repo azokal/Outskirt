@@ -1,8 +1,8 @@
 package kr.ac.kmu.gameproject.outskirt.gameobject.bullet;
 
 import kr.ac.kmu.gameproject.outskirt.GameObject;
+import kr.ac.kmu.gameproject.outskirt.enemy.Enemy;
 import kr.ac.kmu.gameproject.outskirt.gameobject.BulletImpact;
-import kr.ac.kmu.gameproject.outskirt.gameobject.Enemy;
 import kr.ac.kmu.gameproject.outskirt.gameobject.SpaceSheep;
 import kr.ac.kmu.gameproject.outskirt.life.Life;
 import kr.ac.kmu.gameproject.outskirt.screen.EndScreen;
@@ -56,12 +56,11 @@ public class BasicBullet extends GameObject {
 					((Enemy)obj).looseLife(this);
 					kill();
 					new BulletImpact(game, getRadius(), getAngle());
-		} else if (owner instanceof Life && obj instanceof SpaceSheep) {
-			if (((SpaceSheep)obj).getColor() != this.color) {
-				game.getApp().setScreen(new EndScreen(game.getApp(), game));
-			}
+		} else if (owner instanceof Life && obj instanceof SpaceSheep && !(owner instanceof SpaceSheep)) {
+			((SpaceSheep)obj).looseLife(this);
 			kill();
-		} else if (owner instanceof SpaceSheep && obj instanceof Life) {
+			new BulletImpact(game, getRadius(), getAngle());
+		} else if (owner instanceof SpaceSheep && obj instanceof Life && !(obj instanceof SpaceSheep)) {
 			((Life)obj).looseLife(this);
 			kill();
 			new BulletImpact(game, getRadius(), getAngle());

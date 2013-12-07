@@ -12,7 +12,8 @@ import org.xml.sax.SAXParseException;
 
 import kr.ac.kmu.gameproject.outskirt.App;
 import kr.ac.kmu.gameproject.outskirt.GameObject;
-import kr.ac.kmu.gameproject.outskirt.gameobject.Enemy;
+import kr.ac.kmu.gameproject.outskirt.enemy.Enemy;
+import kr.ac.kmu.gameproject.outskirt.enemy.SquareEnemy;
 import kr.ac.kmu.gameproject.outskirt.gameobject.bullet.BasicBullet;
 import kr.ac.kmu.gameproject.outskirt.screen.Game;
 import kr.ac.kmu.gameproject.outskirt.screen.Game.Color;
@@ -69,7 +70,7 @@ public class Partition {
 	public void TreatXML(XML level, float timing) {
 		XML[] children = level.getChild("monsters").getChildren("monster");
 		for (int i = 0; i < children.length; i++) {	
-			new Enemy(game, children[i].getFloat("angle"), Game.Color.values()[children[i].getInt("color")], 
+			new SquareEnemy(game, children[i].getFloat("angle"), Game.Color.values()[children[i].getInt("color")], 
 					children[i].getFloat("life"), children[i].getFloat("timing") + timing);
 		}
 		children = level.getChild("monsters").getChildren("boss");

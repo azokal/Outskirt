@@ -1,7 +1,7 @@
 package kr.ac.kmu.gameproject.outskirt.gameobject.weapon;
 
 import kr.ac.kmu.gameproject.outskirt.GameObject;
-import kr.ac.kmu.gameproject.outskirt.gameobject.Enemy;
+import kr.ac.kmu.gameproject.outskirt.enemy.Enemy;
 import kr.ac.kmu.gameproject.outskirt.gameobject.SpaceSheep;
 import kr.ac.kmu.gameproject.outskirt.gameobject.bullet.BasicBullet;
 import kr.ac.kmu.gameproject.outskirt.gameobject.bullet.LeftStraightBullet;
@@ -15,6 +15,7 @@ public abstract class BasicWeapon extends GameObject implements Weapon {
 	float lastShoot = 0.0f;
 	public float[] percentage = {34, 33, 33}; 
 	public float power = 20.0f;
+	public float powerMax = 100.0f;
 	Game.Color color;
 	boolean player;
 	

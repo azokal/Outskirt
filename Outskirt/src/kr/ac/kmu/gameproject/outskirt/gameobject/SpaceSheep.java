@@ -5,14 +5,17 @@ import java.awt.event.MouseMotionListener;
 import java.util.ArrayList;
 
 import kr.ac.kmu.gameproject.outskirt.GameObject;
+import kr.ac.kmu.gameproject.outskirt.gameobject.bullet.BasicBullet;
 import kr.ac.kmu.gameproject.outskirt.gameobject.weapon.BasicPlayerWeapon;
 import kr.ac.kmu.gameproject.outskirt.gameobject.weapon.BasicWeapon;
 import kr.ac.kmu.gameproject.outskirt.gameobject.weapon.CurveWeapon;
 import kr.ac.kmu.gameproject.outskirt.gameobject.weapon.StraightWeapon;
+import kr.ac.kmu.gameproject.outskirt.life.Life;
+import kr.ac.kmu.gameproject.outskirt.screen.EndScreen;
 import kr.ac.kmu.gameproject.outskirt.screen.Game;
 import processing.core.PApplet;
 
-public class SpaceSheep extends GameObject implements MouseMotionListener{
+public class SpaceSheep extends Life implements MouseMotionListener{
 
 	int	score = 0;
 	public int currentWeapon = 0;
@@ -20,7 +23,7 @@ public class SpaceSheep extends GameObject implements MouseMotionListener{
 	public ArrayList<Game.Color> combo;
 	
 	public SpaceSheep(Game game) {
-		super(game);
+		super(game, 100);
 		oSprite = new sprites.Sprite(game.getApp(), game.pathSprites+"playerGrid.png", 3, 1, 10);
 		oSprite.setScale(1.4f);
 		setPolar(450, 0);
@@ -111,7 +114,10 @@ public class SpaceSheep extends GameObject implements MouseMotionListener{
 				score += 1000;
 			}
 			if (combo.get(0) != combo.get(1) && combo.get(0) != combo.get(2) && combo.get(1) != combo.get(2)) {
-				getCurrentWeapon().power += 5;
+				if (getCurrentWeapon().power + 5 <= getCurrentWeapon().powerMax)
+					getCurrentWeapon().power += 5;
+				else
+					getCurrentWeapon().power += getCurrentWeapon().powerMax;
 			}
 		}
 	}
@@ -141,6 +147,22 @@ public class SpaceSheep extends GameObject implements MouseMotionListener{
 	public void setBlue() {
 		color = Game.Color.CYAN;
 		oSprite.setFrame(2);
+	}
+
+	@Override
+	public void looseLife(BasicBullet coll) {
+		if (color != coll.color) {
+			life -= coll.power;
+		} else {
+			if (life + coll.power / 2 <= maxLife)
+				life += coll.power / 2;
+			else
+				life = maxLife;
+		}
+		if (life <= 0) {
+			kill();
+			game.getApp().setScreen(new EndScreen(game.getApp(), game));
+		}
 	}
 	
 }

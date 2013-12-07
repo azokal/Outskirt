@@ -1,8 +1,9 @@
-package kr.ac.kmu.gameproject.outskirt.gameobject;
+package kr.ac.kmu.gameproject.outskirt.enemy;
 
 import java.util.Random;
 
 import kr.ac.kmu.gameproject.outskirt.GameObject;
+import kr.ac.kmu.gameproject.outskirt.gameobject.SpaceSheep;
 import kr.ac.kmu.gameproject.outskirt.gameobject.bullet.BasicBullet;
 import kr.ac.kmu.gameproject.outskirt.life.Life;
 import kr.ac.kmu.gameproject.outskirt.screen.EndScreen;
@@ -14,13 +15,12 @@ public class Enemy extends Life {
 	float localAngle = 0;
 	float startAngle = 0;
 	Game.Color color;
-	float testOccDir = 1;
 	float timing;
 	
-	public Enemy(Game game, float startAngle, Game.Color color, float life, float timing) {
+	public Enemy(Game game, float startAngle, Game.Color color, float life, float timing, String path) {
 		super(game, life);
 		this.timing = timing;
-		oSprite = new sprites.Sprite(game.getApp(),game.pathSprites+"squareGrid.png", 3, 1, 10);
+		oSprite = new sprites.Sprite(game.getApp(), path, 3, 1, 10);
 		this.startAngle = startAngle;
 		setPolar(0, this.startAngle);
 		oSprite.setScale(getRadius()/300f);
@@ -29,8 +29,6 @@ public class Enemy extends Life {
 			oSprite.setFrame(1);
 		if (color == Game.Color.CYAN)
 			oSprite.setFrame(2);
-		Random rand = new Random();
-		testOccDir = rand.nextInt(2) == 1 ? 1: -1;
 		oSprite.setVisible(false);
 	}
 	
@@ -46,6 +44,10 @@ public class Enemy extends Life {
 		return (timing);
 	}
 	
+	public void move() {
+		
+	}
+	
 	public void draw() {
 		if (game.pop < timing && isPop == false)
 			return ;
@@ -57,21 +59,7 @@ public class Enemy extends Life {
 			this.kill();
 		} else {
 			oSprite.setScale(getRadius() / 300f);
-			float angle = PApplet.sin(testOccDir
-					* PApplet.radians(game.timer.getTotalTime()) / 8) / 3;
-			setAngle(angle + PApplet.radians(startAngle));
-			
-			if (game.getApp().isPressed('o')) {
-				addRadius(2f);
-				game.getApp().getDebug().put("speedType", "slow");
-			} else {
-				addRadius((1 + getRadius()) * game.timer.getElapsedTime() / 1000  );//Progressive speed
-				game.getApp().getDebug().put("Radius", getRadius());
-				game.getApp().getDebug().put("Elapsed Time", game.timer.getElapsedTime());
-				game.getApp().getDebug().put("speedType", "fast");
-			}
-			localAngle += PApplet.PI / 30.f;
-			oSprite.setRot(localAngle);
+			move();
 		}
 	}
 	

@@ -12,6 +12,7 @@ public class CircleWeapon  extends BasicWeapon {
 	public CircleWeapon(Game game, GameObject owner, Color color) {
 		super(game, owner, color);
 		this.cooldownShoot = 500.0f;
+		power = 10;
 	}
 
 	@Override
@@ -27,7 +28,7 @@ public class CircleWeapon  extends BasicWeapon {
 			float tmpx = x + 10.0f * PApplet.cos(PApplet.radians(a));
 			float tmpy = y + 10.0f * PApplet.sin(PApplet.radians(a));
 			
-			BasicBullet b = new FreeMoveBullet(game, owner, PApplet.sqrt(tmpx * tmpx + tmpy * tmpy), PApplet.atan2(tmpy, tmpx), a, -4, color, 1);
+			BasicBullet b = new FreeMoveBullet(game, owner, PApplet.sqrt(tmpx * tmpx + tmpy * tmpy), PApplet.atan2(tmpy, tmpx), a, -4, color, power);
 			//b.setCart(tmpx, tmpy);
 			//new BasicBullet(game, owner, 50, PApplet.radians(a), -2, color, 1);
 		}

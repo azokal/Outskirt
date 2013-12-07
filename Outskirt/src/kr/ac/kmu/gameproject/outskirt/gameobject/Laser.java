@@ -1,6 +1,7 @@
 package kr.ac.kmu.gameproject.outskirt.gameobject;
 
 import kr.ac.kmu.gameproject.outskirt.GameObject;
+import kr.ac.kmu.gameproject.outskirt.enemy.Enemy;
 import kr.ac.kmu.gameproject.outskirt.screen.Game;
 
 public class Laser extends GameObject {

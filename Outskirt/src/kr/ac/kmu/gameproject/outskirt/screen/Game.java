@@ -11,7 +11,7 @@ import kr.ac.kmu.gameproject.outskirt.GameObject;
 import kr.ac.kmu.gameproject.outskirt.HUD;
 import kr.ac.kmu.gameproject.outskirt.Timer;
 import kr.ac.kmu.gameproject.outskirt.boss.BossOne;
-import kr.ac.kmu.gameproject.outskirt.gameobject.Enemy;
+import kr.ac.kmu.gameproject.outskirt.enemy.Enemy;
 import kr.ac.kmu.gameproject.outskirt.gameobject.SpaceSheep;
 import kr.ac.kmu.gameproject.outskirt.partition.Partition;
 import processing.core.PImage;
