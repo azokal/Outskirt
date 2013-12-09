@@ -28,11 +28,11 @@ public class EndScreen implements Screen {
 		app.background(255);
 		app.textAlign(PApplet.CENTER, PApplet.CENTER);
 		app.fill(0);
-		app.text("Your score is:" + game.getSpaceSheep().getScore() + " Press enter to start the game!", app.width / 2, app.height / 2);
+		app.text("Your score is:" + game.getSpaceSheep().getScore() + " Press enter to go back to menu!", app.width / 2, app.height / 2);
 		if (app.isPressed(App.ENTER)) {
 			S4P.resetWorld();
 			this.game.unload();
-			app.setScreen(new Game(app));
+			app.setScreen(new Menu(app));
 		}
 		app.popStyle();
 	}
