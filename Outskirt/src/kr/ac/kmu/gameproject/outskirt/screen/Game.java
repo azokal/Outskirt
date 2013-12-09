@@ -22,7 +22,7 @@ import sprites.S4P;
 
 public class Game implements Screen, KeyListener {
 
-	private App app;
+	App app;
 	
 	public List<GameObject> gameObjectList = new ArrayList<GameObject>();
 	public List<GameObject> toAddList = new ArrayList<GameObject>();
@@ -81,6 +81,10 @@ public class Game implements Screen, KeyListener {
 		this.app = app;
 	}
 
+	void init() {
+		part = new Partition(app, this, pathMaps+"level1.xml");
+	}
+	
 	public void setup() {
 		this.camera = new Camera(this);
 		this.bg = new PImage[4];
@@ -96,7 +100,13 @@ public class Game implements Screen, KeyListener {
 		spaceSheep = new SpaceSheep(this, false);
 		this.hud = new HUD(this, spaceSheep);
 		this.getApp().addKeyListener(this);
-		part = new Partition(app, this, pathMaps+"test.xml");
+		init();
+	}
+	
+	void endLevel() {
+		if (pop >= endGame) {
+			app.setScreen(new EndScreen(app, this));
+		}
 	}
 	
 	public void draw() {
@@ -108,9 +118,7 @@ public class Game implements Screen, KeyListener {
 		camera.draw();
 		totalTime = this.timer.getTotalTime();
 		pop = this.tpop.getTotalTime();
-		if (pop >= endGame) {
-			app.setScreen(new EndScreen(app, this));
-		}
+		endLevel();
 		//	if (totalTime - testLastPop > testCooldownPopEnemy) {
 	//		enemy = new Enemy(this, getApp().random(0, 359),
 	//				Color.values()[(int) getApp().random(0, 3)], 30, totalTime);
