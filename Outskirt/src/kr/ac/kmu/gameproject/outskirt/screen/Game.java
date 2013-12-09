@@ -4,6 +4,7 @@ import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Random;
 
 import kr.ac.kmu.gameproject.outskirt.App;
 import kr.ac.kmu.gameproject.outskirt.Camera;
@@ -14,6 +15,7 @@ import kr.ac.kmu.gameproject.outskirt.boss.BossOne;
 import kr.ac.kmu.gameproject.outskirt.boss.BossTwo;
 import kr.ac.kmu.gameproject.outskirt.enemy.DiamondEnemy;
 import kr.ac.kmu.gameproject.outskirt.enemy.Enemy;
+import kr.ac.kmu.gameproject.outskirt.enemy.ExplosionEnemy;
 import kr.ac.kmu.gameproject.outskirt.enemy.SquareEnemy;
 import kr.ac.kmu.gameproject.outskirt.gameobject.SpaceSheep;
 import kr.ac.kmu.gameproject.outskirt.partition.Partition;
@@ -41,8 +43,6 @@ public class Game implements Screen, KeyListener {
 	public float endGame;
 	Partition part;
 	HUD hud;
-	float testCooldownPopEnemy = 150f;
-	float testLastPop = 0;
 
 	public enum Color {
 		GREEN,
@@ -56,7 +56,8 @@ public class Game implements Screen, KeyListener {
 
 	public enum EnemyType {
 		SQUARE,
-		DIAMOND
+		DIAMOND,
+		EXPLOSION
 	}
 	
 	public GameObject BossFactory(BossType type, float maxLife, float timing) {
@@ -73,6 +74,7 @@ public class Game implements Screen, KeyListener {
 		switch (type) {
 		case SQUARE : return (new SquareEnemy(this, startAngle, color, maxLife, timing));
 		case DIAMOND : return (new DiamondEnemy(this, startAngle, color, maxLife, timing));
+		case EXPLOSION : return (new ExplosionEnemy(this, startAngle, color, maxLife, timing));
 		default: return (null);
 		}
 	}
@@ -101,6 +103,18 @@ public class Game implements Screen, KeyListener {
 		this.hud = new HUD(this, spaceSheep);
 		this.getApp().addKeyListener(this);
 		init();
+	}
+	
+	public static int randInt(int min, int max) {
+
+	    // Usually this can be a field rather than a method variable
+	    Random rand = new Random();
+
+	    // nextInt is normally exclusive of the top value,
+	    // so add 1 to make it inclusive
+	    int randomNum = rand.nextInt((max - min) + 1) + min;
+
+	    return randomNum;
 	}
 	
 	void endLevel() {

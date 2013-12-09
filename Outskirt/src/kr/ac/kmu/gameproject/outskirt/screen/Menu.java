@@ -18,7 +18,7 @@ public class Menu implements Screen {
 		app.fill(0);
 		app.text("Press enter to start the game!", app.width / 2, app.height / 2);
 		if (app.isPressed(App.ENTER)) {
-			Game g = new AventureMode(app);
+			Game g = new RandomMode(app);
 			app.setScreen(g);
 		}
 		app.popStyle();

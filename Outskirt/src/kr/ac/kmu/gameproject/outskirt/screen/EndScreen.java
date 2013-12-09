@@ -9,21 +9,21 @@ public class EndScreen implements Screen {
 
 	App app;
 	Game game;
-	boolean toto;
+//	boolean toto;
 	
 	public EndScreen(App app, Game game) {
 		this.app = app;
 		this.game = game;
-		toto = false;
+//		toto = false;
 	}
 	
 	@Override
 	public void draw() {
 	
-		if (toto == false){
-			game.part.exportMap("new.xml", app);
-			toto = true;
-		}
+//		if (toto == false){
+//			game.part.exportMap("new.xml", app);
+//			toto = true;
+//		}
 		app.pushStyle();
 		app.background(255);
 		app.textAlign(PApplet.CENTER, PApplet.CENTER);
