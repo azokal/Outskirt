@@ -18,6 +18,12 @@ public abstract class BasicBoss extends Life {
 	public float getTiming() {
 		return timing;
 	}
+	
+	@Override
+	public void kill() {
+		super.kill();
+		game.spaceSheep.addScore(2000);
+	}
 }
 
 
