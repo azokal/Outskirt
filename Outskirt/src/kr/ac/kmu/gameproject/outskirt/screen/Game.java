@@ -11,6 +11,7 @@ import kr.ac.kmu.gameproject.outskirt.GameObject;
 import kr.ac.kmu.gameproject.outskirt.HUD;
 import kr.ac.kmu.gameproject.outskirt.Timer;
 import kr.ac.kmu.gameproject.outskirt.boss.BossOne;
+import kr.ac.kmu.gameproject.outskirt.boss.BossTwo;
 import kr.ac.kmu.gameproject.outskirt.enemy.DiamondEnemy;
 import kr.ac.kmu.gameproject.outskirt.enemy.Enemy;
 import kr.ac.kmu.gameproject.outskirt.enemy.SquareEnemy;
@@ -50,7 +51,7 @@ public class Game implements Screen, KeyListener {
 	}
 	
 	public enum BossType {
-		BOSSONE
+		BOSSONE, BOSSTWO
 	}
 
 	public enum EnemyType {
@@ -62,6 +63,7 @@ public class Game implements Screen, KeyListener {
 		
 		switch (type) {
 		case BOSSONE : return (new BossOne(this, maxLife, timing));
+		case BOSSTWO : return (new BossTwo(this, maxLife, timing));
 		default: return (null);
 		}
 	}
