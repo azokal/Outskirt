@@ -14,14 +14,15 @@ public class SquareEnemy extends Enemy{
 
 	@Override
 	public void move() {
-		float angle = PApplet.sin(PApplet.radians(game.timer.getTotalTime()) / 8) / 3;
+		//float angle = PApplet.sin(PApplet.radians(game.timer.getTotalTime()) / 8) / 3;
+		float angle = localAngle * localAngle / 300f;
 		setAngle(angle + PApplet.radians(startAngle));
 		
 		if (game.getApp().isPressed('o')) {
 			addRadius(2f);
 			game.getApp().getDebug().put("speedType", "slow");
 		} else {
-			addRadius(game.timer.getElapsedTime() / 10);//Progressive speed
+			addRadius(game.timer.getElapsedTime() / 10f);//Progressive speed
 			game.getApp().getDebug().put("Radius", getRadius());
 			game.getApp().getDebug().put("Elapsed Time", game.timer.getElapsedTime());
 			game.getApp().getDebug().put("speedType", "fast");
