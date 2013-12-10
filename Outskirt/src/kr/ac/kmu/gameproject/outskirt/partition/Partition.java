@@ -17,6 +17,7 @@ import kr.ac.kmu.gameproject.outskirt.enemy.SquareEnemy;
 import kr.ac.kmu.gameproject.outskirt.gameobject.bullet.BasicBullet;
 import kr.ac.kmu.gameproject.outskirt.screen.Game;
 import kr.ac.kmu.gameproject.outskirt.screen.Game.Color;
+import kr.ac.kmu.gameproject.outskirt.screen.Game.EnemyType;
 import processing.data.XML;
 
 public class Partition {
@@ -69,8 +70,8 @@ public class Partition {
 	
 	public void TreatXML(XML level, float timing) {
 		XML[] children = level.getChild("monsters").getChildren("monster");
-		for (int i = 0; i < children.length; i++) {	
-			new SquareEnemy(game, children[i].getFloat("angle"), Game.Color.values()[children[i].getInt("color")], 
+		for (int i = 0; i < children.length; i++) {
+			game.EnnemyFactory(EnemyType.SQUARE, children[i].getFloat("angle"), Game.Color.values()[children[i].getInt("color")],
 					children[i].getFloat("life"), children[i].getFloat("timing") + timing);
 		}
 		children = level.getChild("monsters").getChildren("boss");

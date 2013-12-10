@@ -12,6 +12,7 @@ import kr.ac.kmu.gameproject.outskirt.HUD;
 import kr.ac.kmu.gameproject.outskirt.Timer;
 import kr.ac.kmu.gameproject.outskirt.boss.BossOne;
 import kr.ac.kmu.gameproject.outskirt.enemy.Enemy;
+import kr.ac.kmu.gameproject.outskirt.enemy.SquareEnemy;
 import kr.ac.kmu.gameproject.outskirt.gameobject.SpaceSheep;
 import kr.ac.kmu.gameproject.outskirt.partition.Partition;
 import processing.core.PImage;
@@ -30,7 +31,7 @@ public class Game implements Screen, KeyListener {
 	public Timer timer;
 	public Timer tpop;
 	public SpaceSheep spaceSheep;
-	public Enemy enemy;// = new Enemy(this, random(0, 360));
+	public Enemy enemy;
 	public float totalTime;
 	public float pop;
 	public String pathSprites =  ".\\data\\sprites\\";
@@ -51,10 +52,22 @@ public class Game implements Screen, KeyListener {
 		BOSSONE
 	}
 
+	public enum EnemyType {
+		SQUARE
+	}
+	
 	public GameObject BossFactory(BossType type, float maxLife, float timing) {
 		
 		switch (type) {
 		case BOSSONE : return (new BossOne(this, maxLife, timing));
+		default: return (null);
+		}
+	}
+	
+	public GameObject EnnemyFactory(EnemyType type, float startAngle, Color color, float maxLife, float timing) {
+		
+		switch (type) {
+		case SQUARE : return (new SquareEnemy(this, startAngle, color, maxLife, timing));
 		default: return (null);
 		}
 	}
