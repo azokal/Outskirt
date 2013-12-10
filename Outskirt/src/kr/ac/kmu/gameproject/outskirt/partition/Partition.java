@@ -2,21 +2,12 @@ package kr.ac.kmu.gameproject.outskirt.partition;
 
 import java.io.File;
 import java.io.IOException;
-import java.lang.reflect.Array;
-import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Map;
 
-import org.xml.sax.SAXParseException;
-
 import kr.ac.kmu.gameproject.outskirt.App;
-import kr.ac.kmu.gameproject.outskirt.GameObject;
 import kr.ac.kmu.gameproject.outskirt.enemy.Enemy;
-import kr.ac.kmu.gameproject.outskirt.enemy.SquareEnemy;
-import kr.ac.kmu.gameproject.outskirt.gameobject.bullet.BasicBullet;
 import kr.ac.kmu.gameproject.outskirt.screen.Game;
-import kr.ac.kmu.gameproject.outskirt.screen.Game.Color;
 import kr.ac.kmu.gameproject.outskirt.screen.Game.EnemyType;
 import processing.data.XML;
 

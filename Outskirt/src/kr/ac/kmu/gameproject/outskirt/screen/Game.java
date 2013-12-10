@@ -91,7 +91,7 @@ public class Game implements Screen, KeyListener {
 		this.tpop.start();
 		this.timer.start();
 		getApp().size(getApp().displayWidth, getApp().displayHeight);
-		spaceSheep = new SpaceSheep(this);
+		spaceSheep = new SpaceSheep(this, false);
 		this.hud = new HUD(this, spaceSheep);
 		this.getApp().addKeyListener(this);
 		part = new Partition(app, this, pathMaps+"test.xml");

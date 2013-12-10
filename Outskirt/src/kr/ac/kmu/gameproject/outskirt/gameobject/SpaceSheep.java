@@ -21,9 +21,20 @@ public class SpaceSheep extends Life implements MouseMotionListener{
 	public int currentWeapon = 0;
 	public BasicWeapon[] weaponList = new BasicPlayerWeapon[3];
 	public ArrayList<Game.Color> combo;
+	public boolean[] weaponStateList = new boolean[3];
 	
-	public SpaceSheep(Game game) {
+	public SpaceSheep(Game game, boolean story) {
 		super(game, 100);
+		
+		weaponStateList[0] = true;
+		if (story == true) {
+			weaponStateList[1] = false;
+			weaponStateList[2] = false;
+		} else {
+			weaponStateList[1] = true;
+			weaponStateList[2] = true;
+			}
+		game.getApp().getDebug().put("bool", (weaponStateList[1]));
 		oSprite = new sprites.Sprite(game.getApp(), game.pathSprites+"playerGrid.png", 3, 1, 10);
 		oSprite.setScale(1.4f);
 		setPolar(450, 0);
@@ -36,7 +47,11 @@ public class SpaceSheep extends Life implements MouseMotionListener{
 		oSprite.setCollisionRadius(oSprite.getCollisionRadius()/10.0f);
 		combo = new ArrayList<Game.Color>();
 	}
-
+	
+	public void activateWeapon(int id) {
+		weaponStateList[id] = true;
+	}
+	
 	public void draw() {
 		game.getApp().getDebug().put("Score", score);
 		oSprite.setScale(getRadius() / 300f);
@@ -51,11 +66,11 @@ public class SpaceSheep extends Life implements MouseMotionListener{
 			currentWeapon = 0;
 		}
 
-		if (game.getApp().isPressed('2')) {
+		if (game.getApp().isPressed('2') && weaponStateList[1] == true) {
 			currentWeapon = 1;
 		}
 
-		if (game.getApp().isPressed('3')) {
+		if (game.getApp().isPressed('3') && weaponStateList[2] == true) {
 			currentWeapon = 2;
 		}
 		

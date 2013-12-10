@@ -16,8 +16,7 @@ public class CurveWeapon extends BasicPlayerWeapon {
 
 	@Override
 	public void generateBullet() {
-		new RightCurveBullet(game, owner, owner.getRadius(), owner.getAngle() - 0.1f, 4, color, percentage[color.ordinal()] * power / 100.0f);
-		new LeftCurveBullet(game, owner, owner.getRadius(), owner.getAngle() + 0.1f, 4, color, percentage[color.ordinal()] * power / 100.0f);
+		new RightCurveBullet(game, owner, owner.getRadius(), owner.getAngle() - 0.1f, 0.001f, color, percentage[color.ordinal()] * power / 100.0f);
+		new LeftCurveBullet(game, owner, owner.getRadius(), owner.getAngle() + 0.1f, 0.001f, color, percentage[color.ordinal()] * power / 100.0f);
 	}
-
 }

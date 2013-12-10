@@ -14,7 +14,7 @@ public class StraightWeapon extends BasicPlayerWeapon {
 
 	@Override
 	public void generateBullet() {
-		new RightStraightBullet(game, owner, owner.getRadius(), owner.getAngle() - 0.1f, 4, color, percentage[color.ordinal()] * power / 100.0f);
-		new LeftStraightBullet(game, owner, owner.getRadius(), owner.getAngle() + 0.1f, 4, color, percentage[color.ordinal()] * power / 100.0f);
+		new RightStraightBullet(game, owner, owner.getRadius(), owner.getAngle() - 0.1f, 0.001f, color, percentage[color.ordinal()] * power / 100.0f);
+		new LeftStraightBullet(game, owner, owner.getRadius(), owner.getAngle() + 0.1f, 0.001f, color, percentage[color.ordinal()] * power / 100.0f);
 	}
 }
