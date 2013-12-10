@@ -70,10 +70,15 @@ public class HUD {
 		game.getApp().pushStyle();
 		game.getApp().smooth();
 		BasicBoss boss = null;
-		for (GameObject obj: game.gameObjectList)
-			if (obj instanceof BasicBoss && game.pop > ((BasicBoss)obj).getTiming()) {
+		boolean isFind = false;
+		for (GameObject obj: game.gameObjectList) {
+			if (obj instanceof BasicBoss && game.timer.getTotalTime() >= ((BasicBoss)obj).getTiming()) {
 				boss = (BasicBoss)obj;
+				isFind = true;
 			}
+		}
+		if (isFind == false)
+			boss = null;
 		if (boss != null) {
 			game.getApp().text("Boss Life:", x+175, y-20);
 			game.getApp().fill(255-255 * boss.getCurrentLife()/boss.getLifeMax(), 255 * boss.getCurrentLife()/boss.getLifeMax(), 0);

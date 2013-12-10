@@ -4,6 +4,8 @@ import java.util.Random;
 
 import processing.core.PApplet;
 import kr.ac.kmu.gameproject.outskirt.App;
+import kr.ac.kmu.gameproject.outskirt.HUD;
+import kr.ac.kmu.gameproject.outskirt.gameobject.SpaceSheep;
 import kr.ac.kmu.gameproject.outskirt.partition.Partition;
 import kr.ac.kmu.gameproject.outskirt.screen.Game.EnemyType;
 
@@ -22,6 +24,8 @@ public class RandomMode extends Game{
 	void init() {
 		level = 1;
 		nWaves = 0;
+		spaceSheep = new SpaceSheep(this, false);
+		this.hud = new HUD(this, spaceSheep);
 	}
 
 	@Override

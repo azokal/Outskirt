@@ -34,7 +34,7 @@ public class Game implements Screen, KeyListener {
 	public PImage[] bg;
 	public Timer timer;
 	public Timer tpop;
-	public SpaceSheep spaceSheep;
+	public SpaceSheep spaceSheep = null;
 	public Enemy enemy;
 	public float totalTime;
 	public float pop;
@@ -42,7 +42,7 @@ public class Game implements Screen, KeyListener {
 	public String pathMaps =  ".\\data\\maps\\";
 	public float endGame;
 	Partition part;
-	HUD hud;
+	HUD hud = null;
 
 	public enum Color {
 		GREEN,
@@ -85,6 +85,8 @@ public class Game implements Screen, KeyListener {
 
 	void init() {
 		part = new Partition(app, this, pathMaps+"level1.xml");
+		spaceSheep = new SpaceSheep(this, false);
+		this.hud = new HUD(this, spaceSheep);
 	}
 	
 	public void setup() {
@@ -99,8 +101,6 @@ public class Game implements Screen, KeyListener {
 		this.tpop.start();
 		this.timer.start();
 		getApp().size(getApp().displayWidth, getApp().displayHeight);
-		spaceSheep = new SpaceSheep(this, false);
-		this.hud = new HUD(this, spaceSheep);
 		this.getApp().addKeyListener(this);
 		init();
 	}
@@ -169,7 +169,8 @@ public class Game implements Screen, KeyListener {
 		//draw outter circle
 		getApp().image(bg[spaceSheep.getColor().ordinal()], 0, 0);
 		
-		hud.draw();
+		if (hud != null)
+			hud.draw();
 		app.getDebug().put("fps", app.frameRate);
 	}
 

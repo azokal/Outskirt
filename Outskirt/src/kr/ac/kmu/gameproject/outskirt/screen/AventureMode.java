@@ -1,6 +1,8 @@
 package kr.ac.kmu.gameproject.outskirt.screen;
 
 import kr.ac.kmu.gameproject.outskirt.App;
+import kr.ac.kmu.gameproject.outskirt.HUD;
+import kr.ac.kmu.gameproject.outskirt.gameobject.SpaceSheep;
 import kr.ac.kmu.gameproject.outskirt.partition.Partition;
 
 public class AventureMode extends Game{
@@ -16,6 +18,8 @@ public class AventureMode extends Game{
 	void init() {
 		level = 1;
 		part = new Partition(app, this, pathMaps+"level1.xml");
+		spaceSheep = new SpaceSheep(this, false);
+		this.hud = new HUD(this, spaceSheep);
 	}
 	
 

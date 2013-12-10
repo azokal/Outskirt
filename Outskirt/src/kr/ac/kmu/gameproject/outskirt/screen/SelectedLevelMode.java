@@ -1,6 +1,8 @@
 package kr.ac.kmu.gameproject.outskirt.screen;
 
 import kr.ac.kmu.gameproject.outskirt.App;
+import kr.ac.kmu.gameproject.outskirt.HUD;
+import kr.ac.kmu.gameproject.outskirt.gameobject.SpaceSheep;
 import kr.ac.kmu.gameproject.outskirt.partition.Partition;
 
 public class SelectedLevelMode extends Game{
@@ -16,5 +18,7 @@ public class SelectedLevelMode extends Game{
 	@Override
 	void init() {
 		part = new Partition(app, this, pathMaps+"level"+level+".xml");
+		spaceSheep = new SpaceSheep(this, false);
+		this.hud = new HUD(this, spaceSheep);
 	}
 }
