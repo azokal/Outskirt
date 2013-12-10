@@ -32,7 +32,7 @@ public class HUD {
 			if (i == 2) {
 				game.getApp().fill(0, 255, 255);
 			}
-		    game.getApp().arc(600, 400, diameter, diameter, lastAngle, lastAngle+game.getApp().radians(360.0f * data[i] / 100.0f));
+		    game.getApp().arc(500, 425, diameter, diameter, lastAngle, lastAngle+game.getApp().radians(360.0f * data[i] / 100.0f));
 		    lastAngle += game.getApp().radians(360.0f * data[i] / 100.0f);
 		  }
 		game.getApp().popStyle();
@@ -40,7 +40,8 @@ public class HUD {
 	
 	void comboShow(int x, int y) {
 		game.getApp().pushStyle();
-		game.getApp().text("Combo:", x+20, y);
+		game.getApp().textSize(24);
+		game.getApp().text("Combo:", x+40, y);
 		for (Game.Color c: this.player.combo) {
 			if (c == Game.Color.GREEN) {
 				game.getApp().fill(0, 255, 0);
@@ -51,7 +52,7 @@ public class HUD {
 			if (c == Game.Color.CYAN) {
 				game.getApp().fill(0, 255, 255);
 			}
-			game.getApp().ellipse(x, y+20, 20, 20);
+			game.getApp().ellipse(x, y+48, 20, 20);
 			x += 40;
 		}
 		game.getApp().popStyle();
@@ -69,6 +70,7 @@ public class HUD {
 	void bossLifeShow(int x, int y) {
 		game.getApp().pushStyle();
 		game.getApp().smooth();
+		game.getApp().textSize(24);
 		BasicBoss boss = null;
 		boolean isFind = false;
 		for (GameObject obj: game.gameObjectList) {
@@ -80,7 +82,7 @@ public class HUD {
 		if (isFind == false)
 			boss = null;
 		if (boss != null) {
-			game.getApp().text("Boss Life:", x+175, y-20);
+			game.getApp().text("Boss Life:", x+175, y-38);
 			game.getApp().fill(255-255 * boss.getCurrentLife()/boss.getLifeMax(), 255 * boss.getCurrentLife()/boss.getLifeMax(), 0);
 			game.getApp().rect(x, y, 400 * boss.getCurrentLife()/boss.getLifeMax(), 20);
 		}
@@ -89,7 +91,7 @@ public class HUD {
 	
 	public void draw() {
 		pieChart(200, player.getCurrentWeapon().percentage);
-		comboShow(560, 250);
+		comboShow(460, 260);
 		bossLifeShow(-200, -500);
 		verticalBar(500, -200, 400, "Life", player.getCurrentLife(), player.getLifeMax());
 		verticalBar(580, -200, 400, "Power", this.player.getCurrentWeapon().power, this.player.getCurrentWeapon().powerMax);

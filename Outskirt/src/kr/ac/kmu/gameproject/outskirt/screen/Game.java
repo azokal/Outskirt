@@ -130,6 +130,13 @@ public class Game implements Screen, KeyListener {
 		getApp().background(0);
 		getApp().color(255);
 		camera.draw();
+		
+		//draw outter circle
+		if (spaceSheep == null)
+			getApp().image(bg[0], 0, 0);
+		else
+			getApp().image(bg[spaceSheep.getColor().ordinal()], 0, 0);
+		
 		totalTime = this.timer.getTotalTime();
 		pop = this.tpop.getTotalTime();
 		endLevel();
@@ -164,10 +171,12 @@ public class Game implements Screen, KeyListener {
 			toAddList.clear();
 		}
 
-		S4P.updateSprites(timer.getTotalTime());
-		S4P.drawSprites();
-		//draw outter circle
-		getApp().image(bg[spaceSheep.getColor().ordinal()], 0, 0);
+//		S4P.updateSprites(timer.getTotalTime());
+//		S4P.drawSprites();
+
+		for (GameObject b: gameObjectList)
+			if (b.oSprite != null)
+				b.oSprite.draw();
 		
 		if (hud != null)
 			hud.draw();

@@ -6,6 +6,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 import kr.ac.kmu.gameproject.outskirt.partition.Partition;
+import kr.ac.kmu.gameproject.outskirt.screen.AventureMode;
 import kr.ac.kmu.gameproject.outskirt.screen.Menu;
 import kr.ac.kmu.gameproject.outskirt.screen.Screen;
 import processing.core.PApplet;
@@ -24,14 +25,13 @@ public class App extends PApplet {
 	}
 
 	public void setup() {
-		setScreen(new Menu(this));
 		debug = new Debug(this);
 		try {
 			robot = new Robot();
 		} catch (AWTException e) {
 			e.printStackTrace();
 		}
-		
+		setScreen(new Menu(this));
 	}
 	
 	public void draw() {

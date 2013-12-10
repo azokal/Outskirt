@@ -7,7 +7,7 @@ import sprites.Sprite;
 
 public abstract class GameObject {
 
-	protected Sprite oSprite;
+	public Sprite oSprite;
 	protected Game game;
 	private float angle;
 	private float radius;
