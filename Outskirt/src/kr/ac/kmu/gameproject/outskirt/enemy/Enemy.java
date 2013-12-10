@@ -22,7 +22,7 @@ public class Enemy extends Life {
 		this.timing = timing;
 		oSprite = new sprites.Sprite(game.getApp(), path, 3, 1, 10);
 		this.startAngle = startAngle;
-		setPolar(0, this.startAngle);
+		setPolar(0, PApplet.radians(this.startAngle));
 		oSprite.setScale(getRadius()/300f);
 		this.color = color;
 		if (color == Game.Color.RED)
