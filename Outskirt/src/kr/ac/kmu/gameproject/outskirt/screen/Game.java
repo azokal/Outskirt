@@ -16,6 +16,7 @@ import kr.ac.kmu.gameproject.outskirt.boss.BossTwo;
 import kr.ac.kmu.gameproject.outskirt.enemy.DiamondEnemy;
 import kr.ac.kmu.gameproject.outskirt.enemy.Enemy;
 import kr.ac.kmu.gameproject.outskirt.enemy.ExplosionEnemy;
+import kr.ac.kmu.gameproject.outskirt.enemy.SpiralEnemy;
 import kr.ac.kmu.gameproject.outskirt.enemy.SquareEnemy;
 import kr.ac.kmu.gameproject.outskirt.gameobject.SpaceSheep;
 import kr.ac.kmu.gameproject.outskirt.partition.Partition;
@@ -57,7 +58,8 @@ public class Game implements Screen, KeyListener {
 	public enum EnemyType {
 		SQUARE,
 		DIAMOND,
-		EXPLOSION
+		EXPLOSION,
+		SPIRAL
 	}
 	
 	public GameObject BossFactory(BossType type, float maxLife, float timing) {
@@ -75,6 +77,7 @@ public class Game implements Screen, KeyListener {
 		case SQUARE : return (new SquareEnemy(this, startAngle, color, maxLife, timing));
 		case DIAMOND : return (new DiamondEnemy(this, startAngle, color, maxLife, timing));
 		case EXPLOSION : return (new ExplosionEnemy(this, startAngle, color, maxLife, timing));
+		case SPIRAL : return (new SpiralEnemy(this, startAngle, color, maxLife, timing));
 		default: return (null);
 		}
 	}

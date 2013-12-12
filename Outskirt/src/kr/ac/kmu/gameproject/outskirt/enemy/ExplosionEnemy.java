@@ -11,7 +11,7 @@ import kr.ac.kmu.gameproject.outskirt.screen.Game.Color;
 public class ExplosionEnemy extends Enemy{
 	public ExplosionEnemy(Game game, float startAngle, Color color, float life,
 			float timing) {
-		super(game, startAngle, color, life, timing, game.pathSprites+"diamondGrid.png");
+		super(game, startAngle, color, life, timing, game.pathSprites+"explosionGrid.png");
 	}
 
 	@Override
@@ -24,25 +24,17 @@ public class ExplosionEnemy extends Enemy{
 	
 	@Override
 	public void draw() {
-		if (game.pop < timing && isPop == false)
-			return ;
-		else if (isPop == false) {
-			oSprite.setVisible(true);
-			isPop = true;
-		}
+		super.draw();
 		if (getRadius() > 275) {
 			float x = getRadius() * PApplet.cos(getAngle());
 			float y = getRadius() * PApplet.sin(getAngle());
 			for (float a = 0.0f; a < 360.0f; a += 20.0f) {
-				float tmpx = x + 10.0f * PApplet.cos(PApplet.radians(a));
-				float tmpy = y + 10.0f * PApplet.sin(PApplet.radians(a));
+				float tmpx = x + 16.0f * PApplet.cos(PApplet.radians(a));
+				float tmpy = y + 16.0f * PApplet.sin(PApplet.radians(a));
 				
 				BasicBullet b = new FreeMoveBullet(game, this, PApplet.sqrt(tmpx * tmpx + tmpy * tmpy), PApplet.atan2(tmpy, tmpx), a, -4, color, 40);
 			}
 			this.kill();
-		} else {
-			oSprite.setScale(getRadius() / 300f);
-			move();
 		}
 	}
 }
