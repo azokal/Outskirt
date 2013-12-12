@@ -21,8 +21,8 @@ import kr.ac.kmu.gameproject.outskirt.enemy.SpiralEnemy;
 import kr.ac.kmu.gameproject.outskirt.enemy.SquareEnemy;
 import kr.ac.kmu.gameproject.outskirt.gameobject.SpaceSheep;
 import kr.ac.kmu.gameproject.outskirt.partition.Partition;
+import processing.core.PApplet;
 import processing.core.PImage;
-import sprites.S4P;
 
 public class Game implements Screen, KeyListener {
 
@@ -103,8 +103,6 @@ public class Game implements Screen, KeyListener {
 		this.bg[3] = getApp().loadImage(pathSprites+"whiteCircle.png");
 		this.timer = new Timer(true);
 		this.tpop = new Timer(true);
-		this.tpop.start();
-		this.timer.start();
 		getApp().size(getApp().displayWidth, getApp().displayHeight);
 		this.getApp().addKeyListener(this);
 		init();
@@ -130,8 +128,8 @@ public class Game implements Screen, KeyListener {
 	
 	public void draw() {
 		app.getDebug().put("number gameobject", gameObjectList.size());
-		timer.updateTime();
-		tpop.updateTime();
+		this.timer.updateTime();
+		this.tpop.updateTime();
 		getApp().background(0);
 		getApp().color(255);
 		camera.draw();

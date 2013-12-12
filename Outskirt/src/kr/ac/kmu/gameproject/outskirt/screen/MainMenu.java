@@ -16,6 +16,7 @@ import kr.ac.kmu.gameproject.outskirt.menu.MenuItem;
 import kr.ac.kmu.gameproject.outskirt.menu.MenuItemGroup;
 import kr.ac.kmu.gameproject.outskirt.menu.mainmenu.Quit;
 import kr.ac.kmu.gameproject.outskirt.menu.mainmenu.Adventure;
+import kr.ac.kmu.gameproject.outskirt.menu.mainmenu.Random;
 import kr.ac.kmu.gameproject.outskirt.partition.Partition;
 import kr.ac.kmu.gameproject.outskirt.screen.Game.Color;
 import kr.ac.kmu.gameproject.outskirt.screen.Game.EnemyType;
@@ -32,11 +33,11 @@ public class MainMenu implements Screen {
 		this.app = app;
 		bg = new GameBackground(app);
 		menuItemList = new MenuItemGroup(app);
-		//app.noCursor();
-		menuItemList.add(new Adventure(app));
+		app.cursor();
 		menuItemList.add(new Quit(app));
+		menuItemList.add(new Adventure(app));
+		menuItemList.add(new Random(app));
 		menuItemList.select(1);
-		
 	}
 
 
@@ -47,7 +48,6 @@ public class MainMenu implements Screen {
 	
 	@Override
 	public void draw() {
-
 		bg.draw();
 		app.textAlign(app.CENTER, app.TOP);
 		app.fill(255, 255, 255);

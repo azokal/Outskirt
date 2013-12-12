@@ -6,8 +6,9 @@ import java.awt.event.MouseMotionListener;
 import java.util.Vector;
 
 import kr.ac.kmu.gameproject.outskirt.App;
+import kr.ac.kmu.gameproject.outskirt.screen.AventureMode;
+import kr.ac.kmu.gameproject.outskirt.screen.Game;
 import kr.ac.kmu.gameproject.outskirt.screen.Screen;
-
 import processing.core.PApplet;
 
 public class MenuItemGroup extends Vector<MenuItem> implements MouseMotionListener, MouseListener {
@@ -20,6 +21,8 @@ public class MenuItemGroup extends Vector<MenuItem> implements MouseMotionListen
 	private int selectedIndex = -1;
 	
 	private App app;
+
+	private boolean isStart = false;
 	
 	public MenuItemGroup(App app) {
 		this.app = app;
@@ -43,9 +46,19 @@ public class MenuItemGroup extends Vector<MenuItem> implements MouseMotionListen
 			app.translate(x, y);
 			this.get(i).draw();
 			app.popMatrix();
+			
 		}
+			if (isStart == true) {
+				this.getSelectedItem().exec();
+			}
 	}
 
+	public void blockAll() {
+		isStart  = true;
+		app.removeMouseListener(this);
+		app.removeMouseMotionListener(this);
+	}
+	
 	public void selectAll() {
 		for (MenuItem item : this){
 			item.select();
@@ -70,17 +83,17 @@ public class MenuItemGroup extends Vector<MenuItem> implements MouseMotionListen
 
 	@Override
 	public void mouseMoved(MouseEvent e) {
-		
-		float mouseX = e.getX() - app.displayWidth / 2;
-		float mouseY = e.getY() - app.displayHeight / 2;
-		float angle = App.toAngle(mouseX, mouseY);
+		if (isStart == false) {
+			float mouseX = e.getX() - app.displayWidth / 2;
+			float mouseY = e.getY() - app.displayHeight / 2;
+			float angle = App.toAngle(mouseX, mouseY);
 
-		float circlepart = App.PI * 2 / this.size();
-		int indexMenuSelected = (int)(((angle + App.PI) * App.RAD_TO_DEG) / (circlepart * App.RAD_TO_DEG));
-		app.getDebug().put("rad", (angle + App.PI) * App.RAD_TO_DEG + "/" + circlepart * App.RAD_TO_DEG);
-		app.getDebug().put("index", indexMenuSelected);
-		this.select(indexMenuSelected);
-
+			float circlepart = App.PI * 2 / this.size();
+			int indexMenuSelected = (int)(((angle + App.PI) * App.RAD_TO_DEG) / (circlepart * App.RAD_TO_DEG));
+			app.getDebug().put("rad", (angle + App.PI) * App.RAD_TO_DEG + "/" + circlepart * App.RAD_TO_DEG);
+			app.getDebug().put("index", indexMenuSelected);
+			this.select(indexMenuSelected);
+		}
 	}
 
 
@@ -107,7 +120,9 @@ public class MenuItemGroup extends Vector<MenuItem> implements MouseMotionListen
 
 	@Override
 	public void mouseReleased(MouseEvent e) {
-		if (app.mousePressed && app.mouseButton == PApplet.LEFT) {
+		if (isStart == false && app.mousePressed && app.mouseButton == PApplet.LEFT) {
+			unselectAll();
+			blockAll();
 			this.getSelectedItem().exec();
 		}
 	}

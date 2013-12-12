@@ -46,6 +46,13 @@ public class SpaceSheep extends Life implements MouseMotionListener{
 		game.getApp().noCursor();
 		oSprite.setCollisionRadius(oSprite.getCollisionRadius()/10.0f);
 		combo = new ArrayList<Game.Color>();
+//		
+//		float mouseX = getX() - game.getApp().displayWidth / 2;
+//		float mouseY = getY() - game.getApp().displayHeight / 2;
+//		game.getApp().robot.mouseMove((int)mouseX, (int)mouseY);
+		int newMouseX = (int) (getX() + game.getApp().displayWidth / 2); 
+		int newMouseY = (int) (getY() + game.getApp().displayHeight / 2);
+		game.getApp().robot.mouseMove(newMouseX, newMouseY);
 	}
 	
 	public void activateWeapon(int id) {

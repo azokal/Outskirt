@@ -34,4 +34,10 @@ public class AventureMode extends Game{
 			}
 		}
 	}
+	
+	@Override
+	public void draw() {
+		// TODO Auto-generated method stub
+		super.draw();
+	}
 }
