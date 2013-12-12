@@ -9,8 +9,8 @@ import kr.ac.kmu.gameproject.outskirt.screen.Game;
 import kr.ac.kmu.gameproject.outskirt.screen.Game.Color;
 
 public class SpiralEnemy extends Enemy {
-	float cooldownShoot = 100f; // 100ms
-	float lastShoot = 0.0f;
+	protected float cooldownShoot = 100f; // 100ms
+	protected float lastShoot = 0.0f;
 
 	public SpiralEnemy(Game game, float startAngle, Color color, float life,
 			float timing) {
@@ -37,7 +37,7 @@ public class SpiralEnemy extends Enemy {
 
 			BasicBullet b = new FreeMoveBullet(game, this, PApplet.sqrt(tmpx
 					* tmpx + tmpy * tmpy), PApplet.atan2(tmpy, tmpx),
-					PApplet.degrees(localAngle), -3, color, 40);
+					PApplet.degrees(localAngle), -4, color, 40);
 
 			lastShoot = game.timer.getTotalTime();
 		}
