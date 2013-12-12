@@ -141,7 +141,7 @@ public class Game implements Screen, KeyListener {
 			getApp().image(bg[0], 0, 0);
 		else
 			getApp().image(bg[spaceSheep.getColor().ordinal()], 0, 0);
-		
+
 		totalTime = this.timer.getTotalTime();
 		pop = this.tpop.getTotalTime();
 		endLevel();
@@ -219,7 +219,6 @@ public class Game implements Screen, KeyListener {
 	@Override
 	public void keyReleased(KeyEvent arg0) {
 		// TODO Auto-generated method stub
-		
 	}
 
 	@Override

@@ -10,9 +10,7 @@ public class AventureMode extends Game{
 	
 	public AventureMode(App app) {
 		super(app);
-		// TODO Auto-generated constructor stub
 	}
-
 	
 	@Override
 	void init() {

@@ -102,15 +102,8 @@ public class SpaceSheep extends Life implements MouseMotionListener{
 		}
 		
 		setPolar(norme, PApplet.atan2(mouseY, mouseX));
-		game.getApp().getDebug().put("old mouse x", e.getX());
-		game.getApp().getDebug().put("old mouse y", e.getY());
-		
 		int newMouseX = (int) (getX() + game.getApp().displayWidth / 2); 
 		int newMouseY = (int) (getY() + game.getApp().displayHeight / 2);
-
-		game.getApp().getDebug().put("new mouse x", newMouseX);
-		game.getApp().getDebug().put("new mouse y", newMouseY);
-
 		game.getApp().robot.mouseMove(newMouseX, newMouseY);
 	}
 
