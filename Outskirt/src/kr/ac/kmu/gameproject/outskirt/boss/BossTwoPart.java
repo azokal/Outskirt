@@ -43,7 +43,7 @@ public class BossTwoPart extends Life {
 
 	@Override
 	public void draw() {
-		if (game.timer.getTotalTime() < timing)
+		if (game.tpop.getTotalTime() < timing)
 			return ;
 		else if (isPop == false) {
 			game.tpop.stop();

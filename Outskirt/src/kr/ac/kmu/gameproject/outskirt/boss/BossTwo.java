@@ -36,7 +36,7 @@ public class BossTwo extends BasicBoss {
 
 
 	public void draw() {
-		if (game.timer.getTotalTime() < timing)
+		if (game.tpop.getTotalTime() < timing)
 			return ;
 		else if (isPop  == false) {
 			isPop = true;

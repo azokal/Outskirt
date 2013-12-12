@@ -74,7 +74,7 @@ public class HUD {
 		BasicBoss boss = null;
 		boolean isFind = false;
 		for (GameObject obj: game.gameObjectList) {
-			if (obj instanceof BasicBoss && game.timer.getTotalTime() >= ((BasicBoss)obj).getTiming()) {
+			if (obj instanceof BasicBoss && game.tpop.getTotalTime() >= ((BasicBoss)obj).getTiming()) {
 				boss = (BasicBoss)obj;
 				isFind = true;
 			}
