@@ -41,10 +41,10 @@ public class Partition {
 
 				pattern = level.getChildren("pattern");
 				for (int i = 0; i < pattern.length; i++) {
-					TreatXML(patterns.get(pattern[i].getString("id")), pattern[i].getFloat("timing"));
+					TreatXML(patterns.get(pattern[i].getString("id")), pattern[i].getFloat("timing"), pattern[i].getFloat("angle"));
 				}
 				
-			TreatXML(level, 0);
+			TreatXML(level, 0, 0);
 			game.endGame = level.getChild("endgame").getFloat("timing");
 //				XML bullets = xml.getChild("bullets");
 						
@@ -59,10 +59,10 @@ public class Partition {
 		}
 	}
 	
-	public void TreatXML(XML level, float timing) {
+	public void TreatXML(XML level, float timing, float angle) {
 		XML[] children = level.getChild("monsters").getChildren("monster");
 		for (int i = 0; i < children.length; i++) {
-			game.EnnemyFactory(EnemyType.values()[children[i].getInt("type")], children[i].getFloat("angle"), Game.Color.values()[children[i].getInt("color")],
+			game.EnnemyFactory(EnemyType.values()[children[i].getInt("type")], children[i].getFloat("angle") + angle, Game.Color.values()[children[i].getInt("color")],
 					children[i].getFloat("life"), children[i].getFloat("timing") + timing);
 		}
 		children = level.getChild("monsters").getChildren("boss");
