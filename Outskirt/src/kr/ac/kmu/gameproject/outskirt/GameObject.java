@@ -23,8 +23,8 @@ public abstract class GameObject {
 	abstract public void draw();
 
 	public void setPolar(float radius, float angle) {
-		x = radius * PApplet.cos(angle);
-		y = radius * PApplet.sin(angle);
+		x = App.toX(radius, angle);
+		y = App.toY(radius, angle);
 		this.radius = radius;
 		this.angle = angle;
 		oSprite.setXY(x, y);
@@ -34,8 +34,8 @@ public abstract class GameObject {
 	public void setCart(float x, float y) {
 		this.x  = x;
 		this.y = y;
-		this.radius = PApplet.sqrt(x * x + y * y);
-		this.angle = PApplet.atan2(y, x);
+		this.radius = App.toRadius(x, y);
+		this.angle = App.toAngle(x, y);
 		oSprite.setXY(x, y);
 		oSprite.setRot(radius);
 	}
@@ -53,7 +53,6 @@ public abstract class GameObject {
 	}
 
 	public float getAngle() {
-		//game.getApp().getDebug().put("test :", angle);
 		return angle;
 	}
 

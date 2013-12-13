@@ -10,9 +10,7 @@ public class AventureMode extends Game{
 	
 	public AventureMode(App app) {
 		super(app);
-		// TODO Auto-generated constructor stub
 	}
-
 	
 	@Override
 	void init() {
@@ -35,5 +33,11 @@ public class AventureMode extends Game{
 				app.setScreen(new EndScreen(app, this));
 			}
 		}
+	}
+	
+	@Override
+	public void draw() {
+		// TODO Auto-generated method stub
+		super.draw();
 	}
 }

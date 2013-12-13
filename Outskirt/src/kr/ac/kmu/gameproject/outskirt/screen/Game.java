@@ -12,6 +12,7 @@ import kr.ac.kmu.gameproject.outskirt.GameObject;
 import kr.ac.kmu.gameproject.outskirt.HUD;
 import kr.ac.kmu.gameproject.outskirt.Timer;
 import kr.ac.kmu.gameproject.outskirt.boss.BossOne;
+import kr.ac.kmu.gameproject.outskirt.boss.BossThree;
 import kr.ac.kmu.gameproject.outskirt.boss.BossTwo;
 import kr.ac.kmu.gameproject.outskirt.enemy.DiamondEnemy;
 import kr.ac.kmu.gameproject.outskirt.enemy.Enemy;
@@ -20,8 +21,8 @@ import kr.ac.kmu.gameproject.outskirt.enemy.SpiralEnemy;
 import kr.ac.kmu.gameproject.outskirt.enemy.SquareEnemy;
 import kr.ac.kmu.gameproject.outskirt.gameobject.SpaceSheep;
 import kr.ac.kmu.gameproject.outskirt.partition.Partition;
+import processing.core.PApplet;
 import processing.core.PImage;
-import sprites.S4P;
 
 public class Game implements Screen, KeyListener {
 
@@ -52,7 +53,7 @@ public class Game implements Screen, KeyListener {
 	}
 	
 	public enum BossType {
-		BOSSONE, BOSSTWO
+		BOSSONE, BOSSTWO, BOSSTHREE
 	}
 
 	public enum EnemyType {
@@ -67,6 +68,7 @@ public class Game implements Screen, KeyListener {
 		switch (type) {
 		case BOSSONE : return (new BossOne(this, maxLife, timing));
 		case BOSSTWO : return (new BossTwo(this, maxLife, timing));
+		case BOSSTHREE : return (new BossThree(this, maxLife, timing));
 		default: return (null);
 		}
 	}
@@ -101,8 +103,6 @@ public class Game implements Screen, KeyListener {
 		this.bg[3] = getApp().loadImage(pathSprites+"whiteCircle.png");
 		this.timer = new Timer(true);
 		this.tpop = new Timer(true);
-		this.tpop.start();
-		this.timer.start();
 		getApp().size(getApp().displayWidth, getApp().displayHeight);
 		this.getApp().addKeyListener(this);
 		init();
@@ -128,8 +128,8 @@ public class Game implements Screen, KeyListener {
 	
 	public void draw() {
 		app.getDebug().put("number gameobject", gameObjectList.size());
-		timer.updateTime();
-		tpop.updateTime();
+		this.timer.updateTime();
+		this.tpop.updateTime();
 		getApp().background(0);
 		getApp().color(255);
 		camera.draw();
@@ -139,7 +139,7 @@ public class Game implements Screen, KeyListener {
 			getApp().image(bg[0], 0, 0);
 		else
 			getApp().image(bg[spaceSheep.getColor().ordinal()], 0, 0);
-		
+
 		totalTime = this.timer.getTotalTime();
 		pop = this.tpop.getTotalTime();
 		endLevel();
@@ -217,7 +217,6 @@ public class Game implements Screen, KeyListener {
 	@Override
 	public void keyReleased(KeyEvent arg0) {
 		// TODO Auto-generated method stub
-		
 	}
 
 	@Override

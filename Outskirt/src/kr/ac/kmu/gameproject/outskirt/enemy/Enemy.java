@@ -11,11 +11,11 @@ import kr.ac.kmu.gameproject.outskirt.screen.Game;
 import processing.core.PApplet;
 
 public class Enemy extends Life {
-	boolean isPop = false;
-	float localAngle = 0;
+	protected boolean isPop = false;
+	protected float localAngle = 0;
 	float startAngle = 0;
-	Game.Color color;
-	float timing;
+	protected Game.Color color;
+	protected float timing;
 	
 	public Enemy(Game game, float startAngle, Game.Color color, float life, float timing, String path) {
 		super(game, life);

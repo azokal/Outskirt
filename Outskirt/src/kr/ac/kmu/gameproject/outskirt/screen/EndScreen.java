@@ -32,7 +32,7 @@ public class EndScreen implements Screen {
 		if (app.isPressed(App.ENTER)) {
 			S4P.resetWorld();
 			this.game.unload();
-			app.setScreen(new Menu(app));
+			app.setScreen(new MainMenu(app));
 		}
 		app.popStyle();
 	}

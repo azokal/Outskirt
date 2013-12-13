@@ -37,22 +37,23 @@ public class RandomMode extends Game{
 				else if (level == 2)
 					BossFactory(Game.BossType.values()[1], 2000, 0);
 				else if (level == 3)
-					BossFactory(Game.BossType.values()[1], 2000, 0);
+					BossFactory(Game.BossType.values()[2], 2000, 0);
 				else if (level == 4) {
 					BossFactory(Game.BossType.values()[0], 2000, 0);
 					BossFactory(Game.BossType.values()[1], 2000, 0);
 				}
 				else if (level == 5) {
 					BossFactory(Game.BossType.values()[0], 2000, 0);
-					BossFactory(Game.BossType.values()[1], 2000, 0);
+					BossFactory(Game.BossType.values()[2], 2000, 0);
 				}
 				else if (level == 6) {
-					BossFactory(Game.BossType.values()[0], 2000, 0);
 					BossFactory(Game.BossType.values()[1], 2000, 0);
+					BossFactory(Game.BossType.values()[2], 2000, 0);
 				}
 				else {
 					BossFactory(Game.BossType.values()[0], 2000, 0);
 					BossFactory(Game.BossType.values()[1], 2000, 0);
+					BossFactory(Game.BossType.values()[2], 2000, 0);
 				}
 				nWaves = 0;
 				level++;

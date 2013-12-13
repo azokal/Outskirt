@@ -7,7 +7,7 @@ import java.util.Map;
 
 import kr.ac.kmu.gameproject.outskirt.partition.Partition;
 import kr.ac.kmu.gameproject.outskirt.screen.AventureMode;
-import kr.ac.kmu.gameproject.outskirt.screen.Menu;
+import kr.ac.kmu.gameproject.outskirt.screen.MainMenu;
 import kr.ac.kmu.gameproject.outskirt.screen.Screen;
 import processing.core.PApplet;
 
@@ -31,7 +31,7 @@ public class App extends PApplet {
 		} catch (AWTException e) {
 			e.printStackTrace();
 		}
-		setScreen(new Menu(this));
+		setScreen(new MainMenu(this));
 	}
 	
 	public void draw() {
@@ -88,4 +88,21 @@ public class App extends PApplet {
 		this.screen = screen;
 	}
 
+	static public float toX(float radius, float angle) {
+		return radius * PApplet.cos(angle);
+	}
+	
+	static public float toY(float radius, float angle) {
+		return radius * PApplet.sin(angle);
+	}
+	
+	static public float toRadius(float x, float y) {
+		return PApplet.sqrt(x * x + y * y);
+
+	}
+	
+	static public float toAngle(float x, float y) {
+		return PApplet.atan2(y, x);
+	}
+	
 }
