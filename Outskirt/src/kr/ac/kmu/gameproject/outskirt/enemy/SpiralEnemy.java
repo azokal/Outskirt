@@ -29,7 +29,7 @@ public class SpiralEnemy extends Enemy {
 	@Override
 	public void draw() {
 		super.draw();
-		if (game.timer.getTotalTime() - lastShoot > cooldownShoot) {
+		if (isPop == true && game.timer.getTotalTime() - lastShoot > cooldownShoot) {
 			float x = getRadius() * PApplet.cos(getAngle());
 			float y = getRadius() * PApplet.sin(getAngle());
 			float tmpx = x - 10.0f * PApplet.cos(localAngle);

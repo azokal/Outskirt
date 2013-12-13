@@ -38,7 +38,7 @@ public class Menu extends Game {
 		app.fill(255, 255, 255);
 		app.text("Press enter to start the game!", 0, 0);
 		if (app.isPressed(App.ENTER)) {
-			Game g = new AventureMode(app);
+			Game g = new SelectedLevelMode(app, 3);
 			app.setScreen(g);
 		}
 	}

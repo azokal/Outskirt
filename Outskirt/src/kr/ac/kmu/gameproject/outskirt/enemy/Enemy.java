@@ -12,9 +12,9 @@ import processing.core.PApplet;
 
 public class Enemy extends Life {
 	boolean isPop = false;
-	float localAngle = 0;
+	protected float localAngle = 0;
 	float startAngle = 0;
-	Game.Color color;
+	protected Game.Color color;
 	float timing;
 	
 	public Enemy(Game game, float startAngle, Game.Color color, float life, float timing, String path) {
