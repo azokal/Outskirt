@@ -5,7 +5,7 @@ public class Timer {
     private long totalTime = 0;
     private long previousUpdateTime;
     private long elapsedTime;
-    private long updateTime;
+    private long updateTimeCount;
     private boolean running;
 
     public Timer(boolean running) {
@@ -23,9 +23,9 @@ public class Timer {
     
     public void updateTime() {
     	if (running) {
-	    	previousUpdateTime = updateTime;
-	    	updateTime = System.currentTimeMillis();
-	    	elapsedTime = updateTime - previousUpdateTime;
+	    	previousUpdateTime = updateTimeCount;
+	    	updateTimeCount = System.currentTimeMillis();
+	    	elapsedTime = updateTimeCount - previousUpdateTime;
 	    	totalTime += elapsedTime;
     	}
     }
@@ -46,7 +46,7 @@ public class Timer {
     
     private void init() {
         previousUpdateTime = System.currentTimeMillis();
-        updateTime = previousUpdateTime;
+        updateTimeCount = previousUpdateTime;
         elapsedTime = 0;
     }
     
