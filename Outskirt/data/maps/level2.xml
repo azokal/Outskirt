@@ -63,15 +63,36 @@
 </pattern>
 
 <pattern id="3">
-    <monster type="2" angle="90" color="2" life="30.0" timing="1000.0"/>
-    <monster type="2" angle="90" color="2" life="30.0" timing="5000.0"/>	
+  <monsters>
+    <monster type="2" angle="90" color="0" life="30.0" timing="1000.0"/>
+    <monster type="2" angle="90" color="1" life="30.0" timing="5000.0"/>
+    <monster type="2" angle="90" color="2" life="30.0" timing="10000.0"/>        
+    <monster type="2" angle="0" color="2" life="30.0" timing="1000.0"/>
+    <monster type="2" angle="0" color="0" life="30.0" timing="5000.0"/>
+    <monster type="2" angle="0" color="1" life="30.0" timing="10000.0"/>        
+    <monster type="2" angle="180" color="1" life="30.0" timing="1000.0"/>
+    <monster type="2" angle="180" color="2" life="30.0" timing="5000.0"/>
+    <monster type="2" angle="180" color="0" life="30.0" timing="10000.0"/>        
+    <monster type="2" angle="270" color="0" life="30.0" timing="1000.0"/>
+    <monster type="2" angle="270" color="1" life="30.0" timing="5000.0"/>
+    <monster type="2" angle="270" color="2" life="30.0" timing="10000.0"/>        
+  </monsters>
 </pattern>
 
 <level>
+<pattern id="2" timing="0.0" angle="90.0"/>
+<pattern id="2" timing="6000.0" angle="0.0"/>
+<pattern id="2" timing="6000.0" angle="90.0"/>
+<pattern id="2" timing="12000.0" angle="0.0"/>
 <pattern id="3" timing="0.0" angle="0.0"/>
+<pattern id="3" timing="10000.0" angle="0.0"/>
+<pattern id="3" timing="10000.0" angle="45.0"/>
+<pattern id="3" timing="20000.0" angle="0.0"/>
+<pattern id="3" timing="20000.0" angle="33.0"/>
+<pattern id="3" timing="20000.0" angle="66.0"/>
 <monsters>
-	<boss type="1" life="10.0" timing="24000.0"/>
+        <boss type="1" life="3000.0" timing="36000.0"/>
 </monsters>
-<endgame timing="25000.0"/>
+<endgame timing="37000.0"/>
 </level>
 </OutSkirt>
