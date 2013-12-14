@@ -1,12 +1,9 @@
 package kr.ac.kmu.gameproject.outskirt.boss;
 
-import processing.core.PApplet;
 import kr.ac.kmu.gameproject.outskirt.GameObject;
-import kr.ac.kmu.gameproject.outskirt.enemy.ExplosionEnemy;
 import kr.ac.kmu.gameproject.outskirt.gameobject.bullet.BasicBullet;
-import kr.ac.kmu.gameproject.outskirt.gameobject.bullet.FreeMoveBullet;
-import kr.ac.kmu.gameproject.outskirt.life.Life;
 import kr.ac.kmu.gameproject.outskirt.screen.Game;
+import processing.core.PApplet;
 
 public class BossThree extends BasicBoss {
 	float cooldownShoot = 3000f;

@@ -1,13 +1,12 @@
 package kr.ac.kmu.gameproject.outskirt.enemy;
 
-import java.util.Random;
-
 import kr.ac.kmu.gameproject.outskirt.GameObject;
 import kr.ac.kmu.gameproject.outskirt.gameobject.SpaceSheep;
 import kr.ac.kmu.gameproject.outskirt.gameobject.bullet.BasicBullet;
 import kr.ac.kmu.gameproject.outskirt.life.Life;
 import kr.ac.kmu.gameproject.outskirt.screen.EndScreen;
 import kr.ac.kmu.gameproject.outskirt.screen.Game;
+import kr.ac.kmu.gameproject.outskirt.screen.Screen;
 import processing.core.PApplet;
 
 public class Enemy extends Life {
@@ -65,7 +64,9 @@ public class Enemy extends Life {
 	
 	public void onCollide(GameObject obj) {
 		if (obj instanceof SpaceSheep) {
-			game.getApp().setScreen(new EndScreen(game.getApp(), game));
+			Screen screen = new EndScreen(game.getApp(), game);
+			screen.setup();
+			game.getApp().setScreen(screen);
 		}
 	}
 	public void looseLife(BasicBullet coll) {

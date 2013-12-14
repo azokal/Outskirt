@@ -1,13 +1,8 @@
 package kr.ac.kmu.gameproject.outskirt.screen;
 
-import java.util.Random;
-
-import processing.core.PApplet;
 import kr.ac.kmu.gameproject.outskirt.App;
 import kr.ac.kmu.gameproject.outskirt.HUD;
 import kr.ac.kmu.gameproject.outskirt.gameobject.SpaceSheep;
-import kr.ac.kmu.gameproject.outskirt.partition.Partition;
-import kr.ac.kmu.gameproject.outskirt.screen.Game.EnemyType;
 
 public class RandomMode extends Game{
 	int level;

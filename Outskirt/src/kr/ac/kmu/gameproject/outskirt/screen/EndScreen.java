@@ -1,7 +1,6 @@
 package kr.ac.kmu.gameproject.outskirt.screen;
 
 import kr.ac.kmu.gameproject.outskirt.App;
-import kr.ac.kmu.gameproject.outskirt.partition.Partition;
 import processing.core.PApplet;
 import sprites.S4P;
 
@@ -32,7 +31,9 @@ public class EndScreen implements Screen {
 		if (app.isPressed(App.ENTER)) {
 			S4P.resetWorld();
 			this.game.unload();
-			app.setScreen(new MainMenu(app));
+			Screen screen = new MainMenu(app);
+			screen.setup();
+			app.setScreen(screen);
 		}
 		app.popStyle();
 	}

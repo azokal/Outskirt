@@ -1,11 +1,7 @@
 package kr.ac.kmu.gameproject.outskirt.gameobject.weapon;
 
 import kr.ac.kmu.gameproject.outskirt.GameObject;
-import kr.ac.kmu.gameproject.outskirt.enemy.Enemy;
-import kr.ac.kmu.gameproject.outskirt.gameobject.SpaceSheep;
 import kr.ac.kmu.gameproject.outskirt.gameobject.bullet.BasicBullet;
-import kr.ac.kmu.gameproject.outskirt.gameobject.bullet.LeftStraightBullet;
-import kr.ac.kmu.gameproject.outskirt.gameobject.bullet.RightStraightBullet;
 import kr.ac.kmu.gameproject.outskirt.screen.Game;
 
 public abstract class BasicWeapon extends GameObject implements Weapon {

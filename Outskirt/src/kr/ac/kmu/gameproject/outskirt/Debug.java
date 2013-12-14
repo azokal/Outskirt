@@ -7,6 +7,11 @@ import java.util.Map.Entry;
 
 public class Debug extends LinkedHashMap<String, Object> implements KeyListener {
 
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+
 	App app;
 	boolean on = true;
 
@@ -24,7 +29,7 @@ public class Debug extends LinkedHashMap<String, Object> implements KeyListener 
 			}
 			app.pushStyle();
 			app.color(255);
-			app.textAlign(app.LEFT, app.TOP);
+			app.textAlign(App.LEFT, App.TOP);
 			app.text(str.toString(), 0, 0);
 			app.popStyle();
 		}

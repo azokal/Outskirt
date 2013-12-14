@@ -5,19 +5,30 @@ import java.awt.Robot;
 import java.util.HashMap;
 import java.util.Map;
 
-import kr.ac.kmu.gameproject.outskirt.partition.Partition;
-import kr.ac.kmu.gameproject.outskirt.screen.AventureMode;
 import kr.ac.kmu.gameproject.outskirt.screen.MainMenu;
 import kr.ac.kmu.gameproject.outskirt.screen.Screen;
 import processing.core.PApplet;
 
 public class App extends PApplet {
 
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+
 	private Debug debug;
 	private Screen screen;
+	private Screen nextScreen;
 	public Robot robot;
 	public Map<Character, Boolean> keys = new HashMap<Character, Boolean>();
 	public Map<Integer, Boolean> keysCode = new HashMap<Integer, Boolean>();
+
+	public Map<Character, Boolean> keysUp = new HashMap<Character, Boolean>();
+	public Map<Integer, Boolean> keysUpCode = new HashMap<Integer, Boolean>();
+
+	public Map<Character, Boolean> keysDown = new HashMap<Character, Boolean>();
+	public Map<Integer, Boolean> keysDownCode = new HashMap<Integer, Boolean>();
+
 	
 	public static void main(String args[]) {
 		PApplet.main(new String[] { "--present",
@@ -31,11 +42,16 @@ public class App extends PApplet {
 		} catch (AWTException e) {
 			e.printStackTrace();
 		}
-		setScreen(new MainMenu(this));
+		Screen screen = new MainMenu(this);
+		screen.setup();
+		setScreen(screen);
 	}
 	
 	public void draw() {
 		pushMatrix();
+		if (nextScreen != screen) {
+			screen = nextScreen;
+		}
 		screen.draw();
 		popMatrix();
 		debug.draw();
@@ -80,12 +96,7 @@ public class App extends PApplet {
 	}
 
 	public void setScreen(Screen screen) {
-		this.screen = screen;
-		screen.setup();
-	}
-
-	public void resumeScreen(Screen screen) {
-		this.screen = screen;
+		this.nextScreen = screen;
 	}
 
 	static public float toX(float radius, float angle) {

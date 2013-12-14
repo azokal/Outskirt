@@ -1,7 +1,6 @@
 package kr.ac.kmu.gameproject.outskirt.boss;
 
-import processing.core.PApplet;
-import kr.ac.kmu.gameproject.outskirt.enemy.Enemy;
+import kr.ac.kmu.gameproject.outskirt.App;
 import kr.ac.kmu.gameproject.outskirt.gameobject.bullet.BasicBullet;
 import kr.ac.kmu.gameproject.outskirt.gameobject.weapon.BasicWeapon;
 import kr.ac.kmu.gameproject.outskirt.gameobject.weapon.CircleWeapon;
@@ -24,11 +23,11 @@ public class BossOnePart extends Life {
 		this.setPolar(50, 0);
 		if (color == Game.Color.RED) {
 			oSprite.setFrame(1);
-			this.setPolar(50, game.getApp().radians(120f));
+			this.setPolar(50, App.radians(120f));
 		}
 		if (color == Game.Color.CYAN) {
 			oSprite.setFrame(2);
-			this.setPolar(50, game.getApp().radians(240f));
+			this.setPolar(50, App.radians(240f));
 		}
 		oSprite.setVisible(false);
 		this.timing = timing;
@@ -63,7 +62,7 @@ public class BossOnePart extends Life {
 	}
 	
 	public void move() {
-		addAngle(game.getApp().radians(1));
+		addAngle(App.radians(1));
 	}
 
 }

@@ -30,7 +30,9 @@ public class AventureMode extends Game{
 				part = new Partition(app, this, pathMaps+"level"+level+".xml");
 			}
 			else {
-				app.setScreen(new EndScreen(app, this));
+				Screen screen = new EndScreen(app, this);
+				screen.setup();
+				app.setScreen(screen);
 			}
 		}
 	}

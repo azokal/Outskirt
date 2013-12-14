@@ -1,12 +1,9 @@
 package kr.ac.kmu.gameproject.outskirt.enemy;
 
-import java.util.Random;
-
-import processing.core.PApplet;
-import kr.ac.kmu.gameproject.outskirt.gameobject.bullet.BasicBullet;
 import kr.ac.kmu.gameproject.outskirt.gameobject.bullet.FreeMoveBullet;
 import kr.ac.kmu.gameproject.outskirt.screen.Game;
 import kr.ac.kmu.gameproject.outskirt.screen.Game.Color;
+import processing.core.PApplet;
 
 public class ExplosionEnemy extends Enemy{
 	public ExplosionEnemy(Game game, float startAngle, Color color, float life,
@@ -32,7 +29,7 @@ public class ExplosionEnemy extends Enemy{
 				float tmpx = x + 16.0f * PApplet.cos(PApplet.radians(a));
 				float tmpy = y + 16.0f * PApplet.sin(PApplet.radians(a));
 				
-				BasicBullet b = new FreeMoveBullet(game, this, PApplet.sqrt(tmpx * tmpx + tmpy * tmpy), PApplet.atan2(tmpy, tmpx), a, -4, color, 40);
+				new FreeMoveBullet(game, this, PApplet.sqrt(tmpx * tmpx + tmpy * tmpy), PApplet.atan2(tmpy, tmpx), a, -4, color, 40);
 			}
 			this.kill();
 		}

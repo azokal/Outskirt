@@ -6,9 +6,6 @@ import java.awt.event.MouseMotionListener;
 import java.util.Vector;
 
 import kr.ac.kmu.gameproject.outskirt.App;
-import kr.ac.kmu.gameproject.outskirt.screen.AventureMode;
-import kr.ac.kmu.gameproject.outskirt.screen.Game;
-import kr.ac.kmu.gameproject.outskirt.screen.Screen;
 import processing.core.PApplet;
 
 public class MenuItemGroup extends Vector<MenuItem> implements MouseMotionListener, MouseListener {
@@ -23,6 +20,8 @@ public class MenuItemGroup extends Vector<MenuItem> implements MouseMotionListen
 	private App app;
 
 	private boolean isStart = false;
+	
+	private static final float START_CIRCLE = -App.PI / 2;
 	
 	public MenuItemGroup(App app) {
 		this.app = app;
@@ -40,8 +39,8 @@ public class MenuItemGroup extends Vector<MenuItem> implements MouseMotionListen
 		int y;
 		float circlepart = App.PI * 2 / nbItem;
 		for (int i = 0; i < nbItem; i++) {
-			x = (int) (App.toX(250, circlepart * i - App.PI / 2));
-			y = (int) (App.toY(250, circlepart * i - App.PI / 2));
+			x = (int) (App.toX(250, circlepart * i + START_CIRCLE));
+			y = (int) (App.toY(250, circlepart * i + START_CIRCLE));
 			app.pushMatrix();
 			app.translate(x, y);
 			this.get(i).draw();
@@ -82,15 +81,22 @@ public class MenuItemGroup extends Vector<MenuItem> implements MouseMotionListen
 	}
 
 	@Override
+	//circlepart * i + START_CIRCLE = angle
+	//i = (angle - START_CIRCLE) / circlepart
 	public void mouseMoved(MouseEvent e) {
 		if (isStart == false) {
 			float mouseX = e.getX() - app.displayWidth / 2;
 			float mouseY = e.getY() - app.displayHeight / 2;
-			float angle = App.toAngle(mouseX, mouseY);
-
 			float circlepart = App.PI * 2 / this.size();
-			int indexMenuSelected = (int)(((angle + App.PI) * App.RAD_TO_DEG) / (circlepart * App.RAD_TO_DEG));
-			app.getDebug().put("rad", (angle + App.PI) * App.RAD_TO_DEG + "/" + circlepart * App.RAD_TO_DEG);
+			float angle = App.toAngle(mouseX, mouseY) - START_CIRCLE + (circlepart / 2);
+
+			if (angle < 0) {
+				angle += 2 * App.PI;
+			}
+
+			int indexMenuSelected = (int)(angle / circlepart);
+			app.getDebug().put("def", angle * App.RAD_TO_DEG + "/" + circlepart * App.RAD_TO_DEG);
+			app.getDebug().put("rad", angle + "/" + circlepart);
 			app.getDebug().put("index", indexMenuSelected);
 			this.select(indexMenuSelected);
 		}

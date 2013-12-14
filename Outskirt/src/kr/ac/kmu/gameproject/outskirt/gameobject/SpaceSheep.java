@@ -4,7 +4,6 @@ import java.awt.event.MouseEvent;
 import java.awt.event.MouseMotionListener;
 import java.util.ArrayList;
 
-import kr.ac.kmu.gameproject.outskirt.GameObject;
 import kr.ac.kmu.gameproject.outskirt.gameobject.bullet.BasicBullet;
 import kr.ac.kmu.gameproject.outskirt.gameobject.weapon.BasicPlayerWeapon;
 import kr.ac.kmu.gameproject.outskirt.gameobject.weapon.BasicWeapon;
@@ -13,6 +12,7 @@ import kr.ac.kmu.gameproject.outskirt.gameobject.weapon.StraightWeapon;
 import kr.ac.kmu.gameproject.outskirt.life.Life;
 import kr.ac.kmu.gameproject.outskirt.screen.EndScreen;
 import kr.ac.kmu.gameproject.outskirt.screen.Game;
+import kr.ac.kmu.gameproject.outskirt.screen.Screen;
 import processing.core.PApplet;
 
 public class SpaceSheep extends Life implements MouseMotionListener{
@@ -176,7 +176,9 @@ public class SpaceSheep extends Life implements MouseMotionListener{
 		}
 		if (life <= 0) {
 			kill();
-			game.getApp().setScreen(new EndScreen(game.getApp(), game));
+			Screen screen = new EndScreen(game.getApp(), game);
+			screen.setup();
+			game.getApp().setScreen(screen);
 		}
 	}
 	

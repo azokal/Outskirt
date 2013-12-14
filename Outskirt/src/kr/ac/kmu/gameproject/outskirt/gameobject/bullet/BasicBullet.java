@@ -5,7 +5,6 @@ import kr.ac.kmu.gameproject.outskirt.enemy.Enemy;
 import kr.ac.kmu.gameproject.outskirt.gameobject.BulletImpact;
 import kr.ac.kmu.gameproject.outskirt.gameobject.SpaceSheep;
 import kr.ac.kmu.gameproject.outskirt.life.Life;
-import kr.ac.kmu.gameproject.outskirt.screen.EndScreen;
 import kr.ac.kmu.gameproject.outskirt.screen.Game;
 
 public class BasicBullet extends GameObject {

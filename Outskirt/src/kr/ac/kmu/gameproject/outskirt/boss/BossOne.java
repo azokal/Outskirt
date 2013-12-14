@@ -2,7 +2,6 @@ package kr.ac.kmu.gameproject.outskirt.boss;
 
 import kr.ac.kmu.gameproject.outskirt.GameObject;
 import kr.ac.kmu.gameproject.outskirt.gameobject.bullet.BasicBullet;
-import kr.ac.kmu.gameproject.outskirt.life.Life;
 import kr.ac.kmu.gameproject.outskirt.screen.Game;
 
 public class BossOne extends BasicBoss {

@@ -1,7 +1,5 @@
 package kr.ac.kmu.gameproject.outskirt.boss;
 
-import java.util.ArrayList;
-
 import kr.ac.kmu.gameproject.outskirt.GameObject;
 import kr.ac.kmu.gameproject.outskirt.life.Life;
 import kr.ac.kmu.gameproject.outskirt.screen.Game;

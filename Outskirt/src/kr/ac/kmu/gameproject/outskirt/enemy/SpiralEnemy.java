@@ -1,12 +1,9 @@
 package kr.ac.kmu.gameproject.outskirt.enemy;
 
-import java.util.Random;
-
-import processing.core.PApplet;
-import kr.ac.kmu.gameproject.outskirt.gameobject.bullet.BasicBullet;
 import kr.ac.kmu.gameproject.outskirt.gameobject.bullet.FreeMoveBullet;
 import kr.ac.kmu.gameproject.outskirt.screen.Game;
 import kr.ac.kmu.gameproject.outskirt.screen.Game.Color;
+import processing.core.PApplet;
 
 public class SpiralEnemy extends Enemy {
 	protected float cooldownShoot = 100f; // 100ms
@@ -35,7 +32,7 @@ public class SpiralEnemy extends Enemy {
 			float tmpx = x - 10.0f * PApplet.cos(localAngle);
 			float tmpy = y - 10.0f * PApplet.sin(localAngle);
 
-			BasicBullet b = new FreeMoveBullet(game, this, PApplet.sqrt(tmpx
+			new FreeMoveBullet(game, this, PApplet.sqrt(tmpx
 					* tmpx + tmpy * tmpy), PApplet.atan2(tmpy, tmpx),
 					PApplet.degrees(localAngle), -4, color, 40);
 

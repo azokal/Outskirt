@@ -1,12 +1,8 @@
 package kr.ac.kmu.gameproject.outskirt;
 
-import javax.swing.text.html.HTMLDocument.HTMLReader.IsindexAction;
-
 import kr.ac.kmu.gameproject.outskirt.boss.BasicBoss;
 import kr.ac.kmu.gameproject.outskirt.gameobject.SpaceSheep;
 import kr.ac.kmu.gameproject.outskirt.screen.Game;
-import processing.core.PApplet;
-import processing.core.PFont;
 
 public class HUD {
 	Game game;
@@ -32,8 +28,8 @@ public class HUD {
 			if (i == 2) {
 				game.getApp().fill(0, 255, 255);
 			}
-		    game.getApp().arc(500, 425, diameter, diameter, lastAngle, lastAngle+game.getApp().radians(360.0f * data[i] / 100.0f));
-		    lastAngle += game.getApp().radians(360.0f * data[i] / 100.0f);
+		    game.getApp().arc(500, 425, diameter, diameter, lastAngle, lastAngle+ App.radians(360.0f * data[i] / 100.0f));
+		    lastAngle += App.radians(360.0f * data[i] / 100.0f);
 		  }
 		game.getApp().popStyle();
 	}

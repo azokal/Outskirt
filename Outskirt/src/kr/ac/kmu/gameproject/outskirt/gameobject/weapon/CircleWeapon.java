@@ -1,11 +1,10 @@
 package kr.ac.kmu.gameproject.outskirt.gameobject.weapon;
 
-import processing.core.PApplet;
 import kr.ac.kmu.gameproject.outskirt.GameObject;
-import kr.ac.kmu.gameproject.outskirt.gameobject.bullet.BasicBullet;
 import kr.ac.kmu.gameproject.outskirt.gameobject.bullet.FreeMoveBullet;
 import kr.ac.kmu.gameproject.outskirt.screen.Game;
 import kr.ac.kmu.gameproject.outskirt.screen.Game.Color;
+import processing.core.PApplet;
 
 public class CircleWeapon  extends BasicWeapon {
 
@@ -28,9 +27,7 @@ public class CircleWeapon  extends BasicWeapon {
 			float tmpx = x + 10.0f * PApplet.cos(PApplet.radians(a));
 			float tmpy = y + 10.0f * PApplet.sin(PApplet.radians(a));
 			
-			BasicBullet b = new FreeMoveBullet(game, owner, PApplet.sqrt(tmpx * tmpx + tmpy * tmpy), PApplet.atan2(tmpy, tmpx), a, -4, color, power);
-			//b.setCart(tmpx, tmpy);
-			//new BasicBullet(game, owner, 50, PApplet.radians(a), -2, color, 1);
+			new FreeMoveBullet(game, owner, PApplet.sqrt(tmpx * tmpx + tmpy * tmpy), PApplet.atan2(tmpy, tmpx), a, -4, color, power);
 		}
 	}
 }

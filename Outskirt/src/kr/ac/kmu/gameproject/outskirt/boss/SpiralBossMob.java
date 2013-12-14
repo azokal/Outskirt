@@ -1,14 +1,11 @@
 package kr.ac.kmu.gameproject.outskirt.boss;
 
-import java.util.Random;
-
-import processing.core.PApplet;
-import kr.ac.kmu.gameproject.outskirt.enemy.Enemy;
 import kr.ac.kmu.gameproject.outskirt.enemy.SpiralEnemy;
 import kr.ac.kmu.gameproject.outskirt.gameobject.bullet.BasicBullet;
 import kr.ac.kmu.gameproject.outskirt.gameobject.bullet.FreeMoveBullet;
 import kr.ac.kmu.gameproject.outskirt.screen.Game;
 import kr.ac.kmu.gameproject.outskirt.screen.Game.Color;
+import processing.core.PApplet;
 
 public class SpiralBossMob extends SpiralEnemy {
 	int shootCount = 30;
@@ -55,7 +52,7 @@ public class SpiralBossMob extends SpiralEnemy {
 			float tmpx = x - 10.0f * PApplet.cos(localAngle);
 			float tmpy = y - 10.0f * PApplet.sin(localAngle);
 
-			BasicBullet b = new FreeMoveBullet(game, this, PApplet.sqrt(tmpx
+			new FreeMoveBullet(game, this, PApplet.sqrt(tmpx
 					* tmpx + tmpy * tmpy), PApplet.atan2(tmpy, tmpx),
 					PApplet.degrees(localAngle), -4, color, 30);
 			shootCount++;

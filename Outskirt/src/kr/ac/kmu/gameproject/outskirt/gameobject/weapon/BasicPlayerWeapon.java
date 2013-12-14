@@ -1,6 +1,5 @@
 package kr.ac.kmu.gameproject.outskirt.gameobject.weapon;
 
-import kr.ac.kmu.gameproject.outskirt.GameObject;
 import kr.ac.kmu.gameproject.outskirt.gameobject.SpaceSheep;
 import kr.ac.kmu.gameproject.outskirt.screen.Game;
 

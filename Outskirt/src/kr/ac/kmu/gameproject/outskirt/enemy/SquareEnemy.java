@@ -1,10 +1,8 @@
 package kr.ac.kmu.gameproject.outskirt.enemy;
 
-import java.util.Random;
-
-import processing.core.PApplet;
 import kr.ac.kmu.gameproject.outskirt.screen.Game;
 import kr.ac.kmu.gameproject.outskirt.screen.Game.Color;
+import processing.core.PApplet;
 
 public class SquareEnemy extends Enemy{
 	public SquareEnemy(Game game, float startAngle, Color color, float life,

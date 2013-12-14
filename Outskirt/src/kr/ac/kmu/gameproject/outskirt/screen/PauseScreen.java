@@ -35,7 +35,7 @@ public class PauseScreen implements Screen, KeyListener {
 	@Override
 	public void keyPressed(KeyEvent e) {
 		if (e.getKeyChar() == 'p') {
-			app.resumeScreen(game);
+			app.setScreen(game);
 		}
 	}
 

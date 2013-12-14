@@ -21,7 +21,6 @@ import kr.ac.kmu.gameproject.outskirt.enemy.SpiralEnemy;
 import kr.ac.kmu.gameproject.outskirt.enemy.SquareEnemy;
 import kr.ac.kmu.gameproject.outskirt.gameobject.SpaceSheep;
 import kr.ac.kmu.gameproject.outskirt.partition.Partition;
-import processing.core.PApplet;
 import processing.core.PImage;
 
 public class Game implements Screen, KeyListener {
@@ -46,6 +45,8 @@ public class Game implements Screen, KeyListener {
 	Partition part;
 	HUD hud = null;
 
+	public static final int MAX_LEVEL = 3;
+	
 	public enum Color {
 		GREEN,
 		RED,
@@ -122,7 +123,9 @@ public class Game implements Screen, KeyListener {
 	
 	void endLevel() {
 		if (pop >= endGame) {
-			app.setScreen(new EndScreen(app, this));
+			Screen screen = new EndScreen(app, this);
+			screen.setup();
+			app.setScreen(screen);
 		}
 	}
 	
@@ -205,7 +208,7 @@ public class Game implements Screen, KeyListener {
 	@Override
 	public void keyPressed(KeyEvent e) {
 		if (e.getKeyChar() == 'p') {
-			app.setScreen(new PauseScreen(app, this));
+			//app.setScreen(new PauseScreen(app, this));
 			if (timer.isRunning()) {
 				this.timer.stop();
 			} else {

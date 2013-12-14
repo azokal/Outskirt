@@ -1,7 +1,6 @@
 package kr.ac.kmu.gameproject.outskirt;
 
 import kr.ac.kmu.gameproject.outskirt.screen.Game;
-import processing.core.PApplet;
 import sprites.S4P;
 import sprites.Sprite;
 

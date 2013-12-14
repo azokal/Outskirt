@@ -21,11 +21,12 @@ public class ChooseLevel implements Screen {
 	public void draw() {
 		//Play !
 		bg.draw();
-		app.textAlign(app.CENTER, app.TOP);
+		app.textAlign(App.CENTER, App.TOP);
 		app.fill(255, 255, 255);
 		app.text("Choose your level !", 0, 0);
 		if (app.isPressed(App.ENTER)) {
 			Game g = new AventureMode(app);
+			g.setup();
 			app.setScreen(g);
 		}
 	}

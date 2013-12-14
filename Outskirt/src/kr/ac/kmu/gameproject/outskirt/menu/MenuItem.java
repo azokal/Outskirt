@@ -1,8 +1,7 @@
 package kr.ac.kmu.gameproject.outskirt.menu;
 
-import processing.core.PApplet;
 import kr.ac.kmu.gameproject.outskirt.App;
-import kr.ac.kmu.gameproject.outskirt.screen.Screen;
+import processing.core.PApplet;
 
 abstract public class MenuItem {
 	
