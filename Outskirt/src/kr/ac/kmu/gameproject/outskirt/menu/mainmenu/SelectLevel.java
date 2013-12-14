@@ -2,7 +2,7 @@ package kr.ac.kmu.gameproject.outskirt.menu.mainmenu;
 
 import kr.ac.kmu.gameproject.outskirt.App;
 import kr.ac.kmu.gameproject.outskirt.menu.MenuItem;
-import kr.ac.kmu.gameproject.outskirt.screen.ChooseLevel;
+import kr.ac.kmu.gameproject.outskirt.screen.SelectLevelMenu;
 import kr.ac.kmu.gameproject.outskirt.screen.Screen;
 
 public class SelectLevel extends MenuItem {
@@ -16,7 +16,7 @@ public class SelectLevel extends MenuItem {
 
 	@Override
 	public void exec() {
-		Screen g = new ChooseLevel(app, bg);
+		Screen g = new SelectLevelMenu(app, bg);
 		g.setup();
 		app.setScreen(g);
 	}
