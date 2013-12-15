@@ -4,7 +4,7 @@ import kr.ac.kmu.gameproject.outskirt.gameobject.SpaceSheep;
 import kr.ac.kmu.gameproject.outskirt.screen.Game;
 
 public class BasicPlayerWeapon extends BasicWeapon {
-	
+
 	public BasicPlayerWeapon(Game game, SpaceSheep owner, Game.Color color) {
 		super(game, owner, color);
 	}

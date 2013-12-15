@@ -11,11 +11,11 @@ import kr.ac.kmu.gameproject.outskirt.menu.mainmenu.SelectLevel;
 public class MainMenu implements Screen {
 
 	final protected App app;
-	
+
 	final protected GameBackground bg;
-	
+
 	protected MenuItemGroup menuItemList;
-	
+
 	public MainMenu(App app) {
 		this.app = app;
 		bg = new GameBackground(app);
@@ -28,19 +28,17 @@ public class MainMenu implements Screen {
 		menuItemList.select(1);
 	}
 
-
 	public void setup() {
 		bg.setup();
 	}
-	
+
 	@Override
 	public void draw() {
 		bg.draw();
 		app.textAlign(App.CENTER, App.TOP);
 		app.fill(255, 255, 255);
 		app.text("Let's play !", 0, 0);
-		menuItemList.draw();				
+		menuItemList.draw();
 	}
 
-	
 }

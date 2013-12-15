@@ -7,7 +7,7 @@ import kr.ac.kmu.gameproject.outskirt.screen.Game;
 public abstract class Life extends GameObject {
 	protected float life;
 	protected float maxLife;
-	
+
 	public Life(Game game, float maxLife) {
 		super(game);
 		life = maxLife;
@@ -15,10 +15,11 @@ public abstract class Life extends GameObject {
 	}
 
 	abstract public void looseLife(BasicBullet coll);
-	
+
 	public float getLifeMax() {
 		return maxLife;
 	}
+
 	public float getCurrentLife() {
 		return life;
 	}

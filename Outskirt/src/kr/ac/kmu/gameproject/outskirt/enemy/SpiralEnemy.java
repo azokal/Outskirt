@@ -26,14 +26,15 @@ public class SpiralEnemy extends Enemy {
 	@Override
 	public void draw() {
 		super.draw();
-		if (isPop == true && game.timer.getTotalTime() - lastShoot > cooldownShoot) {
+		if (isPop == true
+				&& game.timer.getTotalTime() - lastShoot > cooldownShoot) {
 			float x = getRadius() * PApplet.cos(getAngle());
 			float y = getRadius() * PApplet.sin(getAngle());
 			float tmpx = x - 10.0f * PApplet.cos(localAngle);
 			float tmpy = y - 10.0f * PApplet.sin(localAngle);
 
-			new FreeMoveBullet(game, this, PApplet.sqrt(tmpx
-					* tmpx + tmpy * tmpy), PApplet.atan2(tmpy, tmpx),
+			new FreeMoveBullet(game, this, PApplet.sqrt(tmpx * tmpx + tmpy
+					* tmpy), PApplet.atan2(tmpy, tmpx),
 					PApplet.degrees(localAngle), -0.2f, color, 40);
 
 			lastShoot = game.timer.getTotalTime();

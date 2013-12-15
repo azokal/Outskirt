@@ -6,7 +6,7 @@ import kr.ac.kmu.gameproject.outskirt.screen.Game;
 import kr.ac.kmu.gameproject.outskirt.screen.Game.Color;
 import processing.core.PApplet;
 
-public class CircleWeapon  extends BasicWeapon {
+public class CircleWeapon extends BasicWeapon {
 
 	public CircleWeapon(Game game, GameObject owner, Color color) {
 		super(game, owner, color);
@@ -16,7 +16,7 @@ public class CircleWeapon  extends BasicWeapon {
 
 	@Override
 	public void draw() {
-		
+
 	}
 
 	@Override
@@ -26,8 +26,9 @@ public class CircleWeapon  extends BasicWeapon {
 		for (float a = 0.0f; a < 360.0f; a += 20.0f) {
 			float tmpx = x + 10.0f * PApplet.cos(PApplet.radians(a));
 			float tmpy = y + 10.0f * PApplet.sin(PApplet.radians(a));
-			
-			new FreeMoveBullet(game, owner, PApplet.sqrt(tmpx * tmpx + tmpy * tmpy), PApplet.atan2(tmpy, tmpx), a, -0.2f, color, power);
+
+			new FreeMoveBullet(game, owner, PApplet.sqrt(tmpx * tmpx + tmpy
+					* tmpy), PApplet.atan2(tmpy, tmpx), a, -0.2f, color, power);
 		}
 	}
 }

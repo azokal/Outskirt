@@ -8,7 +8,7 @@ import kr.ac.kmu.gameproject.outskirt.screen.Screen;
 public class SelectLevel extends MenuItem {
 
 	Screen bg;
-	
+
 	public SelectLevel(App app, Screen bg) {
 		super(app, "Select level");
 		this.bg = bg;

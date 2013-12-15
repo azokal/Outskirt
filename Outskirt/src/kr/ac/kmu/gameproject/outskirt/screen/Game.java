@@ -25,12 +25,12 @@ import processing.core.PImage;
 
 /**
  * @author brissa_a
- *
+ * 
  */
 public abstract class Game implements Screen, KeyListener {
 
 	App app;
-	
+
 	public List<GameObject> gameObjectList = new ArrayList<GameObject>();
 	public List<GameObject> toAddList = new ArrayList<GameObject>();
 	public List<GameObject> toDelList = new ArrayList<GameObject>();
@@ -43,92 +43,97 @@ public abstract class Game implements Screen, KeyListener {
 	public Enemy enemy;
 	public float totalTime;
 	public float pop;
-	public String pathSprites =  ".\\data\\sprites\\";
-	public String pathMaps =  ".\\data\\maps\\";
+	public String pathSprites = ".\\data\\sprites\\";
+	public String pathMaps = ".\\data\\maps\\";
 	public float endGame;
 	Partition part;
 	HUD hud = null;
 
 	public static final int MAX_LEVEL = 3;
-	
+
 	public enum Color {
-		GREEN,
-		RED,
-		CYAN
+		GREEN, RED, CYAN
 	}
-	
+
 	public enum BossType {
 		BOSSONE, BOSSTWO, BOSSTHREE
 	}
 
 	public enum EnemyType {
-		SQUARE,
-		DIAMOND,
-		EXPLOSION,
-		SPIRAL
+		SQUARE, DIAMOND, EXPLOSION, SPIRAL
 	}
-	
+
 	public GameObject BossFactory(BossType type, float maxLife, float timing) {
-		
+
 		switch (type) {
-		case BOSSONE : return (new BossOne(this, maxLife, timing));
-		case BOSSTWO : return (new BossTwo(this, maxLife, timing));
-		case BOSSTHREE : return (new BossThree(this, maxLife, timing));
-		default: return (null);
+		case BOSSONE:
+			return (new BossOne(this, maxLife, timing));
+		case BOSSTWO:
+			return (new BossTwo(this, maxLife, timing));
+		case BOSSTHREE:
+			return (new BossThree(this, maxLife, timing));
+		default:
+			return (null);
 		}
 	}
-	
-	public GameObject EnnemyFactory(EnemyType type, float startAngle, Color color, float maxLife, float timing) {
-		
+
+	public GameObject EnnemyFactory(EnemyType type, float startAngle,
+			Color color, float maxLife, float timing) {
+
 		switch (type) {
-		case SQUARE : return (new SquareEnemy(this, startAngle, color, maxLife, timing));
-		case DIAMOND : return (new DiamondEnemy(this, startAngle, color, maxLife, timing));
-		case EXPLOSION : return (new ExplosionEnemy(this, startAngle, color, maxLife, timing));
-		case SPIRAL : return (new SpiralEnemy(this, startAngle, color, maxLife, timing));
-		default: return (null);
+		case SQUARE:
+			return (new SquareEnemy(this, startAngle, color, maxLife, timing));
+		case DIAMOND:
+			return (new DiamondEnemy(this, startAngle, color, maxLife, timing));
+		case EXPLOSION:
+			return (new ExplosionEnemy(this, startAngle, color, maxLife, timing));
+		case SPIRAL:
+			return (new SpiralEnemy(this, startAngle, color, maxLife, timing));
+		default:
+			return (null);
 		}
 	}
-	
+
 	public Game(App app) {
 		this.app = app;
 	}
-	
+
 	abstract void init();
-	
+
 	public void setup() {
 		this.camera = new Camera(this);
 		this.bg = new PImage[4];
-		this.bg[0] = getApp().loadImage(pathSprites+"greenCircle.png");
-		this.bg[1] = getApp().loadImage(pathSprites+"redCircle.png");
-		this.bg[2] = getApp().loadImage(pathSprites+"cyanCircle.png");
-		this.bg[3] = getApp().loadImage(pathSprites+"whiteCircle.png");
+		this.bg[0] = getApp().loadImage(pathSprites + "greenCircle.png");
+		this.bg[1] = getApp().loadImage(pathSprites + "redCircle.png");
+		this.bg[2] = getApp().loadImage(pathSprites + "cyanCircle.png");
+		this.bg[3] = getApp().loadImage(pathSprites + "whiteCircle.png");
 		this.timer = new Timer(true);
 		this.tpop = new Timer(true);
 		getApp().size(getApp().displayWidth, getApp().displayHeight);
 		registerEvent();
 		init();
 	}
-	
+
 	public void registerEvent() {
-		this.getApp().addKeyListener(this);		
+		this.getApp().addKeyListener(this);
 	}
-	
+
 	public void unregisterEvent() {
-		this.getApp().removeKeyListener(this);				
+		this.getApp().removeKeyListener(this);
 	}
-	
+
 	public static int randInt(int min, int max) {
 
-	    // Usually this can be a field rather than a method variable
-	    Random rand = new Random();
+		// Usually this can be a field rather than a method variable
+		Random rand = new Random();
 
-	    // nextInt is normally exclusive of the top value,
-	    // so add 1 to make it inclusive
-	    int randomNum = rand.nextInt((max - min) + 1) + min;
+		// nextInt is normally exclusive of the top value,
+		// so add 1 to make it inclusive
+		int randomNum = rand.nextInt((max - min) + 1) + min;
 
-	    return randomNum;
+		return randomNum;
 	}
-	
+
 	void endLevel() {
 		if (pop >= endGame) {
 			EndScreen screen = new EndScreen(app, this);
@@ -136,7 +141,7 @@ public abstract class Game implements Screen, KeyListener {
 			app.setScreen(screen);
 		}
 	}
-	
+
 	public void draw() {
 		app.getDebug().put("number gameobject", gameObjectList.size());
 		this.timer.updateTime();
@@ -145,7 +150,7 @@ public abstract class Game implements Screen, KeyListener {
 		getApp().color(255);
 		camera.draw();
 
-		//draw outter circle
+		// draw outter circle
 		if (spaceSheep == null)
 			getApp().image(bg[0], 0, 0);
 		else
@@ -154,19 +159,19 @@ public abstract class Game implements Screen, KeyListener {
 		totalTime = this.timer.getTotalTime();
 		pop = this.tpop.getTotalTime();
 		endLevel();
-		//	if (totalTime - testLastPop > testCooldownPopEnemy) {
-	//		enemy = new Enemy(this, getApp().random(0, 359),
-	//				Color.values()[(int) getApp().random(0, 3)], 30, totalTime);
-	//		part.addEnemy(enemy);
-	//		testLastPop = timer.getTotalTime();
-	//	}
-		
-		//Draw
+		// if (totalTime - testLastPop > testCooldownPopEnemy) {
+		// enemy = new Enemy(this, getApp().random(0, 359),
+		// Color.values()[(int) getApp().random(0, 3)], 30, totalTime);
+		// part.addEnemy(enemy);
+		// testLastPop = timer.getTotalTime();
+		// }
+
+		// Draw
 		for (GameObject gameObject : gameObjectList) {
 			gameObject.draw();
 		}
 
-		//Collision detection
+		// Collision detection
 		for (GameObject gameObject : gameObjectList) {
 			for (GameObject gameObject2 : gameObjectList) {
 				if (gameObject.collide(gameObject2)) {
@@ -174,7 +179,7 @@ public abstract class Game implements Screen, KeyListener {
 				}
 			}
 		}
-		
+
 		if (!toDelList.isEmpty()) {
 			gameObjectList.removeAll(toDelList);
 			toDelList.clear();
@@ -185,13 +190,13 @@ public abstract class Game implements Screen, KeyListener {
 			toAddList.clear();
 		}
 
-//		S4P.updateSprites(timer.getTotalTime());
-//		S4P.drawSprites();
+		// S4P.updateSprites(timer.getTotalTime());
+		// S4P.drawSprites();
 
-		for (GameObject b: gameObjectList)
+		for (GameObject b : gameObjectList)
 			if (b.oSprite != null)
 				b.oSprite.draw();
-		
+
 		if (hud != null)
 			hud.draw();
 		app.getDebug().put("fps", app.frameRate);
@@ -204,7 +209,7 @@ public abstract class Game implements Screen, KeyListener {
 	public void delGameObject(GameObject toDel) {
 		toDelList.add(toDel);
 	}
-	
+
 	public App getApp() {
 		return app;
 	}
@@ -212,7 +217,7 @@ public abstract class Game implements Screen, KeyListener {
 	public SpaceSheep getSpaceSheep() {
 		return spaceSheep;
 	}
-	
+
 	@Override
 	public void keyPressed(KeyEvent e) {
 		if (e.getKeyChar() == 'p') {
@@ -229,14 +234,14 @@ public abstract class Game implements Screen, KeyListener {
 	@Override
 	public void keyTyped(KeyEvent arg0) {
 		// TODO Auto-generated method stub
-		
+
 	}
 
 	public void pause() {
 		this.timer.stop();
 		this.tpop.stop();
 		unregisterEvent();
-		for (GameObject g: gameObjectList) {
+		for (GameObject g : gameObjectList) {
 			g.pause();
 		}
 	}
@@ -245,16 +250,16 @@ public abstract class Game implements Screen, KeyListener {
 		this.timer.start();
 		this.tpop.start();
 		registerEvent();
-		for (GameObject g: gameObjectList) {
+		for (GameObject g : gameObjectList) {
 			g.resume();
 		}
 	}
 
 	public void unload() {
 		unregisterEvent();
-		for (GameObject g: gameObjectList) {
+		for (GameObject g : gameObjectList) {
 			g.kill();
 		}
 	}
-	
+
 }

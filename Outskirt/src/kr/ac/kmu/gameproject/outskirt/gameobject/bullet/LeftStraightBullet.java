@@ -6,8 +6,8 @@ import kr.ac.kmu.gameproject.outskirt.screen.Game.Color;
 
 public class LeftStraightBullet extends BasicBullet {
 
-	public LeftStraightBullet(Game game, GameObject owner, float radius, float angle,
-			float velocity, Color color, float power) {
+	public LeftStraightBullet(Game game, GameObject owner, float radius,
+			float angle, float velocity, Color color, float power) {
 		super(game, owner, radius, angle, velocity, color, power);
 	}
 
@@ -16,5 +16,5 @@ public class LeftStraightBullet extends BasicBullet {
 		super.draw();
 		addAngle(1 / getRadius());
 	}
-	
+
 }

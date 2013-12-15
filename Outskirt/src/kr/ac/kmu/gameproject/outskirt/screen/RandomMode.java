@@ -4,17 +4,16 @@ import kr.ac.kmu.gameproject.outskirt.App;
 import kr.ac.kmu.gameproject.outskirt.HUD;
 import kr.ac.kmu.gameproject.outskirt.gameobject.SpaceSheep;
 
-public class RandomMode extends Game{
+public class RandomMode extends Game {
 	int level;
 	int nWaves;
 	float cooldownPopEnemy = 500f;
 	float lastPop = 0;
-	
+
 	public RandomMode(App app) {
 		super(app);
 	}
 
-	
 	@Override
 	void init() {
 		level = 1;
@@ -36,16 +35,13 @@ public class RandomMode extends Game{
 				else if (level == 4) {
 					BossFactory(Game.BossType.values()[0], 2000, 0);
 					BossFactory(Game.BossType.values()[1], 2000, 0);
-				}
-				else if (level == 5) {
+				} else if (level == 5) {
 					BossFactory(Game.BossType.values()[0], 2000, 0);
 					BossFactory(Game.BossType.values()[2], 2000, 0);
-				}
-				else if (level == 6) {
+				} else if (level == 6) {
 					BossFactory(Game.BossType.values()[1], 2000, 0);
 					BossFactory(Game.BossType.values()[2], 2000, 0);
-				}
-				else {
+				} else {
 					BossFactory(Game.BossType.values()[0], 2000, 0);
 					BossFactory(Game.BossType.values()[1], 2000, 0);
 					BossFactory(Game.BossType.values()[2], 2000, 0);
@@ -53,11 +49,14 @@ public class RandomMode extends Game{
 				nWaves = 0;
 				level++;
 				tpop.stop();
-			}
-			else if (tpop.isRunning()){
+			} else if (tpop.isRunning()) {
 				for (int i = 0; i < level; i++)
-					EnnemyFactory(EnemyType.values()[randInt(0, EnemyType.values().length-1)], randInt(0, 360),
-								  Game.Color.values()[randInt(0, Color.values().length-1)], 40, 0);
+					EnnemyFactory(
+							EnemyType.values()[randInt(0,
+									EnemyType.values().length - 1)],
+							randInt(0, 360),
+							Game.Color.values()[randInt(0,
+									Color.values().length - 1)], 40, 0);
 				nWaves++;
 			}
 			lastPop = timer.getTotalTime();

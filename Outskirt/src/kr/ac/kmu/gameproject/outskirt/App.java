@@ -29,7 +29,6 @@ public class App extends PApplet {
 	public Map<Character, Boolean> keysDown = new HashMap<Character, Boolean>();
 	public Map<Integer, Boolean> keysDownCode = new HashMap<Integer, Boolean>();
 
-	
 	public static void main(String args[]) {
 		PApplet.main(new String[] { "--present",
 				"kr.ac.kmu.gameproject.outskirt.App" });
@@ -46,7 +45,7 @@ public class App extends PApplet {
 		screen.setup();
 		setScreen(screen);
 	}
-	
+
 	public void draw() {
 		pushMatrix();
 		if (nextScreen != screen) {
@@ -56,11 +55,11 @@ public class App extends PApplet {
 		popMatrix();
 		debug.draw();
 	}
-	
+
 	public Debug getDebug() {
 		return debug;
 	}
-	
+
 	public void keyPressed() {
 		if (key == CODED) {
 			keysCode.put(keyCode, true);
@@ -90,7 +89,7 @@ public class App extends PApplet {
 		}
 		return false;
 	}
-	
+
 	public Screen getScreen() {
 		return screen;
 	}
@@ -102,18 +101,18 @@ public class App extends PApplet {
 	static public float toX(float radius, float angle) {
 		return radius * PApplet.cos(angle);
 	}
-	
+
 	static public float toY(float radius, float angle) {
 		return radius * PApplet.sin(angle);
 	}
-	
+
 	static public float toRadius(float x, float y) {
 		return PApplet.sqrt(x * x + y * y);
 
 	}
-	
+
 	static public float toAngle(float x, float y) {
 		return PApplet.atan2(y, x);
 	}
-	
+
 }

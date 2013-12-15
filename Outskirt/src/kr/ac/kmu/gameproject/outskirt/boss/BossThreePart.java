@@ -12,12 +12,14 @@ public class BossThreePart extends Life {
 	float timing;
 	boolean isPop = false;
 	BasicWeapon weapon;
-	
-	public BossThreePart(Game game, float maxLife, BossThree owner, Game.Color color, float timing) {
+
+	public BossThreePart(Game game, float maxLife, BossThree owner,
+			Game.Color color, float timing) {
 		super(game, maxLife);
 		this.color = color;
 		this.owner = owner;
-		oSprite = new sprites.Sprite(game.getApp(),game.pathSprites+"spiralGrid.png", 3, 1, 10);
+		oSprite = new sprites.Sprite(game.getApp(), game.pathSprites
+				+ "spiralGrid.png", 3, 1, 10);
 		oSprite.setScale(2);
 		this.setPolar(50, 0);
 		if (color == Game.Color.RED) {
@@ -42,7 +44,7 @@ public class BossThreePart extends Life {
 	@Override
 	public void draw() {
 		if (game.tpop.getTotalTime() < timing)
-			return ;
+			return;
 		else if (isPop == false) {
 			game.tpop.stop();
 			oSprite.setVisible(true);
@@ -52,11 +54,11 @@ public class BossThreePart extends Life {
 			move();
 		}
 	}
-	
+
 	public float getTiming() {
 		return timing;
 	}
-	
+
 	public void move() {
 		addAngle(App.radians(1));
 	}

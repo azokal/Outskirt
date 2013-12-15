@@ -14,14 +14,15 @@ public class Enemy extends Life {
 	float startAngle = 0;
 	protected Game.Color color;
 	protected float timing;
-	
-	public Enemy(Game game, float startAngle, Game.Color color, float life, float timing, String path) {
+
+	public Enemy(Game game, float startAngle, Game.Color color, float life,
+			float timing, String path) {
 		super(game, life);
 		this.timing = timing;
 		oSprite = new sprites.Sprite(game.getApp(), path, 3, 1, 10);
 		this.startAngle = startAngle;
 		setPolar(0, PApplet.radians(this.startAngle));
-		oSprite.setScale(getRadius()/300f);
+		oSprite.setScale(getRadius() / 300f);
 		this.color = color;
 		if (color == Game.Color.RED)
 			oSprite.setFrame(1);
@@ -29,26 +30,26 @@ public class Enemy extends Life {
 			oSprite.setFrame(2);
 		oSprite.setVisible(false);
 	}
-	
+
 	public int getColor() {
 		return (color.ordinal());
 	}
-	
+
 	public float getLife() {
 		return (life);
 	}
-	
+
 	public float getTiming() {
 		return (timing);
 	}
-	
+
 	public void move() {
-		
+
 	}
-	
+
 	public void draw() {
 		if (game.pop < timing && isPop == false)
-			return ;
+			return;
 		else if (isPop == false) {
 			oSprite.setVisible(true);
 			isPop = true;
@@ -60,7 +61,7 @@ public class Enemy extends Life {
 			move();
 		}
 	}
-	
+
 	public void onCollide(GameObject obj) {
 		if (obj instanceof SpaceSheep) {
 			EndScreen screen = new EndScreen(game.getApp(), game);
@@ -68,6 +69,7 @@ public class Enemy extends Life {
 			game.getApp().setScreen(screen);
 		}
 	}
+
 	public void looseLife(BasicBullet coll) {
 		if (color != coll.color) {
 			life -= coll.power;
@@ -76,14 +78,17 @@ public class Enemy extends Life {
 		}
 		if (life <= 0) {
 			kill();
-			((SpaceSheep)coll.owner).addScore(100);
+			((SpaceSheep) coll.owner).addScore(100);
 			if (color != coll.color) {
-				((SpaceSheep)coll.owner).getCurrentWeapon().upPercentage(coll.color);
+				((SpaceSheep) coll.owner).getCurrentWeapon().upPercentage(
+						coll.color);
 			} else {
-				((SpaceSheep)coll.owner).getCurrentWeapon().upPercentage(coll.color);
-				((SpaceSheep)coll.owner).getCurrentWeapon().upPercentage(coll.color);
+				((SpaceSheep) coll.owner).getCurrentWeapon().upPercentage(
+						coll.color);
+				((SpaceSheep) coll.owner).getCurrentWeapon().upPercentage(
+						coll.color);
 			}
-			((SpaceSheep)coll.owner).addCombo(color);
+			((SpaceSheep) coll.owner).addCombo(color);
 		}
 	}
 }

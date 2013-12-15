@@ -9,9 +9,9 @@ import processing.core.PApplet;
 
 public class SpiralBossMob extends SpiralEnemy {
 	int shootCount = 30;
-	
-	public SpiralBossMob(Game game, float startAngle, float radius, Color color, float life,
-			float timing) {
+
+	public SpiralBossMob(Game game, float startAngle, float radius,
+			Color color, float life, float timing) {
 		super(game, startAngle, color, life, timing);
 		setRadius(radius);
 		cooldownShoot = 80f;
@@ -27,15 +27,15 @@ public class SpiralBossMob extends SpiralEnemy {
 	@Override
 	public void looseLife(BasicBullet coll) {
 	}
-	
+
 	public void resetShoot() {
 		shootCount = 0;
 	}
-	
+
 	@Override
 	public void draw() {
 		if (game.pop < timing && isPop == false)
-			return ;
+			return;
 		else if (isPop == false) {
 			oSprite.setVisible(true);
 			isPop = true;
@@ -46,14 +46,16 @@ public class SpiralBossMob extends SpiralEnemy {
 			oSprite.setScale(getRadius() / 300f);
 			move();
 		}
-		if (isPop == true && game.timer.getTotalTime() - lastShoot > cooldownShoot && shootCount < 30) {
+		if (isPop == true
+				&& game.timer.getTotalTime() - lastShoot > cooldownShoot
+				&& shootCount < 30) {
 			float x = getRadius() * PApplet.cos(getAngle());
 			float y = getRadius() * PApplet.sin(getAngle());
 			float tmpx = x - 10.0f * PApplet.cos(localAngle);
 			float tmpy = y - 10.0f * PApplet.sin(localAngle);
 
-			new FreeMoveBullet(game, this, PApplet.sqrt(tmpx
-					* tmpx + tmpy * tmpy), PApplet.atan2(tmpy, tmpx),
+			new FreeMoveBullet(game, this, PApplet.sqrt(tmpx * tmpx + tmpy
+					* tmpy), PApplet.atan2(tmpy, tmpx),
 					PApplet.degrees(localAngle), -0.2f, color, 30);
 			shootCount++;
 			lastShoot = game.timer.getTotalTime();

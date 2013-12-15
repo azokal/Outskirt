@@ -13,12 +13,14 @@ public class BasicBullet extends GameObject {
 	public float power;
 	public Game.Color color;
 	public GameObject owner;
-	
-	public BasicBullet(Game game, GameObject owner, float radius, float angle, float velocity, Game.Color color, float power) {
+
+	public BasicBullet(Game game, GameObject owner, float radius, float angle,
+			float velocity, Game.Color color, float power) {
 		super(game);
 		this.velocity = velocity;
 		this.color = color;
-		oSprite = new sprites.Sprite(game.getApp(),game.pathSprites+"bulletGrid.png", 3, 1, 10);
+		oSprite = new sprites.Sprite(game.getApp(), game.pathSprites
+				+ "bulletGrid.png", 3, 1, 10);
 		if (color == Game.Color.RED)
 			oSprite.setFrame(1);
 		if (color == Game.Color.CYAN)
@@ -32,7 +34,7 @@ public class BasicBullet extends GameObject {
 	@Override
 	public void draw() {
 		oSprite.setScale(getRadius() / 200f);
-		
+
 		if (getRadius() < 0) {
 			kill();
 		} else if (getRadius() > 550) {
@@ -43,27 +45,32 @@ public class BasicBullet extends GameObject {
 				addRadius(-velocity);
 				game.getApp().getDebug().put("speedType", "slow");
 			} else {
-				addRadius(-1 * (1 + getRadius() * velocity * game.timer.getElapsedTime()));//Progressive speed
+				addRadius(-1
+						* (1 + getRadius() * velocity
+								* game.timer.getElapsedTime()));// Progressive
+																// speed
 				game.getApp().getDebug().put("speedType", "fast");
 			}
 		}
 	}
-	
+
 	@Override
 	public void onCollide(GameObject obj) {
 		if (owner instanceof SpaceSheep && obj instanceof Enemy) {
-					((Enemy)obj).looseLife(this);
-					kill();
-					new BulletImpact(game, getRadius(), getAngle());
-		} else if (owner instanceof Life && obj instanceof SpaceSheep && !(owner instanceof SpaceSheep)) {
-			((SpaceSheep)obj).looseLife(this);
+			((Enemy) obj).looseLife(this);
 			kill();
 			new BulletImpact(game, getRadius(), getAngle());
-		} else if (owner instanceof SpaceSheep && obj instanceof Life && !(obj instanceof SpaceSheep)) {
-			((Life)obj).looseLife(this);
+		} else if (owner instanceof Life && obj instanceof SpaceSheep
+				&& !(owner instanceof SpaceSheep)) {
+			((SpaceSheep) obj).looseLife(this);
+			kill();
+			new BulletImpact(game, getRadius(), getAngle());
+		} else if (owner instanceof SpaceSheep && obj instanceof Life
+				&& !(obj instanceof SpaceSheep)) {
+			((Life) obj).looseLife(this);
 			kill();
 			new BulletImpact(game, getRadius(), getAngle());
 		}
 	}
-	
+
 }

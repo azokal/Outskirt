@@ -13,5 +13,5 @@ public class Quit extends MenuItem {
 	public void exec() {
 		app.exit();
 	}
-	
+
 }

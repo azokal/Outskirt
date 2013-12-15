@@ -6,15 +6,15 @@ import kr.ac.kmu.gameproject.outskirt.screen.Game.Color;
 
 public class RightStraightBullet extends BasicBullet {
 
-	public RightStraightBullet(Game game, GameObject owner, float radius, float angle,
-			float velocity, Color color, float power) {
+	public RightStraightBullet(Game game, GameObject owner, float radius,
+			float angle, float velocity, Color color, float power) {
 		super(game, owner, radius, angle, velocity, color, power);
 	}
 
 	@Override
 	public void draw() {
 		super.draw();
-		addAngle(- 1 / getRadius());
+		addAngle(-1 / getRadius());
 	}
-	
+
 }

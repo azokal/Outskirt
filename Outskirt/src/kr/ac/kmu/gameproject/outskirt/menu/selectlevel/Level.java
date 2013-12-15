@@ -8,7 +8,7 @@ import kr.ac.kmu.gameproject.outskirt.screen.SelectedLevelMode;
 public class Level extends MenuItem {
 
 	int level;
-	
+
 	public Level(App app, int level) {
 		super(app, "Level " + level);
 		this.level = level;
