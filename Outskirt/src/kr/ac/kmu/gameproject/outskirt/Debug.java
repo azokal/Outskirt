@@ -30,6 +30,7 @@ public class Debug extends LinkedHashMap<String, Object> implements KeyListener 
 			}
 			app.pushStyle();
 			app.color(255);
+			app.textSize(12);
 			app.textAlign(App.LEFT, App.TOP);
 			app.text(str.toString(), 0, 0);
 			app.popStyle();

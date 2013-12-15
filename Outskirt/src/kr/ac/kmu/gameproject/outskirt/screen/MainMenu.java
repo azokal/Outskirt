@@ -37,7 +37,8 @@ public class MainMenu implements Screen {
 		bg.draw();
 		app.textAlign(App.CENTER, App.TOP);
 		app.fill(255, 255, 255);
-		app.text("Let's play !", 0, 0);
+		app.textSize(100);
+		app.text("OutSkirt", 0, -550);
 		menuItemList.draw();
 	}
 

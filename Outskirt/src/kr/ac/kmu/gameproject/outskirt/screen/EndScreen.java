@@ -1,36 +1,49 @@
 package kr.ac.kmu.gameproject.outskirt.screen;
 
-import kr.ac.kmu.gameproject.outskirt.App;
 import processing.core.PApplet;
 import sprites.S4P;
+import kr.ac.kmu.gameproject.outskirt.App;
+import kr.ac.kmu.gameproject.outskirt.menu.MenuItemGroup;
+import kr.ac.kmu.gameproject.outskirt.menu.mainmenu.Adventure;
+import kr.ac.kmu.gameproject.outskirt.menu.mainmenu.Quit;
+import kr.ac.kmu.gameproject.outskirt.menu.mainmenu.Random;
+import kr.ac.kmu.gameproject.outskirt.menu.mainmenu.SelectLevel;
 
 public class EndScreen implements Screen {
 
-	App app;
-	Game game;
+	final protected App app;
+	final protected Game game;
 
-	// boolean toto;
+	final protected GameBackground bg;
+
+	protected MenuItemGroup menuItemList;
 
 	public EndScreen(App app, Game game) {
 		this.app = app;
 		this.game = game;
-		// toto = false;
+		bg = new GameBackground(app);
+		app.cursor();
+
+	}
+
+	public void setup() {
+		bg.setup();
 	}
 
 	@Override
 	public void draw() {
-
-		// if (toto == false){
-		// game.part.exportMap("new.xml", app);
-		// toto = true;
-		// }
+		bg.draw();
 		app.pushStyle();
-		app.background(255);
 		app.textAlign(PApplet.CENTER, PApplet.CENTER);
-		app.fill(0);
-		app.text("Your score is:" + game.getSpaceSheep().getScore()
-				+ " Press enter to go back to menu!", app.width / 2,
-				app.height / 2);
+		app.fill(0, 144, 0);
+		app.textSize(32);
+		app.text("Game Over\nYour score is:\n", 0, -128);
+		app.fill(0, 255, 0);
+		app.textSize(128);
+		app.text(game.getSpaceSheep().getScore(), 0, 0);
+		app.fill(0, 144, 0);
+		app.textSize(32);
+		app.text("Press enter to go back to menu!", 0, 128);
 		if (app.isPressed(App.ENTER)) {
 			S4P.resetWorld();
 			this.game.unload();
@@ -41,7 +54,4 @@ public class EndScreen implements Screen {
 		app.popStyle();
 	}
 
-	public void setup() {
-		app.size(app.displayWidth, app.displayHeight);
-	}
 }

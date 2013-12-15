@@ -144,8 +144,10 @@ public class SpaceSheep extends Life implements MouseMotionListener {
 					&& combo.get(1) != combo.get(2)) {
 				if (getCurrentWeapon().power + 5 <= getCurrentWeapon().powerMax)
 					getCurrentWeapon().power += 5;
-				else
-					getCurrentWeapon().power += getCurrentWeapon().powerMax;
+				else {
+					getCurrentWeapon().power = getCurrentWeapon().powerMax;
+
+				}
 			}
 		}
 	}
