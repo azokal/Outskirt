@@ -16,7 +16,8 @@ import processing.core.PApplet;
 
 public class SpaceSheep extends Life implements MouseMotionListener {
 
-	int score = 0;
+	float score = 0;
+	int mult = 1;
 	public int currentWeapon = 0;
 	public BasicWeapon[] weaponList = new BasicPlayerWeapon[3];
 	public ArrayList<Game.Color> combo;
@@ -142,8 +143,8 @@ public class SpaceSheep extends Life implements MouseMotionListener {
 			}
 			if (combo.get(0) != combo.get(1) && combo.get(0) != combo.get(2)
 					&& combo.get(1) != combo.get(2)) {
-				if (getCurrentWeapon().power + 5 <= getCurrentWeapon().powerMax)
-					getCurrentWeapon().power += 5;
+				if (getCurrentWeapon().power + 2 <= getCurrentWeapon().powerMax)
+					getCurrentWeapon().power += 2;
 				else {
 					getCurrentWeapon().power = getCurrentWeapon().powerMax;
 					addScore(5000);
@@ -169,10 +170,11 @@ public class SpaceSheep extends Life implements MouseMotionListener {
 	}
 
 	public void addScore(int i) {
-		score += i;
+		score += i * mult;
+		mult++;
 	}
 
-	public int getScore() {
+	public float getScore() {
 		return score;
 	}
 
@@ -195,8 +197,13 @@ public class SpaceSheep extends Life implements MouseMotionListener {
 		oSprite.setFrame(2);
 	}
 
+	public int getMult() {
+		return (mult);
+	}
+
 	@Override
 	public void looseLife(BasicBullet coll) {
+		mult = 1;
 		if (color != coll.color) {
 			life -= coll.power;
 		} else {

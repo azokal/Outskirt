@@ -40,7 +40,7 @@ public class EndScreen implements Screen {
 		app.text("Game Over\nYour score is:\n", 0, -128);
 		app.fill(0, 255, 0);
 		app.textSize(128);
-		app.text(game.getSpaceSheep().getScore(), 0, 0);
+		app.text(String.format("%.0f", game.getSpaceSheep().getScore()), 0, 0);
 		app.fill(0, 144, 0);
 		app.textSize(32);
 		app.text("Press enter to go back to menu!", 0, 128);

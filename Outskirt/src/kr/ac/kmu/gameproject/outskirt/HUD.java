@@ -93,6 +93,13 @@ public class HUD {
 		game.getApp().popStyle();
 	}
 
+	void printMult(int x, int y) {
+		game.getApp().pushStyle();
+		game.getApp().textSize(24);
+		game.getApp().text("Mult: " + player.getMult() + "x", x, y);
+		game.getApp().popStyle();
+	}
+
 	public void draw() {
 		pieChart(200, player.getCurrentWeapon().percentage);
 		comboShow(460, 260);
@@ -102,6 +109,7 @@ public class HUD {
 		verticalBar(580, -200, 400, "Power",
 				this.player.getCurrentWeapon().power,
 				this.player.getCurrentWeapon().powerMax);
+		printMult(500, -250);
 		game.getApp().getDebug()
 				.put("Player power", this.player.getCurrentWeapon().power);
 	}

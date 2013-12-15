@@ -11,7 +11,7 @@ public abstract class BasicWeapon extends GameObject implements Weapon {
 	float lastShoot = 0.0f;
 	public float[] percentage = { 34, 33, 33 };
 	public float power = 10.0f;
-	public float powerMax = 50.0f;
+	public float powerMax = 20.0f;
 	Game.Color color;
 	boolean player;
 
@@ -31,7 +31,8 @@ public abstract class BasicWeapon extends GameObject implements Weapon {
 
 	public void generateBullet() {
 		new BasicBullet(game, owner, owner.getRadius(), owner.getAngle(),
-				0.001f, color, power / 2 + percentage[color.ordinal()] * (power/2) / 100.0f);
+				0.001f, color, power / 2 + percentage[color.ordinal()]
+						* (power / 2) / 100.0f);
 	}
 
 	@Override
