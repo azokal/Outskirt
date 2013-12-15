@@ -11,7 +11,7 @@ public class MainMenu implements Screen {
 
 	final protected App app;
 	
-	final protected Screen bg;
+	final protected GameBackground bg;
 	
 	protected MenuItemGroup menuItemList;
 	
@@ -28,7 +28,6 @@ public class MainMenu implements Screen {
 	}
 
 
-	@Override
 	public void setup() {
 		bg.setup();
 	}

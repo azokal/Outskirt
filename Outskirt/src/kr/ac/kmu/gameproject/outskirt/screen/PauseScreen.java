@@ -14,11 +14,12 @@ public class PauseScreen implements Screen, KeyListener {
 	public PauseScreen(App app, Game game) {
 		this.app = app;
 		this.game = game;
+		registerEvent();
 	}
 	
 	@Override
 	public void draw() {
-		//game.draw();
+		game.draw();
 		app.pushStyle();
 		app.textAlign(PApplet.CENTER, PApplet.CENTER);
 		app.fill(255);
@@ -27,14 +28,19 @@ public class PauseScreen implements Screen, KeyListener {
 		app.popStyle();
 	}
 
-	@Override
-	public void setup() {
-		app.addKeyListener(this);
+	public void registerEvent() {
+		app.addKeyListener(this);		
 	}
-
+	
+	public void unregisterEvent() {
+		app.removeKeyListener(this);
+	}
+	
 	@Override
 	public void keyPressed(KeyEvent e) {
 		if (e.getKeyChar() == 'p') {
+			unload();
+			game.resume();
 			app.setScreen(game);
 		}
 	}
@@ -48,7 +54,10 @@ public class PauseScreen implements Screen, KeyListener {
 	@Override
 	public void keyTyped(KeyEvent e) {
 		// TODO Auto-generated method stub
-		
+	}
+	
+	public void unload() {
+		unregisterEvent();
 	}
 
 }

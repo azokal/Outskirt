@@ -23,7 +23,11 @@ import kr.ac.kmu.gameproject.outskirt.gameobject.SpaceSheep;
 import kr.ac.kmu.gameproject.outskirt.partition.Partition;
 import processing.core.PImage;
 
-public class Game implements Screen, KeyListener {
+/**
+ * @author brissa_a
+ *
+ */
+public abstract class Game implements Screen, KeyListener {
 
 	App app;
 	
@@ -88,12 +92,8 @@ public class Game implements Screen, KeyListener {
 	public Game(App app) {
 		this.app = app;
 	}
-
-	void init() {
-		part = new Partition(app, this, pathMaps+"level1.xml");
-		spaceSheep = new SpaceSheep(this, false);
-		this.hud = new HUD(this, spaceSheep);
-	}
+	
+	abstract void init();
 	
 	public void setup() {
 		this.camera = new Camera(this);
@@ -105,8 +105,16 @@ public class Game implements Screen, KeyListener {
 		this.timer = new Timer(true);
 		this.tpop = new Timer(true);
 		getApp().size(getApp().displayWidth, getApp().displayHeight);
-		this.getApp().addKeyListener(this);
+		registerEvent();
 		init();
+	}
+	
+	public void registerEvent() {
+		this.getApp().addKeyListener(this);		
+	}
+	
+	public void unregisterEvent() {
+		this.getApp().removeKeyListener(this);				
 	}
 	
 	public static int randInt(int min, int max) {
@@ -123,7 +131,7 @@ public class Game implements Screen, KeyListener {
 	
 	void endLevel() {
 		if (pop >= endGame) {
-			Screen screen = new EndScreen(app, this);
+			EndScreen screen = new EndScreen(app, this);
 			screen.setup();
 			app.setScreen(screen);
 		}
@@ -136,7 +144,7 @@ public class Game implements Screen, KeyListener {
 		getApp().background(0);
 		getApp().color(255);
 		camera.draw();
-		
+
 		//draw outter circle
 		if (spaceSheep == null)
 			getApp().image(bg[0], 0, 0);
@@ -204,16 +212,12 @@ public class Game implements Screen, KeyListener {
 	public SpaceSheep getSpaceSheep() {
 		return spaceSheep;
 	}
-
+	
 	@Override
 	public void keyPressed(KeyEvent e) {
 		if (e.getKeyChar() == 'p') {
-			//app.setScreen(new PauseScreen(app, this));
-			if (timer.isRunning()) {
-				this.timer.stop();
-			} else {
-				this.timer.start();
-			}
+			this.pause();
+			app.setScreen(new PauseScreen(app, this));
 		}
 	}
 
@@ -227,8 +231,27 @@ public class Game implements Screen, KeyListener {
 		// TODO Auto-generated method stub
 		
 	}
-	
+
+	public void pause() {
+		this.timer.stop();
+		this.tpop.stop();
+		unregisterEvent();
+		for (GameObject g: gameObjectList) {
+			g.pause();
+		}
+	}
+
+	public void resume() {
+		this.timer.start();
+		this.tpop.start();
+		registerEvent();
+		for (GameObject g: gameObjectList) {
+			g.resume();
+		}
+	}
+
 	public void unload() {
+		unregisterEvent();
 		for (GameObject g: gameObjectList) {
 			g.kill();
 		}

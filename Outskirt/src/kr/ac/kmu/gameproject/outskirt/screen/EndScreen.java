@@ -31,14 +31,13 @@ public class EndScreen implements Screen {
 		if (app.isPressed(App.ENTER)) {
 			S4P.resetWorld();
 			this.game.unload();
-			Screen screen = new MainMenu(app);
+			MainMenu screen = new MainMenu(app);
 			screen.setup();
 			app.setScreen(screen);
 		}
 		app.popStyle();
 	}
 
-	@Override
 	public void setup() {
 		app.size(app.displayWidth, app.displayHeight);
 	}

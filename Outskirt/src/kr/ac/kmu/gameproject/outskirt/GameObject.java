@@ -19,7 +19,9 @@ public abstract class GameObject {
 		game.addGameObject(this);
 	}
 
-	abstract public void draw();
+	public void draw(){};
+	public void pause(){};
+	public void resume(){};
 
 	public void setPolar(float radius, float angle) {
 		x = App.toX(radius, angle);
@@ -89,10 +91,5 @@ public abstract class GameObject {
 	public void onCollide(GameObject obj) {
 
 	}
-	
-	@Override
-	protected void finalize() throws Throwable {
-		super.finalize();
-		//game.getApp().getDebug().put("GameObject", "Destroyed !");
-	}
+
 }

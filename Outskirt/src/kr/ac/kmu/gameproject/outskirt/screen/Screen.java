@@ -4,6 +4,4 @@ public interface Screen {
 
 	public void draw();
 
-	public void setup();
-	
 }

@@ -16,8 +16,7 @@ public class SelectLevel extends MenuItem {
 
 	@Override
 	public void exec() {
-		Screen g = new SelectLevelMenu(app, bg);
-		g.setup();
+		SelectLevelMenu g = new SelectLevelMenu(app, bg);
 		app.setScreen(g);
 	}
 

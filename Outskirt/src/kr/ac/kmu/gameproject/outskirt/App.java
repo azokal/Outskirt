@@ -42,7 +42,7 @@ public class App extends PApplet {
 		} catch (AWTException e) {
 			e.printStackTrace();
 		}
-		Screen screen = new MainMenu(this);
+		MainMenu screen = new MainMenu(this);
 		screen.setup();
 		setScreen(screen);
 	}

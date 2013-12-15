@@ -22,10 +22,6 @@ public class SelectLevelMenu implements Screen {
 		}
 		menuItemList.select(1);
 	}
-
-	@Override
-	public void setup() {
-	}
 	
 	@Override
 	public void draw() {

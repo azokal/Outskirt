@@ -12,7 +12,6 @@ import kr.ac.kmu.gameproject.outskirt.gameobject.weapon.StraightWeapon;
 import kr.ac.kmu.gameproject.outskirt.life.Life;
 import kr.ac.kmu.gameproject.outskirt.screen.EndScreen;
 import kr.ac.kmu.gameproject.outskirt.screen.Game;
-import kr.ac.kmu.gameproject.outskirt.screen.Screen;
 import processing.core.PApplet;
 
 public class SpaceSheep extends Life implements MouseMotionListener{
@@ -22,7 +21,7 @@ public class SpaceSheep extends Life implements MouseMotionListener{
 	public BasicWeapon[] weaponList = new BasicPlayerWeapon[3];
 	public ArrayList<Game.Color> combo;
 	public boolean[] weaponStateList = new boolean[3];
-	
+
 	public SpaceSheep(Game game, boolean story) {
 		super(game, 100);
 		
@@ -42,7 +41,6 @@ public class SpaceSheep extends Life implements MouseMotionListener{
 		weaponList[0] = new BasicPlayerWeapon(game, this, color);
 		weaponList[1] = new CurveWeapon(game, this, color);
 		weaponList[2] = new StraightWeapon(game, this, color);
-		game.getApp().addMouseMotionListener(this);
 		game.getApp().noCursor();
 		oSprite.setCollisionRadius(oSprite.getCollisionRadius()/10.0f);
 		combo = new ArrayList<Game.Color>();
@@ -53,6 +51,16 @@ public class SpaceSheep extends Life implements MouseMotionListener{
 		int newMouseX = (int) (getX() + game.getApp().displayWidth / 2); 
 		int newMouseY = (int) (getY() + game.getApp().displayHeight / 2);
 		game.getApp().robot.mouseMove(newMouseX, newMouseY);
+		registerEvent();
+	}
+	
+	
+	public void registerEvent() {
+		game.getApp().addMouseMotionListener(this);		
+	}
+	
+	public void unregisterEvent() {
+		game.getApp().removeMouseMotionListener(this);
 	}
 	
 	public void activateWeapon(int id) {
@@ -88,6 +96,7 @@ public class SpaceSheep extends Life implements MouseMotionListener{
 		}
 	}
 
+	//Event functions
 	@Override
 	public void mouseDragged(MouseEvent e) {
 		mouseMoved(e);
@@ -137,6 +146,23 @@ public class SpaceSheep extends Life implements MouseMotionListener{
 		}
 	}
 	
+	@Override
+	public void pause() {
+		unregisterEvent();
+	}
+
+	@Override
+	public void resume() {
+		registerEvent();
+	}
+
+	@Override
+	public void kill() {
+		super.kill();
+		unregisterEvent();
+	}
+
+
 	public void addScore(int i) {
 		score += i;
 	}
@@ -176,7 +202,7 @@ public class SpaceSheep extends Life implements MouseMotionListener{
 		}
 		if (life <= 0) {
 			kill();
-			Screen screen = new EndScreen(game.getApp(), game);
+			EndScreen screen = new EndScreen(game.getApp(), game);
 			screen.setup();
 			game.getApp().setScreen(screen);
 		}

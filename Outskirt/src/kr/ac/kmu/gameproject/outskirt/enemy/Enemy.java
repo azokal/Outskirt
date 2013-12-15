@@ -6,7 +6,6 @@ import kr.ac.kmu.gameproject.outskirt.gameobject.bullet.BasicBullet;
 import kr.ac.kmu.gameproject.outskirt.life.Life;
 import kr.ac.kmu.gameproject.outskirt.screen.EndScreen;
 import kr.ac.kmu.gameproject.outskirt.screen.Game;
-import kr.ac.kmu.gameproject.outskirt.screen.Screen;
 import processing.core.PApplet;
 
 public class Enemy extends Life {
@@ -64,7 +63,7 @@ public class Enemy extends Life {
 	
 	public void onCollide(GameObject obj) {
 		if (obj instanceof SpaceSheep) {
-			Screen screen = new EndScreen(game.getApp(), game);
+			EndScreen screen = new EndScreen(game.getApp(), game);
 			screen.setup();
 			game.getApp().setScreen(screen);
 		}
