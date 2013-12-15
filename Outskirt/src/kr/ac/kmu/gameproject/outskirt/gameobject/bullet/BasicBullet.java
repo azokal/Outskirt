@@ -40,17 +40,16 @@ public class BasicBullet extends GameObject {
 		} else if (getRadius() > 550) {
 			kill();
 		} else {
-			addRadius(-velocity);
-			if (game.getApp().isPressed('o')) {
-				addRadius(-velocity);
-				game.getApp().getDebug().put("speedType", "slow");
-			} else {
-				addRadius(-1
-						* (1 + getRadius() * velocity
-								* game.timer.getElapsedTime()));// Progressive
-																// speed
-				game.getApp().getDebug().put("speedType", "fast");
-			}
+			// addRadius(-velocity);
+			// if (game.getApp().isPressed('o')) {
+			// addRadius(-velocity);
+			// game.getApp().getDebug().put("speedType", "slow");
+			// } else {
+			addRadius(-1
+					* (getRadius() * velocity * game.timer.getElapsedTime()));// Progressive
+																				// speed
+			game.getApp().getDebug().put("speedType", "fast");
+			// }
 		}
 	}
 

@@ -23,7 +23,7 @@ public abstract class Life extends GameObject {
 	public float getCurrentLife() {
 		return life;
 	}
-	
+
 	public void setLife(float l) {
 		life = l;
 	}

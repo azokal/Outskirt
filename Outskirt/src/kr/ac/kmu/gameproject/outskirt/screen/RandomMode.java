@@ -29,30 +29,38 @@ public class RandomMode extends Game {
 			if (nWaves == 50) {
 				if (level == 1) {
 					BossFactory(Game.BossType.values()[0], 2000, 0);
-				}
-				else if (level == 2)
+				} else if (level == 2)
 					BossFactory(Game.BossType.values()[1], 2000, 0);
 				else if (level == 3)
 					BossFactory(Game.BossType.values()[2], 2000, 0);
 				else if (level == 4) {
-					BasicBoss b1 = (BasicBoss) BossFactory(Game.BossType.values()[0], 2000, 0);
-					BasicBoss b2 = (BasicBoss) BossFactory(Game.BossType.values()[1], 2000, 0);
+					BasicBoss b1 = (BasicBoss) BossFactory(
+							Game.BossType.values()[0], 2000, 0);
+					BasicBoss b2 = (BasicBoss) BossFactory(
+							Game.BossType.values()[1], 2000, 0);
 					b1.addLinkBoss(b2);
 					b2.addLinkBoss(b1);
 				} else if (level == 5) {
-					BasicBoss b1 = (BasicBoss) BossFactory(Game.BossType.values()[0], 2000, 0);
-					BasicBoss b2 = (BasicBoss) BossFactory(Game.BossType.values()[2], 2000, 0);
+					BasicBoss b1 = (BasicBoss) BossFactory(
+							Game.BossType.values()[0], 2000, 0);
+					BasicBoss b2 = (BasicBoss) BossFactory(
+							Game.BossType.values()[2], 2000, 0);
 					b1.addLinkBoss(b2);
 					b2.addLinkBoss(b1);
 				} else if (level == 6) {
-					BasicBoss b1 = (BasicBoss) BossFactory(Game.BossType.values()[1], 2000, 0);
-					BasicBoss b2 = (BasicBoss) BossFactory(Game.BossType.values()[2], 2000, 0);
+					BasicBoss b1 = (BasicBoss) BossFactory(
+							Game.BossType.values()[1], 2000, 0);
+					BasicBoss b2 = (BasicBoss) BossFactory(
+							Game.BossType.values()[2], 2000, 0);
 					b1.addLinkBoss(b2);
 					b2.addLinkBoss(b1);
 				} else {
-					BasicBoss b1 = (BasicBoss) BossFactory(Game.BossType.values()[1], 2000, 0);
-					BasicBoss b2 = (BasicBoss) BossFactory(Game.BossType.values()[2], 2000, 0);
-					BasicBoss b3 = (BasicBoss) BossFactory(Game.BossType.values()[0], 2000, 0);
+					BasicBoss b1 = (BasicBoss) BossFactory(
+							Game.BossType.values()[1], 2000, 0);
+					BasicBoss b2 = (BasicBoss) BossFactory(
+							Game.BossType.values()[2], 2000, 0);
+					BasicBoss b3 = (BasicBoss) BossFactory(
+							Game.BossType.values()[0], 2000, 0);
 					b1.addLinkBoss(b2);
 					b1.addLinkBoss(b3);
 					b2.addLinkBoss(b1);

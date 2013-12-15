@@ -26,7 +26,7 @@ public abstract class BasicBoss extends Life {
 		super.kill();
 		game.spaceSheep.addScore(2000);
 	}
-	
+
 	public void addLinkBoss(BasicBoss b) {
 		bossLink.add(b);
 	}

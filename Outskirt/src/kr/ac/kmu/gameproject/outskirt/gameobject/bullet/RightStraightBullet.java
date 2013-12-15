@@ -14,7 +14,8 @@ public class RightStraightBullet extends BasicBullet {
 	@Override
 	public void draw() {
 		super.draw();
-		addAngle(-1 / getRadius());
+		if (game.timer.isRunning())
+			addAngle(-1 / getRadius());
 	}
 
 }

@@ -14,7 +14,8 @@ public class LeftCurveBullet extends BasicBullet {
 	@Override
 	public void draw() {
 		super.draw();
-		addAngle(getRadius() / 10000f);
+		// addAngle(getRadius() / 10000f);
+		addAngle(getRadius() / 233333f * game.timer.getElapsedTime());
 	}
 
 }

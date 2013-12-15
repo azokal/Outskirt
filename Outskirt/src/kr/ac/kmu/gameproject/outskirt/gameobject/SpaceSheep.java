@@ -138,7 +138,7 @@ public class SpaceSheep extends Life implements MouseMotionListener {
 				combo.remove(0);
 			}
 			if (combo.get(0) == combo.get(1) && combo.get(0) == combo.get(2)) {
-				score += 1000;
+				addScore(1000);
 			}
 			if (combo.get(0) != combo.get(1) && combo.get(0) != combo.get(2)
 					&& combo.get(1) != combo.get(2)) {
@@ -146,7 +146,7 @@ public class SpaceSheep extends Life implements MouseMotionListener {
 					getCurrentWeapon().power += 5;
 				else {
 					getCurrentWeapon().power = getCurrentWeapon().powerMax;
-
+					addScore(5000);
 				}
 			}
 		}

@@ -31,14 +31,14 @@ public class BossThree extends BasicBoss {
 
 	public void looseLife(BasicBullet coll) {
 		this.life -= coll.power;
-		for (BasicBoss b: bossLink) {
+		for (BasicBoss b : bossLink) {
 			b.setLife(life);
 		}
 		if (life <= 0) {
 			for (GameObject o : bossPart) {
 				o.kill();
 			}
-			for (BasicBoss b: bossLink) {
+			for (BasicBoss b : bossLink) {
 				b.kill();
 			}
 			game.tpop.start();
