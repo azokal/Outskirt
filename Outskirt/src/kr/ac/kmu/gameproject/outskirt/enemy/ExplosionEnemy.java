@@ -15,7 +15,7 @@ public class ExplosionEnemy extends Enemy{
 	public void move() {
 		addRadius(game.timer.getElapsedTime() / 10f);//Progressive speed
 
-		localAngle += PApplet.PI / 30.f;
+		localAngle += PApplet.PI / 700.f * game.timer.getElapsedTime();
 		oSprite.setRot(localAngle);
 	}
 	
@@ -29,7 +29,7 @@ public class ExplosionEnemy extends Enemy{
 				float tmpx = x + 16.0f * PApplet.cos(PApplet.radians(a));
 				float tmpy = y + 16.0f * PApplet.sin(PApplet.radians(a));
 				
-				new FreeMoveBullet(game, this, PApplet.sqrt(tmpx * tmpx + tmpy * tmpy), PApplet.atan2(tmpy, tmpx), a, -4, color, 40);
+				new FreeMoveBullet(game, this, PApplet.sqrt(tmpx * tmpx + tmpy * tmpy), PApplet.atan2(tmpy, tmpx), a, -0.2f, color, 40);
 			}
 			this.kill();
 		}

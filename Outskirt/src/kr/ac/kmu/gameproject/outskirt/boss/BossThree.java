@@ -55,7 +55,7 @@ public class BossThree extends BasicBoss {
 				if (o instanceof SpiralBossMob) {
 					SpiralBossMob b = (SpiralBossMob) o;
 					b.resetShoot();
-					b.addAngle(PApplet.PI / 20.0f);
+					b.addAngle(PApplet.PI / 460.0f * game.timer.getElapsedTime());
 				}
 			}
 		}

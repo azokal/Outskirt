@@ -19,7 +19,7 @@ public class SpiralBossMob extends SpiralEnemy {
 
 	@Override
 	public void move() {
-		localAngle += PApplet.PI / 50.f;
+		localAngle += PApplet.PI / 1150.f * game.timer.getElapsedTime();
 		oSprite.setRot(localAngle + PApplet.PI / -2.f);
 		oSprite.setScale(1.0);
 	}
@@ -54,7 +54,7 @@ public class SpiralBossMob extends SpiralEnemy {
 
 			new FreeMoveBullet(game, this, PApplet.sqrt(tmpx
 					* tmpx + tmpy * tmpy), PApplet.atan2(tmpy, tmpx),
-					PApplet.degrees(localAngle), -4, color, 30);
+					PApplet.degrees(localAngle), -0.2f, color, 30);
 			shootCount++;
 			lastShoot = game.timer.getTotalTime();
 		}

@@ -26,7 +26,7 @@ public class FreeMoveBullet extends BasicBullet{
 		} else if (getRadius() > 550) {
 			kill();
 		} else {
-			setCart(getX() + velocity * PApplet.cos(PApplet.radians(angleDir)), getY() + velocity * PApplet.sin(PApplet.radians(angleDir)));
+			setCart(getX() + velocity * PApplet.cos(PApplet.radians(angleDir)) * game.timer.getElapsedTime(), getY() + velocity * PApplet.sin(PApplet.radians(angleDir)) * game.timer.getElapsedTime());
 			oSprite.setRot(PApplet.radians(angleDir) - PApplet.PI / 2);
 		}
 	}

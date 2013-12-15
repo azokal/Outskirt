@@ -19,7 +19,7 @@ public class SpiralEnemy extends Enemy {
 	public void move() {
 		addRadius(game.timer.getElapsedTime() / 10f);// Progressive speed
 
-		localAngle += PApplet.PI / 30.f;
+		localAngle += PApplet.PI / 700.f * game.timer.getElapsedTime();
 		oSprite.setRot(localAngle + PApplet.PI / -2.f);
 	}
 
@@ -34,7 +34,7 @@ public class SpiralEnemy extends Enemy {
 
 			new FreeMoveBullet(game, this, PApplet.sqrt(tmpx
 					* tmpx + tmpy * tmpy), PApplet.atan2(tmpy, tmpx),
-					PApplet.degrees(localAngle), -4, color, 40);
+					PApplet.degrees(localAngle), -0.2f, color, 40);
 
 			lastShoot = game.timer.getTotalTime();
 		}

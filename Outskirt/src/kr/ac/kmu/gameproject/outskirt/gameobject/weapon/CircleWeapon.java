@@ -27,7 +27,7 @@ public class CircleWeapon  extends BasicWeapon {
 			float tmpx = x + 10.0f * PApplet.cos(PApplet.radians(a));
 			float tmpy = y + 10.0f * PApplet.sin(PApplet.radians(a));
 			
-			new FreeMoveBullet(game, owner, PApplet.sqrt(tmpx * tmpx + tmpy * tmpy), PApplet.atan2(tmpy, tmpx), a, -4, color, power);
+			new FreeMoveBullet(game, owner, PApplet.sqrt(tmpx * tmpx + tmpy * tmpy), PApplet.atan2(tmpy, tmpx), a, -0.2f, color, power);
 		}
 	}
 }
