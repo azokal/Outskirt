@@ -2,6 +2,7 @@ package kr.ac.kmu.gameproject.outskirt.screen;
 
 import kr.ac.kmu.gameproject.outskirt.App;
 import kr.ac.kmu.gameproject.outskirt.HUD;
+import kr.ac.kmu.gameproject.outskirt.boss.BasicBoss;
 import kr.ac.kmu.gameproject.outskirt.gameobject.SpaceSheep;
 
 public class RandomMode extends Game {
@@ -26,25 +27,38 @@ public class RandomMode extends Game {
 	void endLevel() {
 		if (totalTime - lastPop > cooldownPopEnemy) {
 			if (nWaves == 50) {
-				if (level == 1)
+				if (level == 1) {
 					BossFactory(Game.BossType.values()[0], 2000, 0);
+				}
 				else if (level == 2)
 					BossFactory(Game.BossType.values()[1], 2000, 0);
 				else if (level == 3)
 					BossFactory(Game.BossType.values()[2], 2000, 0);
 				else if (level == 4) {
-					BossFactory(Game.BossType.values()[0], 2000, 0);
-					BossFactory(Game.BossType.values()[1], 2000, 0);
+					BasicBoss b1 = (BasicBoss) BossFactory(Game.BossType.values()[0], 2000, 0);
+					BasicBoss b2 = (BasicBoss) BossFactory(Game.BossType.values()[1], 2000, 0);
+					b1.addLinkBoss(b2);
+					b2.addLinkBoss(b1);
 				} else if (level == 5) {
-					BossFactory(Game.BossType.values()[0], 2000, 0);
-					BossFactory(Game.BossType.values()[2], 2000, 0);
+					BasicBoss b1 = (BasicBoss) BossFactory(Game.BossType.values()[0], 2000, 0);
+					BasicBoss b2 = (BasicBoss) BossFactory(Game.BossType.values()[2], 2000, 0);
+					b1.addLinkBoss(b2);
+					b2.addLinkBoss(b1);
 				} else if (level == 6) {
-					BossFactory(Game.BossType.values()[1], 2000, 0);
-					BossFactory(Game.BossType.values()[2], 2000, 0);
+					BasicBoss b1 = (BasicBoss) BossFactory(Game.BossType.values()[1], 2000, 0);
+					BasicBoss b2 = (BasicBoss) BossFactory(Game.BossType.values()[2], 2000, 0);
+					b1.addLinkBoss(b2);
+					b2.addLinkBoss(b1);
 				} else {
-					BossFactory(Game.BossType.values()[0], 2000, 0);
-					BossFactory(Game.BossType.values()[1], 2000, 0);
-					BossFactory(Game.BossType.values()[2], 2000, 0);
+					BasicBoss b1 = (BasicBoss) BossFactory(Game.BossType.values()[1], 2000, 0);
+					BasicBoss b2 = (BasicBoss) BossFactory(Game.BossType.values()[2], 2000, 0);
+					BasicBoss b3 = (BasicBoss) BossFactory(Game.BossType.values()[0], 2000, 0);
+					b1.addLinkBoss(b2);
+					b1.addLinkBoss(b3);
+					b2.addLinkBoss(b1);
+					b2.addLinkBoss(b3);
+					b3.addLinkBoss(b1);
+					b3.addLinkBoss(b2);
 				}
 				nWaves = 0;
 				level++;
