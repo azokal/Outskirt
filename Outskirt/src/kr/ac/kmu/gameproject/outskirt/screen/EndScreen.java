@@ -16,8 +16,6 @@ public class EndScreen implements Screen {
 
 	final protected GameBackground bg;
 
-	protected MenuItemGroup menuItemList;
-
 	public EndScreen(App app, Game game) {
 		this.app = app;
 		this.game = game;
@@ -52,6 +50,13 @@ public class EndScreen implements Screen {
 			app.setScreen(screen);
 		}
 		app.popStyle();
+	}
+
+	@Override
+	public void unload() {
+		S4P.resetWorld();
+		this.game.unload();
+		this.bg.unload();
 	}
 
 }

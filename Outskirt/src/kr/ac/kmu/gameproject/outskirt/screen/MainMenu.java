@@ -1,6 +1,7 @@
 package kr.ac.kmu.gameproject.outskirt.screen;
 
 import processing.core.PApplet;
+import sprites.S4P;
 import kr.ac.kmu.gameproject.outskirt.App;
 import kr.ac.kmu.gameproject.outskirt.menu.MenuItemGroup;
 import kr.ac.kmu.gameproject.outskirt.menu.mainmenu.Adventure;
@@ -40,6 +41,13 @@ public class MainMenu implements Screen {
 		app.textSize(100);
 		app.text("OutSkirt", 0, -550);
 		menuItemList.draw();
+	}
+
+	@Override
+	public void unload() {
+		S4P.resetWorld();
+		this.bg.unload();
+		menuItemList.unregisterEvent();
 	}
 
 }

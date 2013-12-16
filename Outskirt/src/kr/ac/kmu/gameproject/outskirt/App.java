@@ -52,10 +52,13 @@ public class App extends PApplet {
 	public void draw() {
 		pushMatrix();
 		if (keysCode.containsKey(27) && keysCode.get(27)) {
-	    	 MainMenu screen = new MainMenu(this);
-			 screen.setup();
-			 setScreen(screen);
-			 keysCode.remove(27);
+			if (!(screen instanceof MainMenu)) {
+				screen.unload();
+				MainMenu screen = new MainMenu(this);
+				screen.setup();
+				setScreen(screen);
+			}
+			keysCode.remove(27);
 		}
 		if (nextScreen != screen) {
 			screen = nextScreen;

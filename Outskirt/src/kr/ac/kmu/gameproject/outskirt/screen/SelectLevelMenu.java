@@ -1,5 +1,6 @@
 package kr.ac.kmu.gameproject.outskirt.screen;
 
+import sprites.S4P;
 import kr.ac.kmu.gameproject.outskirt.App;
 import kr.ac.kmu.gameproject.outskirt.menu.MenuItemGroup;
 import kr.ac.kmu.gameproject.outskirt.menu.selectlevel.Level;
@@ -34,6 +35,13 @@ public class SelectLevelMenu implements Screen {
 		app.text("Choose your level !", 0, -550);
 		app.popStyle();
 		menuItemList.draw();
+	}
+
+	@Override
+	public void unload() {
+		S4P.resetWorld();
+		this.bg.unload();
+		menuItemList.unregisterEvent();
 	}
 
 }
