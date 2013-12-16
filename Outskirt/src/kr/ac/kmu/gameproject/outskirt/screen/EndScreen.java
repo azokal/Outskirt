@@ -20,6 +20,7 @@ public class EndScreen implements Screen {
 		this.app = app;
 		this.game = game;
 		bg = new GameBackground(app);
+		this.game.getSpaceSheep().unregisterEvent();
 		app.cursor();
 
 	}

@@ -12,6 +12,7 @@ public class SelectedLevelMode extends Game {
 		super(app);
 		// TODO Auto-generated constructor stub
 		this.level = level;
+		activatePause();
 	}
 
 	@Override

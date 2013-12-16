@@ -214,6 +214,7 @@ public class SpaceSheep extends Life implements MouseMotionListener {
 		}
 		if (life <= 0) {
 			kill();
+			game.isPausable = false;
 			EndScreen screen = new EndScreen(game.getApp(), game);
 			screen.setup();
 			game.getApp().setScreen(screen);

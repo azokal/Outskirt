@@ -46,6 +46,7 @@ public abstract class Game implements Screen, KeyListener {
 	public String pathSprites = ".\\data\\sprites\\";
 	public String pathMaps = ".\\data\\maps\\";
 	public float endGame;
+	public boolean isPausable = false;
 	Partition part;
 	HUD hud = null;
 
@@ -136,6 +137,7 @@ public abstract class Game implements Screen, KeyListener {
 
 	void endLevel() {
 		if (pop >= endGame) {
+			isPausable = false;
 			EndScreen screen = new EndScreen(app, this);
 			screen.setup();
 			app.setScreen(screen);
@@ -220,7 +222,7 @@ public abstract class Game implements Screen, KeyListener {
 
 	@Override
 	public void keyPressed(KeyEvent e) {
-		if (e.getKeyChar() == 'p') {
+		if (isPausable && e.getKeyChar() == 'p') {
 			this.pause();
 			app.setScreen(new PauseScreen(app, this));
 		}
@@ -262,4 +264,8 @@ public abstract class Game implements Screen, KeyListener {
 		}
 	}
 
+	public void activatePause() {
+		isPausable = true;
+	}
+	
 }

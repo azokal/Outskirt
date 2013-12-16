@@ -64,6 +64,7 @@ public class Enemy extends Life {
 
 	public void onCollide(GameObject obj) {
 		if (obj instanceof SpaceSheep) {
+			game.isPausable = false;
 			EndScreen screen = new EndScreen(game.getApp(), game);
 			screen.setup();
 			game.getApp().setScreen(screen);

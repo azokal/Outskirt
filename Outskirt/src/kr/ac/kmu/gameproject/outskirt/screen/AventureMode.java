@@ -10,6 +10,7 @@ public class AventureMode extends Game {
 
 	public AventureMode(App app) {
 		super(app);
+		activatePause();
 	}
 
 	@Override
@@ -30,6 +31,7 @@ public class AventureMode extends Game {
 				part = new Partition(app, this, pathMaps + "level" + level
 						+ ".xml");
 			} else {
+				isPausable = false;
 				EndScreen screen = new EndScreen(app, this);
 				screen.setup();
 				app.setScreen(screen);

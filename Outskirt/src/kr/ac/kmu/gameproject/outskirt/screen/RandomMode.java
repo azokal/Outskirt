@@ -13,6 +13,7 @@ public class RandomMode extends Game {
 
 	public RandomMode(App app) {
 		super(app);
+		activatePause();
 	}
 
 	@Override
