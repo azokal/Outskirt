@@ -29,7 +29,7 @@ public class SelectLevelMenu implements Screen {
 		bg.draw();
 		app.pushStyle();
 		app.textAlign(App.CENTER, App.TOP);
-		app.fill(255, 255, 255);
+		app.fill(0, 144, 0);
 		app.textSize(100);
 		app.text("Choose your level !", 0, -550);
 		app.popStyle();

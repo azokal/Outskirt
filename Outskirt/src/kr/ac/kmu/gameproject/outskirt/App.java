@@ -51,6 +51,12 @@ public class App extends PApplet {
 
 	public void draw() {
 		pushMatrix();
+		if (keysCode.containsKey(27) && keysCode.get(27)) {
+	    	 MainMenu screen = new MainMenu(this);
+			 screen.setup();
+			 setScreen(screen);
+			 keysCode.remove(27);
+		}
 		if (nextScreen != screen) {
 			screen = nextScreen;
 		}
@@ -64,6 +70,12 @@ public class App extends PApplet {
 	}
 
 	public void keyPressed() {
+		if (keyPressed) {
+		     if (key == 27) {
+		    	 keysCode.put(27, true);
+		    	 key=0;
+		     }
+		} 
 		if (key == CODED) {
 			keysCode.put(keyCode, true);
 		} else {
