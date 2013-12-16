@@ -8,6 +8,7 @@ import java.util.Map;
 import kr.ac.kmu.gameproject.outskirt.screen.MainMenu;
 import kr.ac.kmu.gameproject.outskirt.screen.Screen;
 import processing.core.PApplet;
+import processing.core.PFont;
 
 public class App extends PApplet {
 
@@ -41,6 +42,8 @@ public class App extends PApplet {
 		} catch (AWTException e) {
 			e.printStackTrace();
 		}
+		PFont l = loadFont("Xolonium-96.vlw");
+		textFont(l);
 		MainMenu screen = new MainMenu(this);
 		screen.setup();
 		setScreen(screen);
