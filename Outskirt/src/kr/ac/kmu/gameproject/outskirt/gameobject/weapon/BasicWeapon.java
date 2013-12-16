@@ -3,6 +3,7 @@ package kr.ac.kmu.gameproject.outskirt.gameobject.weapon;
 import kr.ac.kmu.gameproject.outskirt.GameObject;
 import kr.ac.kmu.gameproject.outskirt.gameobject.bullet.BasicBullet;
 import kr.ac.kmu.gameproject.outskirt.screen.Game;
+import ddf.minim.AudioSample;
 
 public abstract class BasicWeapon extends GameObject implements Weapon {
 
@@ -14,9 +15,11 @@ public abstract class BasicWeapon extends GameObject implements Weapon {
 	public float powerMax = 20.0f;
 	Game.Color color;
 	boolean player;
+	AudioSample shootSound;
 
 	public BasicWeapon(Game game, GameObject owner, Game.Color color) {
 		super(game);
+		shootSound = game.getApp().getSoundManager().getShoot();
 		this.owner = owner;
 		this.color = color;
 	}
@@ -25,6 +28,7 @@ public abstract class BasicWeapon extends GameObject implements Weapon {
 	public void shoot() {
 		if (game.timer.getTotalTime() - lastShoot > cooldownShoot) {
 			generateBullet();
+			shootSound.trigger();
 			lastShoot = game.timer.getTotalTime();
 		}
 	}

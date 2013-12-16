@@ -23,13 +23,9 @@ public class App extends PApplet {
 	public Robot robot;
 	public Map<Character, Boolean> keys = new HashMap<Character, Boolean>();
 	public Map<Integer, Boolean> keysCode = new HashMap<Integer, Boolean>();
-
-	public Map<Character, Boolean> keysUp = new HashMap<Character, Boolean>();
-	public Map<Integer, Boolean> keysUpCode = new HashMap<Integer, Boolean>();
-
-	public Map<Character, Boolean> keysDown = new HashMap<Character, Boolean>();
-	public Map<Integer, Boolean> keysDownCode = new HashMap<Integer, Boolean>();
-
+	
+	private SoundManager soundManager;
+	
 	public static void main(String args[]) {
 		PApplet.main(new String[] { "--present",
 				"kr.ac.kmu.gameproject.outskirt.App" });
@@ -42,6 +38,7 @@ public class App extends PApplet {
 		} catch (AWTException e) {
 			e.printStackTrace();
 		}
+		soundManager = new SoundManager(this);
 		PFont l = loadFont("Xolonium-96.vlw");
 		textFont(l);
 		MainMenu screen = new MainMenu(this);
@@ -131,6 +128,20 @@ public class App extends PApplet {
 
 	static public float toAngle(float x, float y) {
 		return PApplet.atan2(y, x);
+	}
+
+	/**
+	 * @return the soundManager
+	 */
+	public SoundManager getSoundManager() {
+		return soundManager;
+	}
+
+	/**
+	 * @param soundManager the soundManager to set
+	 */
+	public void setSoundManager(SoundManager soundManager) {
+		this.soundManager = soundManager;
 	}
 
 }

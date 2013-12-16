@@ -7,6 +7,7 @@ import kr.ac.kmu.gameproject.outskirt.life.Life;
 import kr.ac.kmu.gameproject.outskirt.screen.EndScreen;
 import kr.ac.kmu.gameproject.outskirt.screen.Game;
 import processing.core.PApplet;
+import ddf.minim.AudioSample;
 
 public class Enemy extends Life {
 	protected boolean isPop = false;
@@ -14,7 +15,8 @@ public class Enemy extends Life {
 	float startAngle = 0;
 	protected Game.Color color;
 	protected float timing;
-
+	AudioSample explosionSound = game.getApp().getSoundManager().getExplosion();
+	
 	public Enemy(Game game, float startAngle, Game.Color color, float life,
 			float timing, String path) {
 		super(game, life);
@@ -78,6 +80,7 @@ public class Enemy extends Life {
 			life -= coll.power / 2;
 		}
 		if (life <= 0) {
+			explosionSound.trigger();
 			kill();
 			((SpaceSheep) coll.owner).addScore(100);
 			if (color != coll.color) {

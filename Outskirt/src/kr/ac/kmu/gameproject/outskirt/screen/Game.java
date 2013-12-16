@@ -2,6 +2,7 @@ package kr.ac.kmu.gameproject.outskirt.screen;
 
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
+import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
@@ -43,8 +44,8 @@ public abstract class Game implements Screen, KeyListener {
 	public Enemy enemy;
 	public float totalTime;
 	public float pop;
-	public String pathSprites = ".\\data\\sprites\\";
-	public String pathMaps = ".\\data\\maps\\";
+	public String pathSprites = "." + File.separator + "data" + File.separator + "sprites" + File.separator;
+	public String pathMaps = "." + File.separator + "data" + File.separator + "maps" + File.separator;
 	public float endGame;
 	public boolean isPausable = false;
 	Partition part;
