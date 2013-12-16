@@ -98,13 +98,22 @@
 <pattern id="4" timing="14000.0" angle="90.0"/>
 <pattern id="4" timing="14000.0" angle="180.0"/>
 <pattern id="4" timing="14000.0" angle="270.0"/>
-<pattern id="4" timing="18000.0" angle="90.0"/>
-<pattern id="4" timing="18000.0" angle="180.0"/>
-<pattern id="4" timing="18000.0" angle="270.0"/>
-<pattern id="4" timing="18000.0" angle="0.0"/>
+<monster type="3" angle="90" color="0" life="30.0" timing="18000.0"/>
+<monster type="3" angle="0" color="1" life="30.0" timing="18000.0"/>
+<monster type="3" angle="270" color="2" life="30.0" timing="18000.0"/>
+<monster type="3" angle="180" color="1" life="30.0" timing="18000.0"/>
+<pattern id="3" timing="15000.0" angle="0"/>
+<pattern id="2" timing="15000.0" angle="90"/>
+<pattern id="1" timing="15000.0" angle="180"/>
+<pattern id="3" timing="15000.0" angle="30"/>
+<pattern id="2" timing="15000.0" angle="60"/>
+<pattern id="1" timing="15000.0" angle="210"/>
+<pattern id="3" timing="15000.0" angle="240"/>
+<pattern id="2" timing="15000.0" angle="120"/>
+<pattern id="1" timing="15000.0" angle="150"/>
 <monsters>
-        <boss type="2" life="3000.0" timing="12000.0"/>
+        <boss type="2" life="3000.0" timing="30000.0"/>
 </monsters>
-<endgame timing="25000.0"/>
+<endgame timing="31000.0"/>
 </level>
 </OutSkirt>
