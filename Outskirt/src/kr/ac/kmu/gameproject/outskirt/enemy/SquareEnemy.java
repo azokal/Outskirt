@@ -15,7 +15,7 @@ public class SquareEnemy extends Enemy {
 	public void move() {
 		// float angle = PApplet.sin(PApplet.radians(game.timer.getTotalTime())
 		// / 8) / 3;
-		float angle = localAngle * localAngle / 200f ;
+		float angle = localAngle * localAngle / 200f;
 		setAngle(angle + PApplet.radians(startAngle));
 
 		if (game.getApp().isPressed('o')) {
@@ -28,7 +28,7 @@ public class SquareEnemy extends Enemy {
 					.put("Elapsed Time", game.timer.getElapsedTime());
 			game.getApp().getDebug().put("speedType", "fast");
 		}
-		localAngle += PApplet.PI / 700.f * (float)game.timer.getElapsedTime();
+		localAngle += PApplet.PI / 700.f * (float) game.timer.getElapsedTime();
 		oSprite.setRot(localAngle);
 	}
 }

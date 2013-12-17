@@ -12,6 +12,7 @@ import kr.ac.kmu.gameproject.outskirt.Camera;
 import kr.ac.kmu.gameproject.outskirt.GameObject;
 import kr.ac.kmu.gameproject.outskirt.HUD;
 import kr.ac.kmu.gameproject.outskirt.Timer;
+import kr.ac.kmu.gameproject.outskirt.boss.BasicBoss;
 import kr.ac.kmu.gameproject.outskirt.boss.BossOne;
 import kr.ac.kmu.gameproject.outskirt.boss.BossThree;
 import kr.ac.kmu.gameproject.outskirt.boss.BossTwo;
@@ -44,8 +45,10 @@ public abstract class Game implements Screen, KeyListener {
 	public Enemy enemy;
 	public float totalTime;
 	public float pop;
-	public String pathSprites = "." + File.separator + "data" + File.separator + "sprites" + File.separator;
-	public String pathMaps = "." + File.separator + "data" + File.separator + "maps" + File.separator;
+	public String pathSprites = "." + File.separator + "data" + File.separator
+			+ "sprites" + File.separator;
+	public String pathMaps = "." + File.separator + "data" + File.separator
+			+ "maps" + File.separator;
 	public float endGame;
 	public boolean isPausable = false;
 	Partition part;
@@ -251,7 +254,18 @@ public abstract class Game implements Screen, KeyListener {
 
 	public void resume() {
 		this.timer.start();
-		this.tpop.start();
+		BasicBoss boss = null;
+		boolean isFind = false;
+		for (GameObject obj : this.gameObjectList) {
+			if (obj instanceof BasicBoss
+					&& this.tpop.getTotalTime() >= ((BasicBoss) obj)
+							.getTiming()) {
+				boss = (BasicBoss) obj;
+				isFind = true;
+			}
+		}
+		if (isFind == false)
+			this.tpop.start();
 		registerEvent();
 		for (GameObject g : gameObjectList) {
 			g.resume();
@@ -268,5 +282,5 @@ public abstract class Game implements Screen, KeyListener {
 	public void activatePause() {
 		isPausable = true;
 	}
-	
+
 }

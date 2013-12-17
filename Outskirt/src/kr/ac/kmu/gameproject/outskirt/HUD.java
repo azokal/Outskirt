@@ -62,7 +62,7 @@ public class HUD {
 		game.getApp().text(label, x - 8, y + size + 32);
 		game.getApp().fill(255 - 255 * value / valueMax,
 				255 * value / valueMax, 0);
-		game.getApp().rect(x-16, y + size, 20, -size * value / valueMax);
+		game.getApp().rect(x - 16, y + size, 20, -size * value / valueMax);
 		game.getApp().popStyle();
 	}
 

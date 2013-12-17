@@ -23,9 +23,9 @@ public class App extends PApplet {
 	public Robot robot;
 	public Map<Character, Boolean> keys = new HashMap<Character, Boolean>();
 	public Map<Integer, Boolean> keysCode = new HashMap<Integer, Boolean>();
-	
+
 	private SoundManager soundManager;
-	
+
 	public static void main(String args[]) {
 		PApplet.main(new String[] { "--present",
 				"kr.ac.kmu.gameproject.outskirt.App" });
@@ -71,11 +71,11 @@ public class App extends PApplet {
 
 	public void keyPressed() {
 		if (keyPressed) {
-		     if (key == 27) {
-		    	 keysCode.put(27, true);
-		    	 key=0;
-		     }
-		} 
+			if (key == 27) {
+				keysCode.put(27, true);
+				key = 0;
+			}
+		}
 		if (key == CODED) {
 			keysCode.put(keyCode, true);
 		} else {
@@ -138,7 +138,8 @@ public class App extends PApplet {
 	}
 
 	/**
-	 * @param soundManager the soundManager to set
+	 * @param soundManager
+	 *            the soundManager to set
 	 */
 	public void setSoundManager(SoundManager soundManager) {
 		this.soundManager = soundManager;

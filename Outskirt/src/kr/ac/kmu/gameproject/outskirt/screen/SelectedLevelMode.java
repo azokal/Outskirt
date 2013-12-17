@@ -3,6 +3,7 @@ package kr.ac.kmu.gameproject.outskirt.screen;
 import kr.ac.kmu.gameproject.outskirt.App;
 import kr.ac.kmu.gameproject.outskirt.HUD;
 import kr.ac.kmu.gameproject.outskirt.gameobject.SpaceSheep;
+import kr.ac.kmu.gameproject.outskirt.gameobject.TextObject;
 import kr.ac.kmu.gameproject.outskirt.partition.Partition;
 
 public class SelectedLevelMode extends Game {
@@ -26,5 +27,6 @@ public class SelectedLevelMode extends Game {
 		if (level >= 3) {
 			spaceSheep.activateWeapon(2);
 		}
+		new TextObject(this, "Level " + level, 0, 1000);
 	}
 }

@@ -16,7 +16,7 @@ public class Enemy extends Life {
 	protected Game.Color color;
 	protected float timing;
 	AudioSample explosionSound = game.getApp().getSoundManager().getExplosion();
-	
+
 	public Enemy(Game game, float startAngle, Game.Color color, float life,
 			float timing, String path) {
 		super(game, life);

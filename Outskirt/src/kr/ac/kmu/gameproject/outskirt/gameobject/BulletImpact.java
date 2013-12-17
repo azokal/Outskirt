@@ -8,7 +8,7 @@ public class BulletImpact extends GameObject {
 
 	float createtime;
 	AudioSample impactSound = game.getApp().getSoundManager().getImpact();
-	
+
 	public BulletImpact(Game game, float radius, float angle) {
 		super(game);
 		createtime = game.timer.getTotalTime();

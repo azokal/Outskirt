@@ -64,7 +64,7 @@ public class BossOnePart extends Life {
 	}
 
 	public void move() {
-		System.out.println(game.timer.getElapsedTime() );
+		System.out.println(game.timer.getElapsedTime());
 		addAngle(game.getApp().radians(game.timer.getElapsedTime() / 22f));
 	}
 

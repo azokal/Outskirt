@@ -4,6 +4,7 @@ import kr.ac.kmu.gameproject.outskirt.App;
 import kr.ac.kmu.gameproject.outskirt.HUD;
 import kr.ac.kmu.gameproject.outskirt.boss.BasicBoss;
 import kr.ac.kmu.gameproject.outskirt.gameobject.SpaceSheep;
+import kr.ac.kmu.gameproject.outskirt.gameobject.TextObject;
 
 public class RandomMode extends Game {
 	int level;
@@ -22,6 +23,7 @@ public class RandomMode extends Game {
 		nWaves = 0;
 		spaceSheep = new SpaceSheep(this, false);
 		this.hud = new HUD(this, spaceSheep);
+		new TextObject(this, "Level 1", 0, 1000);
 	}
 
 	@Override
@@ -71,7 +73,9 @@ public class RandomMode extends Game {
 				}
 				nWaves = 0;
 				level++;
+				tpop.reset();
 				tpop.stop();
+				new TextObject(this, "Level " + level, 100, 1000);
 			} else if (tpop.isRunning()) {
 				for (int i = 0; i < level; i++)
 					EnnemyFactory(
