@@ -1,0 +1,184 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<OutSkirt>
+
+<pattern id="welcome">
+  	<monsters>
+		<text text="Welcome in OutSkirt's tutorial" timing="0.0" duration="3000.0" size="42"/>
+		<text text="You will learn the game's basic" timing="3150.0" duration="4000.0" size="42"/>
+	</monsters>
+</pattern>
+
+<pattern id="color">
+  <monsters>
+	<text text="To start, let's speak about color" timing="0.0" duration="4000.0" size="42"/>
+	<text text="You can change the ship's color with q, w and e" timing="4100.0" duration="4000.0" size="30"/>
+	<text text="You can shoot with Left Mouse Button" timing="8200.0" duration="4000.0" size="36"/>
+	<text text="If you shoot some enemy with the same color" timing="12300.0" duration="4000.0" size="30"/>
+	<text text="The damage will be less efficient" timing="16400.0" duration="4000.0" size="42"/>
+	<text text="Let's train a little" timing="20500.0" duration="4000.0" size="42"/>
+	<monster type="1" angle="90" color="0" life="30.0" timing="20500.0"/>
+    <monster type="1" angle="80" color="1" life="30.0" timing="20500.0"/>
+    <monster type="1" angle="100" color="2" life="30.0" timing="20500.0"/>
+    <text text="You gain weapon power if you kill three different color in a row" timing="26000.0" duration="4000.0" size="22"/>
+    <text text="You gain life you take bullet with the same color" timing="30100.0" duration="4000.0" size="26"/>
+    <monster type="2" angle="0" color="0" life="2000.0" timing="34000.0"/>
+    <monster type="2" angle="10" color="0" life="2000.0" timing="34000.0"/>
+    <monster type="2" angle="20" color="0" life="2000.0" timing="34000.0"/>
+    <monster type="2" angle="30" color="0" life="2000.0" timing="34000.0"/>
+    <monster type="2" angle="40" color="0" life="2000.0" timing="34000.0"/>
+    <monster type="2" angle="50" color="0" life="2000.0" timing="34000.0"/>
+    <monster type="2" angle="60" color="0" life="2000.0" timing="34000.0"/>
+    <monster type="2" angle="70" color="0" life="2000.0" timing="34000.0"/>
+    <monster type="2" angle="80" color="0" life="2000.0" timing="34000.0"/>
+    <monster type="2" angle="90" color="0" life="2000.0" timing="34000.0"/>
+    <monster type="2" angle="100" color="0" life="2000.0" timing="34000.0"/>
+    <monster type="2" angle="110" color="0" life="2000.0" timing="34000.0"/>
+    <monster type="2" angle="120" color="0" life="2000.0" timing="34000.0"/>
+    <monster type="2" angle="130" color="0" life="2000.0" timing="34000.0"/>
+    <monster type="2" angle="140" color="0" life="2000.0" timing="34000.0"/>
+    <monster type="2" angle="150" color="0" life="2000.0" timing="34000.0"/>
+    <monster type="2" angle="160" color="0" life="2000.0" timing="34000.0"/>
+    <monster type="2" angle="170" color="0" life="2000.0" timing="34000.0"/>
+    <monster type="2" angle="180" color="0" life="2000.0" timing="34000.0"/>
+    <monster type="2" angle="190" color="0" life="2000.0" timing="34000.0"/>
+    <monster type="2" angle="200" color="0" life="2000.0" timing="34000.0"/>
+    <monster type="2" angle="210" color="0" life="2000.0" timing="34000.0"/>
+    <monster type="2" angle="220" color="0" life="2000.0" timing="34000.0"/>
+    <monster type="2" angle="230" color="0" life="2000.0" timing="34000.0"/>
+    <monster type="2" angle="240" color="0" life="2000.0" timing="34000.0"/>
+    <monster type="2" angle="250" color="0" life="2000.0" timing="34000.0"/>
+    <monster type="2" angle="260" color="0" life="2000.0" timing="34000.0"/>
+    <monster type="2" angle="270" color="0" life="2000.0" timing="34000.0"/>
+    <monster type="2" angle="280" color="0" life="2000.0" timing="34000.0"/>
+    <monster type="2" angle="290" color="0" life="2000.0" timing="34000.0"/>
+    <monster type="2" angle="300" color="0" life="2000.0" timing="34000.0"/>
+    <monster type="2" angle="310" color="0" life="2000.0" timing="34000.0"/>
+    <monster type="2" angle="320" color="0" life="2000.0" timing="34000.0"/>
+    <monster type="2" angle="330" color="0" life="2000.0" timing="34000.0"/>
+    <monster type="2" angle="340" color="0" life="2000.0" timing="34000.0"/>
+    <monster type="2" angle="350" color="0" life="2000.0" timing="34000.0"/>
+    <monster type="2" angle="0" color="1" life="2000.0" timing="40000.0"/>
+    <monster type="2" angle="10" color="1" life="2000.0" timing="40000.0"/>
+    <monster type="2" angle="20" color="1" life="2000.0" timing="40000.0"/>
+    <monster type="2" angle="30" color="1" life="2000.0" timing="40000.0"/>
+    <monster type="2" angle="40" color="1" life="2000.0" timing="40000.0"/>
+    <monster type="2" angle="50" color="1" life="2000.0" timing="40000.0"/>
+    <monster type="2" angle="60" color="1" life="2000.0" timing="40000.0"/>
+    <monster type="2" angle="70" color="1" life="2000.0" timing="40000.0"/>
+    <monster type="2" angle="80" color="1" life="2000.0" timing="40000.0"/>
+    <monster type="2" angle="90" color="1" life="2000.0" timing="40000.0"/>
+    <monster type="2" angle="100" color="1" life="2000.0" timing="40000.0"/>
+    <monster type="2" angle="110" color="1" life="2000.0" timing="40000.0"/>
+    <monster type="2" angle="120" color="1" life="2000.0" timing="40000.0"/>
+    <monster type="2" angle="130" color="1" life="2000.0" timing="40000.0"/>
+    <monster type="2" angle="140" color="1" life="2000.0" timing="40000.0"/>
+    <monster type="2" angle="150" color="1" life="2000.0" timing="40000.0"/>
+    <monster type="2" angle="160" color="1" life="2000.0" timing="40000.0"/>
+    <monster type="2" angle="170" color="1" life="2000.0" timing="40000.0"/>
+    <monster type="2" angle="180" color="1" life="2000.0" timing="40000.0"/>
+    <monster type="2" angle="190" color="1" life="2000.0" timing="40000.0"/>
+    <monster type="2" angle="200" color="1" life="2000.0" timing="40000.0"/>
+    <monster type="2" angle="210" color="1" life="2000.0" timing="40000.0"/>
+    <monster type="2" angle="220" color="1" life="2000.0" timing="40000.0"/>
+    <monster type="2" angle="230" color="1" life="2000.0" timing="40000.0"/>
+    <monster type="2" angle="240" color="1" life="2000.0" timing="40000.0"/>
+    <monster type="2" angle="250" color="1" life="2000.0" timing="40000.0"/>
+    <monster type="2" angle="260" color="1" life="2000.0" timing="40000.0"/>
+    <monster type="2" angle="270" color="1" life="2000.0" timing="40000.0"/>
+    <monster type="2" angle="280" color="1" life="2000.0" timing="40000.0"/>
+    <monster type="2" angle="290" color="1" life="2000.0" timing="40000.0"/>
+    <monster type="2" angle="300" color="1" life="2000.0" timing="40000.0"/>
+    <monster type="2" angle="310" color="1" life="2000.0" timing="40000.0"/>
+    <monster type="2" angle="320" color="1" life="2000.0" timing="40000.0"/>
+    <monster type="2" angle="330" color="1" life="2000.0" timing="40000.0"/>
+    <monster type="2" angle="340" color="1" life="2000.0" timing="40000.0"/>
+    <monster type="2" angle="350" color="1" life="2000.0" timing="40000.0"/>
+    <monster type="2" angle="0" color="2" life="2000.0" timing="45000.0"/>
+    <monster type="2" angle="10" color="2" life="2000.0" timing="45000.0"/>
+    <monster type="2" angle="20" color="2" life="2000.0" timing="45000.0"/>
+    <monster type="2" angle="30" color="2" life="2000.0" timing="45000.0"/>
+    <monster type="2" angle="40" color="2" life="2000.0" timing="45000.0"/>
+    <monster type="2" angle="50" color="2" life="2000.0" timing="45000.0"/>
+    <monster type="2" angle="60" color="2" life="2000.0" timing="45000.0"/>
+    <monster type="2" angle="70" color="2" life="2000.0" timing="45000.0"/>
+    <monster type="2" angle="80" color="2" life="2000.0" timing="45000.0"/>
+    <monster type="2" angle="90" color="2" life="2000.0" timing="45000.0"/>
+    <monster type="2" angle="100" color="2" life="2000.0" timing="45000.0"/>
+    <monster type="2" angle="110" color="2" life="2000.0" timing="45000.0"/>
+    <monster type="2" angle="120" color="2" life="2000.0" timing="45000.0"/>
+    <monster type="2" angle="130" color="2" life="2000.0" timing="45000.0"/>
+    <monster type="2" angle="140" color="2" life="2000.0" timing="45000.0"/>
+    <monster type="2" angle="150" color="2" life="2000.0" timing="45000.0"/>
+    <monster type="2" angle="160" color="2" life="2000.0" timing="45000.0"/>
+    <monster type="2" angle="170" color="2" life="2000.0" timing="45000.0"/>
+    <monster type="2" angle="180" color="2" life="2000.0" timing="45000.0"/>
+    <monster type="2" angle="190" color="2" life="2000.0" timing="45000.0"/>
+    <monster type="2" angle="200" color="2" life="2000.0" timing="45000.0"/>
+    <monster type="2" angle="210" color="2" life="2000.0" timing="45000.0"/>
+    <monster type="2" angle="220" color="2" life="2000.0" timing="45000.0"/>
+    <monster type="2" angle="230" color="2" life="2000.0" timing="45000.0"/>
+    <monster type="2" angle="240" color="2" life="2000.0" timing="45000.0"/>
+    <monster type="2" angle="250" color="2" life="2000.0" timing="45000.0"/>
+    <monster type="2" angle="260" color="2" life="2000.0" timing="45000.0"/>
+    <monster type="2" angle="270" color="2" life="2000.0" timing="45000.0"/>
+    <monster type="2" angle="280" color="2" life="2000.0" timing="45000.0"/>
+    <monster type="2" angle="290" color="2" life="2000.0" timing="45000.0"/>
+    <monster type="2" angle="300" color="2" life="2000.0" timing="45000.0"/>
+    <monster type="2" angle="310" color="2" life="2000.0" timing="45000.0"/>
+    <monster type="2" angle="320" color="2" life="2000.0" timing="45000.0"/>
+    <monster type="2" angle="330" color="2" life="2000.0" timing="45000.0"/>
+    <monster type="2" angle="340" color="2" life="2000.0" timing="45000.0"/>
+    <monster type="2" angle="350" color="2" life="2000.0" timing="45000.0"/>
+  </monsters>
+</pattern>
+
+<pattern id="weapon">
+  <monsters>
+	<text text="Now, let's speak about weapon" timing="0.0" duration="4000.0" size="42"/>
+	<text text="You can change the ship's weapon with 1, 2 and 3" timing="4100.0" duration="4000.0" size="28"/>
+	<text text="Time of something real!" timing="8200.0" duration="4000.0" size="60"/>
+  </monsters>
+</pattern>
+
+<pattern id="boss">
+	<monsters>
+		<text text="Good Luck for the first boss" timing="0.0" duration="3000.0" size="42"/>
+		<boss type="0" life="1000.0" timing="3100.0"/>
+		<text text="Congratulation !" timing="3200.0" duration="1500.0" size="80"/>
+	</monsters>
+</pattern>
+
+<pattern id="1">
+  <monsters>
+    <monster type="0" angle="0" color="0" life="30.0" timing="171.0"/>
+    <monster type="0" angle="240" color="1" life="30.0" timing="171.0"/>
+    <monster type="0" angle="120" color="2" life="30.0" timing="171.0"/>
+    <monster type="0" angle="60" color="0" life="30.0" timing="2000.0"/>
+    <monster type="0" angle="300" color="1" life="30.0" timing="2000.0"/>
+    <monster type="0" angle="180" color="2" life="30.0" timing="2000.0"/>
+    <monster type="0" angle="120" color="0" life="30.0" timing="4000.0"/>
+    <monster type="0" angle="0" color="1" life="30.0" timing="4000.0"/>
+    <monster type="0" angle="240" color="2" life="30.0" timing="4000.0"/>
+    <monster type="0" angle="180" color="0" life="30.0" timing="6000.0"/>
+    <monster type="0" angle="60" color="1" life="30.0" timing="6000.0"/>
+    <monster type="0" angle="300" color="2" life="30.0" timing="6000.0"/>
+    <monster type="0" angle="240" color="0" life="30.0" timing="8000.0"/>
+    <monster type="0" angle="120" color="1" life="30.0" timing="8000.0"/>
+    <monster type="0" angle="0" color="2" life="30.0" timing="8000.0"/>
+    <monster type="0" angle="300" color="0" life="30.0" timing="10000.0"/>
+    <monster type="0" angle="180" color="1" life="30.0" timing="10000.0"/>
+    <monster type="0" angle="60" color="2" life="30.0" timing="10000.0"/>
+  </monsters>
+</pattern>
+
+<level>
+	<pattern id="welcome" timing="0.0" angle="0.0"/>
+	<pattern id="color" timing="7200.0" angle="0.0"/>
+	<pattern id="weapon" timing="57200.0" angle="0.0"/>
+	<pattern id="1" timing="65500.0" angle="0.0"/>
+	<pattern id="boss" timing="80500.0" angle="0.0"/>
+	<monsters> 
+	</monsters>
+	<endgame timing="86200.0"/>
+</level>
+</OutSkirt>

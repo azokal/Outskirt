@@ -23,7 +23,7 @@ public class RandomMode extends Game {
 		nWaves = 0;
 		spaceSheep = new SpaceSheep(this, false);
 		this.hud = new HUD(this, spaceSheep);
-		new TextObject(this, "Level 1", 0, 1000);
+		new TextObject(this, "Level 1", 100, 0, 1000);
 	}
 
 	@Override
@@ -75,7 +75,7 @@ public class RandomMode extends Game {
 				level++;
 				tpop.reset();
 				tpop.stop();
-				new TextObject(this, "Level " + level, 100, 1000);
+				new TextObject(this, "Level " + level, 100, 100, 1000);
 			} else if (tpop.isRunning()) {
 				for (int i = 0; i < level; i++)
 					EnnemyFactory(

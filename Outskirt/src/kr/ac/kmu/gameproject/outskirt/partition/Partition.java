@@ -8,6 +8,7 @@ import java.util.Map;
 import kr.ac.kmu.gameproject.outskirt.App;
 import kr.ac.kmu.gameproject.outskirt.boss.BasicBoss;
 import kr.ac.kmu.gameproject.outskirt.enemy.Enemy;
+import kr.ac.kmu.gameproject.outskirt.gameobject.TextObject;
 import kr.ac.kmu.gameproject.outskirt.screen.Game;
 import kr.ac.kmu.gameproject.outskirt.screen.Game.EnemyType;
 import processing.data.XML;
@@ -81,6 +82,10 @@ public class Partition {
 							children[i].getFloat("life") + loopNumber * children[i].getFloat("life")/2,
 							children[i].getFloat("timing") + timing);
 			b.setPower(40 + loopNumber * 20);
+		}
+		children = level.getChild("monsters").getChildren("text");
+		for (int i = 0; i < children.length; i++) {
+			new TextObject(game, children[i].getString("text"), children[i].getInt("size"), children[i].getFloat("timing") + timing, children[i].getFloat("duration"));
 		}
 		game.endGame = 0;
 	}

@@ -19,7 +19,7 @@ public class AventureMode extends Game {
 	void init() {
 		loopNb = 0;
 		level = 1;
-		new TextObject(this, "Level 1", 0, 1000);
+		new TextObject(this, "Level 1", 100, 0, 1000);
 		part = new Partition(app, this, pathMaps + "level1.xml", loopNb);
 		spaceSheep = new SpaceSheep(this, true);
 		this.hud = new HUD(this, spaceSheep);
@@ -32,7 +32,7 @@ public class AventureMode extends Game {
 				spaceSheep.activateWeapon(level);
 				level++;
 				this.tpop.reset();
-				new TextObject(this, "Level " + level, 1000, 1000);
+				new TextObject(this, "Level " + level, 100, 1000, 1000);
 				part = new Partition(app, this, pathMaps + "level" + level
 						+ ".xml", loopNb);
 			} else {
@@ -40,8 +40,8 @@ public class AventureMode extends Game {
 					loopNb++;
 					level = 1;
 					this.tpop.reset();
-					new TextObject(this, "Loop "+ (loopNb + 1), 0, 1000);
-					new TextObject(this, "Level 1", 1000, 1000);
+					new TextObject(this, "Loop "+ (loopNb + 1), 100, 0, 1000);
+					new TextObject(this, "Level 1", 100, 1000, 1000);
 					part = new Partition(app, this, pathMaps + "level" + level
 							+ ".xml", loopNb);
 				} else {

@@ -11,7 +11,6 @@ public class SelectedLevelMode extends Game {
 
 	public SelectedLevelMode(App app, int level) {
 		super(app);
-		// TODO Auto-generated constructor stub
 		this.level = level;
 		activatePause();
 	}
@@ -21,12 +20,13 @@ public class SelectedLevelMode extends Game {
 		part = new Partition(app, this, pathMaps + "level" + level + ".xml", 0);
 		spaceSheep = new SpaceSheep(this, true);
 		this.hud = new HUD(this, spaceSheep);
-		if (level >= 2) {
+		if (level >= 2 || level == 0) {
 			spaceSheep.activateWeapon(1);
 		}
-		if (level >= 3) {
+		if (level >= 3 || level == 0) {
 			spaceSheep.activateWeapon(2);
 		}
-		new TextObject(this, "Level " + level, 0, 1000);
+		if (level != 0)
+			new TextObject(this, "Level " + level, 100, 0, 1000);
 	}
 }

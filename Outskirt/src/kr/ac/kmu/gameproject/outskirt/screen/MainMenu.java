@@ -8,6 +8,7 @@ import kr.ac.kmu.gameproject.outskirt.menu.mainmenu.Adventure;
 import kr.ac.kmu.gameproject.outskirt.menu.mainmenu.Quit;
 import kr.ac.kmu.gameproject.outskirt.menu.mainmenu.Random;
 import kr.ac.kmu.gameproject.outskirt.menu.mainmenu.SelectLevel;
+import kr.ac.kmu.gameproject.outskirt.menu.mainmenu.Tutorial;
 
 public class MainMenu implements Screen {
 
@@ -23,9 +24,10 @@ public class MainMenu implements Screen {
 		menuItemList = new MenuItemGroup(app);
 		app.cursor();
 		menuItemList.add(new Adventure(app));
-		menuItemList.add(new Random(app));
-		menuItemList.add(new Quit(app));
 		menuItemList.add(new SelectLevel(app, bg));
+		menuItemList.add(new Quit(app));
+		menuItemList.add(new Tutorial(app, bg));
+		menuItemList.add(new Random(app));
 		menuItemList.select(1);
 	}
 
