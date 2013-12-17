@@ -71,7 +71,7 @@
 <pattern id="1" timing="12000.0" angle="0.0"/>
 <pattern id="2" timing="12000.0" angle="0.0"/>
 <monsters>
-	<boss type="0" life="7500.0" timing="24000.0"/>
+	<boss type="0" life="4000.0" timing="24000.0"/>
 </monsters>
 <endgame timing="25000.0"/>
 </level>
