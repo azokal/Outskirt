@@ -24,7 +24,7 @@ public class PauseScreen implements Screen, KeyListener {
 		app.textAlign(PApplet.CENTER, PApplet.CENTER);
 		app.fill(255);
 		app.textSize(42);
-		app.text("Pause", app.width / 2, app.height / 2);
+		app.text("Pause", 0, 0);
 		app.popStyle();
 	}
 

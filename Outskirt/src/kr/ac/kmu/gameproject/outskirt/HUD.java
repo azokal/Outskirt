@@ -28,7 +28,7 @@ public class HUD {
 			if (i == 2) {
 				game.getApp().fill(0, 255, 255);
 			}
-			game.getApp().arc(500, 425, diameter, diameter, lastAngle,
+			game.getApp().arc(535, 425, diameter, diameter, lastAngle,
 					lastAngle + App.radians(360.0f * data[i] / 100.0f));
 			lastAngle += App.radians(360.0f * data[i] / 100.0f);
 		}
@@ -62,7 +62,7 @@ public class HUD {
 		game.getApp().text(label, x - 8, y + size + 32);
 		game.getApp().fill(255 - 255 * value / valueMax,
 				255 * value / valueMax, 0);
-		game.getApp().rect(x, y + size, 20, -size * value / valueMax);
+		game.getApp().rect(x-16, y + size, 20, -size * value / valueMax);
 		game.getApp().popStyle();
 	}
 
@@ -102,7 +102,7 @@ public class HUD {
 
 	public void draw() {
 		pieChart(200, player.getCurrentWeapon().percentage);
-		comboShow(460, 260);
+		comboShow(490, 260);
 		bossLifeShow(-200, -500);
 		verticalBar(500, -200, 400, "Life", player.getCurrentLife(),
 				player.getLifeMax());
