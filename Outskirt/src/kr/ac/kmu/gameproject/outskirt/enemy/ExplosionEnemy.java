@@ -10,6 +10,7 @@ public class ExplosionEnemy extends Enemy {
 			float timing) {
 		super(game, startAngle, color, life, timing, game.pathSprites
 				+ "explosionGrid.png");
+		power = 40;
 	}
 
 	@Override
@@ -31,7 +32,7 @@ public class ExplosionEnemy extends Enemy {
 				float tmpy = y + 16.0f * PApplet.sin(PApplet.radians(a));
 
 				new FreeMoveBullet(game, this, PApplet.sqrt(tmpx * tmpx + tmpy
-						* tmpy), PApplet.atan2(tmpy, tmpx), a, -0.2f, color, 40);
+						* tmpy), PApplet.atan2(tmpy, tmpx), a, -0.2f, color, power);
 			}
 			this.kill();
 		}

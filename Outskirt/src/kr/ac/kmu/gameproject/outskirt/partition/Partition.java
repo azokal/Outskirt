@@ -6,6 +6,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 import kr.ac.kmu.gameproject.outskirt.App;
+import kr.ac.kmu.gameproject.outskirt.boss.BasicBoss;
 import kr.ac.kmu.gameproject.outskirt.enemy.Enemy;
 import kr.ac.kmu.gameproject.outskirt.screen.Game;
 import kr.ac.kmu.gameproject.outskirt.screen.Game.EnemyType;
@@ -17,12 +18,14 @@ public class Partition {
 	XML export = new XML("OutSkirt");
 	XML monsters = new XML("monsters");
 	Map<String, XML> patterns;
+	int loopNumber = 0;
 
-	public Partition(App app, Game game, String name) {
+	public Partition(App app, Game game, String name, int loopNumber) {
 
 		this.game = game;
 		patterns = new HashMap<String, XML>();
 		File file = new File(name);
+		this.loopNumber = loopNumber;
 		if (file.exists() == false) {
 			try {
 				file.createNewFile();
@@ -64,18 +67,20 @@ public class Partition {
 	public void TreatXML(XML level, float timing, float angle) {
 		XML[] children = level.getChild("monsters").getChildren("monster");
 		for (int i = 0; i < children.length; i++) {
-			game.EnnemyFactory(EnemyType.values()[children[i].getInt("type")],
-					children[i].getFloat("angle") + angle,
-					Game.Color.values()[children[i].getInt("color")],
-					children[i].getFloat("life"),
-					children[i].getFloat("timing") + timing);
+			Enemy e = (Enemy) game.EnnemyFactory(EnemyType.values()[children[i].getInt("type")],
+						children[i].getFloat("angle") + angle,
+						Game.Color.values()[children[i].getInt("color")],
+						children[i].getFloat("life") + loopNumber * children[i].getFloat("life")/2,
+						children[i].getFloat("timing") + timing);
+			e.power = 40 + loopNumber * 20;
 		}
 		children = level.getChild("monsters").getChildren("boss");
 		for (int i = 0; i < children.length; i++) {
-			game.BossFactory(
-					Game.BossType.values()[children[i].getInt("type")],
-					children[i].getFloat("life"),
-					children[i].getFloat("timing") + timing);
+			BasicBoss b = (BasicBoss) game.BossFactory(
+							Game.BossType.values()[children[i].getInt("type")],
+							children[i].getFloat("life") + loopNumber * children[i].getFloat("life")/2,
+							children[i].getFloat("timing") + timing);
+			b.setPower(40 + loopNumber * 20);
 		}
 		game.endGame = 0;
 	}

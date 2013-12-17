@@ -8,6 +8,7 @@ import kr.ac.kmu.gameproject.outskirt.partition.Partition;
 
 public class AventureMode extends Game {
 	int level;
+	int loopNb;
 
 	public AventureMode(App app) {
 		super(app);
@@ -16,9 +17,10 @@ public class AventureMode extends Game {
 
 	@Override
 	void init() {
+		loopNb = 0;
 		level = 1;
 		new TextObject(this, "Level 1", 0, 1000);
-		part = new Partition(app, this, pathMaps + "level1.xml");
+		part = new Partition(app, this, pathMaps + "level1.xml", loopNb);
 		spaceSheep = new SpaceSheep(this, true);
 		this.hud = new HUD(this, spaceSheep);
 	}
@@ -32,12 +34,22 @@ public class AventureMode extends Game {
 				this.tpop.reset();
 				new TextObject(this, "Level " + level, 1000, 1000);
 				part = new Partition(app, this, pathMaps + "level" + level
-						+ ".xml");
+						+ ".xml", loopNb);
 			} else {
-				isPausable = false;
-				EndScreen screen = new EndScreen(app, this);
-				screen.setup();
-				app.setScreen(screen);
+				if (spaceSheep.getScore() >= 1000000 * (loopNb + 1)) {
+					loopNb++;
+					level = 1;
+					this.tpop.reset();
+					new TextObject(this, "Loop "+ (loopNb + 1), 0, 1000);
+					new TextObject(this, "Level 1", 1000, 1000);
+					part = new Partition(app, this, pathMaps + "level" + level
+							+ ".xml", loopNb);
+				} else {
+					isPausable = false;
+					EndScreen screen = new EndScreen(app, this);
+					screen.setup();
+					app.setScreen(screen);
+				}
 			}
 		}
 	}

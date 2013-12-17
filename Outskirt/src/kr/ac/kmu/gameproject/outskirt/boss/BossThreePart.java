@@ -12,6 +12,7 @@ public class BossThreePart extends Life {
 	float timing;
 	boolean isPop = false;
 	BasicWeapon weapon;
+	public int power = 0;
 
 	public BossThreePart(Game game, float maxLife, BossThree owner,
 			Game.Color color, float timing) {

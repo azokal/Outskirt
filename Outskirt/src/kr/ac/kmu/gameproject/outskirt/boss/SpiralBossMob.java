@@ -56,7 +56,7 @@ public class SpiralBossMob extends SpiralEnemy {
 
 			new FreeMoveBullet(game, this, PApplet.sqrt(tmpx * tmpx + tmpy
 					* tmpy), PApplet.atan2(tmpy, tmpx),
-					PApplet.degrees(localAngle), -0.2f, color, 30);
+					PApplet.degrees(localAngle), -0.2f, color, power);
 			shootCount++;
 			lastShoot = game.timer.getTotalTime();
 		}

@@ -18,7 +18,7 @@ public class SelectedLevelMode extends Game {
 
 	@Override
 	void init() {
-		part = new Partition(app, this, pathMaps + "level" + level + ".xml");
+		part = new Partition(app, this, pathMaps + "level" + level + ".xml", 0);
 		spaceSheep = new SpaceSheep(this, true);
 		this.hud = new HUD(this, spaceSheep);
 		if (level >= 2) {

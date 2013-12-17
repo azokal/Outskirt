@@ -10,6 +10,7 @@ public abstract class BasicBoss extends Life {
 	GameObject[] bossPart;
 	ArrayList<BasicBoss> bossLink;
 	float timing;
+	public int power = 0;
 
 	public BasicBoss(Game game, float maxLife) {
 		super(game, maxLife);
@@ -29,5 +30,9 @@ public abstract class BasicBoss extends Life {
 
 	public void addLinkBoss(BasicBoss b) {
 		bossLink.add(b);
+	}
+	
+	public void setPower(int power) {
+		this.power = power;
 	}
 }

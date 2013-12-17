@@ -13,6 +13,7 @@ public class BossOnePart extends Life {
 	float timing;
 	boolean isPop = false;
 	BasicWeapon weapon;
+	public int power = 20;
 
 	public BossOnePart(Game game, float maxLife, BossOne owner,
 			Game.Color color, float timing) {
@@ -34,7 +35,7 @@ public class BossOnePart extends Life {
 		oSprite.setVisible(false);
 		this.timing = timing;
 		this.weapon = new CircleWeapon(game, this, color);
-		this.weapon.power = 20;
+		this.weapon.power = power;
 	}
 
 	@Override
@@ -64,8 +65,12 @@ public class BossOnePart extends Life {
 	}
 
 	public void move() {
-		System.out.println(game.timer.getElapsedTime());
 		addAngle(game.getApp().radians(game.timer.getElapsedTime() / 22f));
+	}
+	
+	public void setPower(int power) {
+		this.power = power;
+		this.weapon.power = power;
 	}
 
 }

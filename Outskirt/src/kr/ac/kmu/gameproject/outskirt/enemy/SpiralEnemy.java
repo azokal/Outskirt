@@ -13,6 +13,7 @@ public class SpiralEnemy extends Enemy {
 			float timing) {
 		super(game, startAngle, color, life, timing, game.pathSprites
 				+ "spiralGrid.png");
+		power = 40;
 	}
 
 	@Override
@@ -35,7 +36,7 @@ public class SpiralEnemy extends Enemy {
 
 			new FreeMoveBullet(game, this, PApplet.sqrt(tmpx * tmpx + tmpy
 					* tmpy), PApplet.atan2(tmpy, tmpx),
-					PApplet.degrees(localAngle), -0.2f, color, 40);
+					PApplet.degrees(localAngle), -0.2f, color, power);
 
 			lastShoot = game.timer.getTotalTime();
 		}

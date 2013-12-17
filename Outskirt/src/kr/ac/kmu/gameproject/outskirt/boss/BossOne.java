@@ -39,4 +39,12 @@ public class BossOne extends BasicBoss {
 
 	}
 
+	@Override
+	public void setPower(int power) {
+		super.setPower(power);
+		for (GameObject o : bossPart) {
+			((BossOnePart)o).setPower(power);
+		}
+	}
+	
 }

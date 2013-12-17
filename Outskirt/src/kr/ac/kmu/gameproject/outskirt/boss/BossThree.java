@@ -27,6 +27,7 @@ public class BossThree extends BasicBoss {
 					Game.Color.values()[(a / (360 / 9)) % 3], 100, timing);
 		}
 		this.timing = timing;
+		this.power = 40;
 	}
 
 	public void looseLife(BasicBullet coll) {
@@ -97,5 +98,14 @@ public class BossThree extends BasicBoss {
 		} else
 			transition();
 	}
-
+	@Override
+	public void setPower(int power) {
+		super.setPower(power);
+		for (GameObject o : bossPart) {
+			if (o instanceof SpiralBossMob) {
+				SpiralBossMob b = (SpiralBossMob) o;
+				b.power = power;
+			}
+		}
+	}
 }

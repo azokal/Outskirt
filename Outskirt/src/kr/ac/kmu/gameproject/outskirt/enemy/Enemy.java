@@ -15,6 +15,7 @@ public class Enemy extends Life {
 	float startAngle = 0;
 	protected Game.Color color;
 	protected float timing;
+	public int power;
 	AudioSample explosionSound = game.getApp().getSoundManager().getExplosion();
 
 	public Enemy(Game game, float startAngle, Game.Color color, float life,
@@ -31,6 +32,7 @@ public class Enemy extends Life {
 		if (color == Game.Color.CYAN)
 			oSprite.setFrame(2);
 		oSprite.setVisible(false);
+		power = 0;
 	}
 
 	public int getColor() {

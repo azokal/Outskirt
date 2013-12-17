@@ -1,6 +1,7 @@
 package kr.ac.kmu.gameproject.outskirt.boss;
 
 import kr.ac.kmu.gameproject.outskirt.GameObject;
+import kr.ac.kmu.gameproject.outskirt.enemy.Enemy;
 import kr.ac.kmu.gameproject.outskirt.enemy.ExplosionEnemy;
 import kr.ac.kmu.gameproject.outskirt.gameobject.bullet.BasicBullet;
 import kr.ac.kmu.gameproject.outskirt.screen.Game;
@@ -20,6 +21,7 @@ public class BossTwo extends BasicBoss {
 		this.bossPart[2] = new BossTwoPart(game, maxLife, this, Game.Color.RED,
 				timing);
 		this.timing = timing;
+		this.power = 40;
 	}
 
 	public void looseLife(BasicBullet coll) {
@@ -48,8 +50,9 @@ public class BossTwo extends BasicBoss {
 		if (isPop == true) {
 			if (game.timer.getTotalTime() - lastShoot > cooldownShoot) {
 				for (float a = 0.0f; a < 360.0f; a += 40.0f) {
-					new ExplosionEnemy(game, a,
-							Game.Color.values()[(int) (a % 3)], 50, 0);
+					Enemy e = new ExplosionEnemy(game, a,
+								Game.Color.values()[(int) (a % 3)], 50, 0);
+					e.power = power;
 				}
 				lastShoot = game.timer.getTotalTime();
 			}
