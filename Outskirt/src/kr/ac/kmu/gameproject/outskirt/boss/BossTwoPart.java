@@ -60,7 +60,7 @@ public class BossTwoPart extends Life {
 	}
 
 	public void move() {
-		addAngle(App.radians(1));
+		addAngle(game.getApp().radians(game.timer.getElapsedTime() / 22f));
 	}
 
 }
