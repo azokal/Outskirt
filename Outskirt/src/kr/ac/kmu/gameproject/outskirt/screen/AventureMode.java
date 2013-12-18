@@ -32,7 +32,10 @@ public class AventureMode extends Game {
 				spaceSheep.activateWeapon(level);
 				level++;
 				this.tpop.reset();
-				new TextObject(this, "Level " + level, 100, 1000, 1000);
+				if (loopNb == 0)
+					new TextObject(this, "Level " + level +"\nNew Weapon!", 100, 1000, 1000);
+				else
+					new TextObject(this, "Level " + level, 100, 1000, 1000);
 				part = new Partition(app, this, pathMaps + "level" + level
 						+ ".xml", loopNb);
 			} else {

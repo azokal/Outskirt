@@ -13,7 +13,7 @@ public class Debug extends LinkedHashMap<String, Object> implements KeyListener 
 	private static final long serialVersionUID = 1L;
 
 	App app;
-	boolean on = true;
+	boolean on = false;
 
 	public Debug(App app) {
 		this.app = app;

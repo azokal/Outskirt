@@ -99,6 +99,13 @@ public class HUD {
 		game.getApp().text("Mult: " + player.getMult() + "x", x, y);
 		game.getApp().popStyle();
 	}
+	
+	void printScore(int x, int y) {
+		game.getApp().pushStyle();
+		game.getApp().textSize(36);
+		game.getApp().text("Score:\n" + String.format("%.0f", game.getSpaceSheep().getScore()), x, y);
+		game.getApp().popStyle();
+	}
 
 	public void draw() {
 		pieChart(200, player.getCurrentWeapon().percentage);
@@ -110,6 +117,7 @@ public class HUD {
 				this.player.getCurrentWeapon().power,
 				this.player.getCurrentWeapon().powerMax);
 		printMult(500, -250);
+		printScore(0, 460);
 		game.getApp().getDebug()
 				.put("Player power", this.player.getCurrentWeapon().power);
 	}
