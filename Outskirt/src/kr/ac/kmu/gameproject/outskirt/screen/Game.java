@@ -116,7 +116,6 @@ public abstract class Game implements Screen, KeyListener {
 		this.tpop = new Timer(true);
 		getApp().size(getApp().displayWidth, getApp().displayHeight);
 		registerEvent();
-		getApp().getSoundManager().getBackground().play();
 		init();
 	}
 

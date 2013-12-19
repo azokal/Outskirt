@@ -5,6 +5,8 @@ import java.awt.Robot;
 import java.util.HashMap;
 import java.util.Map;
 
+import ddf.minim.AudioListener;
+
 import kr.ac.kmu.gameproject.outskirt.screen.MainMenu;
 import kr.ac.kmu.gameproject.outskirt.screen.Screen;
 import processing.core.PApplet;
@@ -52,6 +54,7 @@ public class App extends PApplet {
 
 	public void draw() {
 		pushMatrix();
+		soundManager.playNext();
 		if (keysCode.containsKey(27) && keysCode.get(27)) {
 			if (!(screen instanceof MainMenu)) {
 				screen.unload();
