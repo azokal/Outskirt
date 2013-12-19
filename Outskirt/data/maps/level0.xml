@@ -11,7 +11,7 @@
 <pattern id="color">
   <monsters>
 	<text text="To start, let's speak about color" timing="0.0" duration="4000.0" size="42"/>
-	<text text="Use q, w and to change your ship color" timing="4100.0" duration="4000.0" size="30"/>
+	<text text="Use q, w and e to change your ship color" timing="4100.0" duration="4000.0" size="30"/>
 	<text text="Shoot with Left Mouse Button !" timing="8200.0" duration="4000.0" size="36"/>
 	<text text="If you shoot enemy with the same color" timing="12300.0" duration="4000.0" size="30"/>
 	<text text="you'll do less damage" timing="16400.0" duration="4000.0" size="42"/>

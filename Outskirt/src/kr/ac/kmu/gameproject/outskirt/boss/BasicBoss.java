@@ -31,7 +31,7 @@ public abstract class BasicBoss extends Life {
 	public void addLinkBoss(BasicBoss b) {
 		bossLink.add(b);
 	}
-	
+
 	public void setPower(int power) {
 		this.power = power;
 	}

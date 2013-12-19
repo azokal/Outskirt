@@ -43,8 +43,8 @@ public class BossOne extends BasicBoss {
 	public void setPower(int power) {
 		super.setPower(power);
 		for (GameObject o : bossPart) {
-			((BossOnePart)o).setPower(power);
+			((BossOnePart) o).setPower(power);
 		}
 	}
-	
+
 }

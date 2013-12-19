@@ -33,7 +33,8 @@ public class AventureMode extends Game {
 				level++;
 				this.tpop.reset();
 				if (loopNb == 0)
-					new TextObject(this, "Level " + level +"\nNew Weapon!", 100, 1000, 1000);
+					new TextObject(this, "Level " + level + "\nNew Weapon!",
+							100, 1000, 1000);
 				else
 					new TextObject(this, "Level " + level, 100, 1000, 1000);
 				part = new Partition(app, this, pathMaps + "level" + level
@@ -43,7 +44,7 @@ public class AventureMode extends Game {
 					loopNb++;
 					level = 1;
 					this.tpop.reset();
-					new TextObject(this, "Loop "+ (loopNb + 1), 100, 0, 1000);
+					new TextObject(this, "Loop " + (loopNb + 1), 100, 0, 1000);
 					new TextObject(this, "Level 1", 100, 1000, 1000);
 					part = new Partition(app, this, pathMaps + "level" + level
 							+ ".xml", loopNb);

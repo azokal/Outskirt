@@ -30,9 +30,9 @@ public class App extends PApplet {
 		PApplet.main(new String[] { "--present",
 				"kr.ac.kmu.gameproject.outskirt.App" });
 	}
-	
+
 	public boolean sketchFullScreen() {
-		  return true;
+		return true;
 	}
 
 	public void setup() {

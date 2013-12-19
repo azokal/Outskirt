@@ -51,7 +51,7 @@ public class BossTwo extends BasicBoss {
 			if (game.timer.getTotalTime() - lastShoot > cooldownShoot) {
 				for (float a = 0.0f; a < 360.0f; a += 40.0f) {
 					Enemy e = new ExplosionEnemy(game, a,
-								Game.Color.values()[(int) (a % 3)], 50, 0);
+							Game.Color.values()[(int) (a % 3)], 50, 0);
 					e.power = power;
 				}
 				lastShoot = game.timer.getTotalTime();

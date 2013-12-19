@@ -98,6 +98,7 @@ public class BossThree extends BasicBoss {
 		} else
 			transition();
 	}
+
 	@Override
 	public void setPower(int power) {
 		super.setPower(power);

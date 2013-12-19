@@ -11,7 +11,8 @@ public class TextObject extends GameObject {
 	String text;
 	boolean isPop;
 
-	public TextObject(Game game, String text, int size, float timing, float endAff) {
+	public TextObject(Game game, String text, int size, float timing,
+			float endAff) {
 		super(game);
 		this.timing = timing;
 		this.endAff = endAff;
@@ -32,8 +33,7 @@ public class TextObject extends GameObject {
 			game.getApp().textSize(size);
 			game.getApp().text(text, 0, -200);
 			game.getApp().popStyle();
-		}
-		else
+		} else
 			kill();
 	}
 

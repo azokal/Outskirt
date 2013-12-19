@@ -67,7 +67,7 @@ public class BossOnePart extends Life {
 	public void move() {
 		addAngle(game.getApp().radians(game.timer.getElapsedTime() / 22f));
 	}
-	
+
 	public void setPower(int power) {
 		this.power = power;
 		this.weapon.power = power;

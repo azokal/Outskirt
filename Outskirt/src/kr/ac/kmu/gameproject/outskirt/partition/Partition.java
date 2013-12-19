@@ -68,24 +68,29 @@ public class Partition {
 	public void TreatXML(XML level, float timing, float angle) {
 		XML[] children = level.getChild("monsters").getChildren("monster");
 		for (int i = 0; i < children.length; i++) {
-			Enemy e = (Enemy) game.EnnemyFactory(EnemyType.values()[children[i].getInt("type")],
-						children[i].getFloat("angle") + angle,
-						Game.Color.values()[children[i].getInt("color")],
-						children[i].getFloat("life") + loopNumber * children[i].getFloat("life")/2,
-						children[i].getFloat("timing") + timing);
+			Enemy e = (Enemy) game.EnnemyFactory(
+					EnemyType.values()[children[i].getInt("type")],
+					children[i].getFloat("angle") + angle,
+					Game.Color.values()[children[i].getInt("color")],
+					children[i].getFloat("life") + loopNumber
+							* children[i].getFloat("life") / 2,
+					children[i].getFloat("timing") + timing);
 			e.power = 40 + loopNumber * 20;
 		}
 		children = level.getChild("monsters").getChildren("boss");
 		for (int i = 0; i < children.length; i++) {
 			BasicBoss b = (BasicBoss) game.BossFactory(
-							Game.BossType.values()[children[i].getInt("type")],
-							children[i].getFloat("life") + loopNumber * children[i].getFloat("life")/2,
-							children[i].getFloat("timing") + timing);
+					Game.BossType.values()[children[i].getInt("type")],
+					children[i].getFloat("life") + loopNumber
+							* children[i].getFloat("life") / 2,
+					children[i].getFloat("timing") + timing);
 			b.setPower(40 + loopNumber * 20);
 		}
 		children = level.getChild("monsters").getChildren("text");
 		for (int i = 0; i < children.length; i++) {
-			new TextObject(game, children[i].getString("text"), children[i].getInt("size"), children[i].getFloat("timing") + timing, children[i].getFloat("duration"));
+			new TextObject(game, children[i].getString("text"),
+					children[i].getInt("size"), children[i].getFloat("timing")
+							+ timing, children[i].getFloat("duration"));
 		}
 		game.endGame = 0;
 	}

@@ -99,11 +99,14 @@ public class HUD {
 		game.getApp().text("Mult: " + player.getMult() + "x", x, y);
 		game.getApp().popStyle();
 	}
-	
+
 	void printScore(int x, int y) {
 		game.getApp().pushStyle();
 		game.getApp().textSize(36);
-		game.getApp().text("Score:\n" + String.format("%.0f", game.getSpaceSheep().getScore()), x, y);
+		game.getApp()
+				.text("Score:\n"
+						+ String.format("%.0f", game.getSpaceSheep().getScore()),
+						x, y);
 		game.getApp().popStyle();
 	}
 
