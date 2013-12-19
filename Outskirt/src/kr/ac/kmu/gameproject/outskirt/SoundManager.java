@@ -2,6 +2,7 @@ package kr.ac.kmu.gameproject.outskirt;
 
 import java.io.File;
 
+import ddf.minim.AudioPlayer;
 import ddf.minim.AudioSample;
 import ddf.minim.Minim;
 
@@ -13,17 +14,20 @@ public class SoundManager {
 	private static final String SHOOT = SOUND_FOLDER + "shoot.wav";
 	private static final String IMPACT = SOUND_FOLDER + "impact.wav";
 	private static final String EXPLOSION = SOUND_FOLDER + "explosion.wav";
+	private static final String BACKGROUND = SOUND_FOLDER + "background.mp3";
 
 	private Minim minim;
 	private AudioSample shoot;
 	private AudioSample explosion;
 	private AudioSample impact;
+	private AudioPlayer background;
 
 	public SoundManager(App app) {
 		minim = new Minim(app);
 		shoot = minim.loadSample(SHOOT);
 		explosion = minim.loadSample(EXPLOSION);
 		impact = minim.loadSample(IMPACT);
+		background = minim.loadFile(BACKGROUND);
 	}
 
 	/**
@@ -45,6 +49,13 @@ public class SoundManager {
 	 */
 	public AudioSample getImpact() {
 		return impact;
+	}
+
+	/**
+	 * @return the background
+	 */
+	public AudioPlayer getBackground() {
+		return background;
 	}
 
 }
